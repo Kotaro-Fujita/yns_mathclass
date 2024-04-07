@@ -1,0 +1,192 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+
+\begin{flushleft}
+\noindent
+\large
+数の世界を広げよう
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+中学校1年生のはじめの単元を覚えていますか。\fbox{\phantom{正負\quad}}\hspace{1pt}の数でしたね。
+
+そして、新しく演算という言葉を覚えました。加減乗除を合わせて\fbox{\phantom{四則\quad}}\hspace{1pt}演算といいます。
+
+\question 下の表の○は自然数の集合で加法と乗法がいつでも計算できることを示しています。
+
+整数の集合、分数全体の集合のそれぞれについて、加法、減法、乗法、除法のうち、いつでも計算できるものに○をつけなさい。
+
+※集合$\cdots$\hspace{1pt} ものの集まりのこと。
+
+\vspace{10mm}
+
+\begin{center}
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ &加&減&乗&除 \\
+\hline
+自然数& & & &  \\
+\hline
+整数& & & &  \\
+\hline
+分数& & & & \\
+\hline
+\end{tabular}
+
+\end{center}
+
+これまでは四則演算をするために数の世界を広げてきたといえるでしょう。分数まで考えると四則演算はすべてできるようになりますね。これで数の拡張は終わりでしょうか。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

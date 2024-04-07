@@ -1,0 +1,333 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=20truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{3}$年）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries 注\hspace{5em}意}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「開始」の合図があるまでは,開いてはいけません。}
+
+  \item {\large 問題は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「開始」の合図があったら,まず,問題用紙・解答用紙に,組・番号と名前などを書きなさい。}
+
+  \item {\large 答えは,すべて解答用紙に書きなさい。また、所定の欄に濃くはっきりと書きなさい。}
+
+  \item {\large 「終了」の合図で,すぐ鉛筆をおき,解答用紙を裏返しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\newpage
+　 [](
+　 空白ページのための全角スペースあり。
+　 )
+\newpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+\question 次の問に答えなさい。
+
+\squestion $3\sqrt{5} - \sqrt{20}$ 
+
+\vspace{30mm}
+
+\squestion $\dfrac{\sqrt{24}}{3} - \dfrac{2}{\sqrt{6}}$
+
+\vspace{30mm}
+
+\squestion $(3\sqrt{6} + 2\sqrt{3})(3\sqrt{6} - 2\sqrt{3})$
+
+\vspace{30mm}
+
+\squestion 次の大小関係にあてはまる自然数$a$を,すべて求めなさい。
+$$
+2<\sqrt{a}<3
+$$
+
+\vspace{10mm}
+
+\squestion 次のア〜エの数の中から,無理数をすべて選び,記号で答えなさい。
+
+\hspace{1em} ア \hspace{1mm} $-\sqrt{49}$ \hspace{4mm} イ \hspace{1mm} $\pi$ \hspace{4mm} ウ \hspace{1mm} $-\sqrt{0.16}$ 
+\hspace{4mm} エ \hspace{1mm} $\sqrt{\dfrac{3}{7}}$ 
+
+\vspace{10mm}
+
+\squestion $\sqrt{63n}$が自然数になるような自然数$n$のうちで,もっとも小さい値を求めなさい。また,そのときの$\sqrt{63n}$の値を求めなさい。
+
+\newpage
+\setcounter{skaunta}{0}
+
+\question 2次方程式$ax^2 + bx + c = 0$の解の公式を書きなさい。
+
+\vspace{2mm}
+
+$$
+\Large
+x = \dfrac{\phantom{-b \pm \sqrt{b^2 - 4ac}}}{\phantom{2a}}
+$$
+\vspace{5mm}
+
+\question 次の2次方程式を解きなさい。
+
+\squestion $x^2 = 4$ 
+
+\vfill
+
+\squestion $x^2 - 12x + 35 = 0$
+
+\vfill
+
+\squestion $x^2 - 2x -24 = 0$
+
+\vfill
+
+\squestion $(x - 6)^2 = 9$
+
+\vfill
+
+\squestion $x^2 - 5x + 2 = 0$
+
+\vfill
+
+\squestion $(x + 3)^2 = 3(x + 4)$
+
+\vfill
+
+\squestion $(x + 3)(2x - 1) = 4x - 2$
+
+\vfill
+
+\vfill
+
+\vfill
+
+\newpage
+\setcounter{skaunta}{0}
+
+\question 直径$30\si{cm}$の丸太から,切り口ができるだけ大きな正方形の角材をとるとき,次の問に答えなさい。
+
+\begin{multicols}{2}
+\squestion 切り口の正方形の面積を求めなさい。
+
+\columnbreak
+\begin{tikzpicture}
+\begin{scope}[shift={(5,0)}]
+\draw (0, 0) circle[radius={sqrt(2)}];
+\draw (-1,-1) rectangle (1,1);
+\draw (-1,-1) -- (1,1);
+\draw (-1,1) -- (1,-1);
+\end{scope}
+\end{tikzpicture}
+\end{multicols}
+
+\squestion 切り口の正方形の1辺の長さを求めなさい。
+
+\vspace{20mm}
+
+\setcounter{skaunta}{0}
+
+\question 次の問に答えなさい。
+
+\squestion $x$の2次方程式$x^2 -(2a + 1)x - (a - 3) = 0$の1つの解は,$x^2 -5x -6 = 0$の解の小さい方と一致する。$a$の値を求めなさい。
+
+\vspace{30mm}
+
+\squestion $x$についての2次方程式
+\begin{align}
+  x^2 + (a - 6)x + 6b = 0 \tag*{\maru{1}} \\
+  x^2 - (a - 1)x - (b - 2) = 0 \tag*{\maru{2}}
+\end{align}
+において,\maru{1}と\maru{2}はいずれも3を解にもつ。このとき, $a, \, b$の値と\maru{1}のもう1つの解を求めなさい。
+
+\vspace{30mm}
+
+\squestion $x$の2次方程式$x^2 -4x + 1 = 0$の2つの解を$a, \, b$とする。このとき,$a^2 + 2ab -1 + b^2$の値を求めなさい。
+
+\vspace{30mm}
+
+\newpage
+\setcounter{skaunta}{0}
+
+\question 次の連立方程式を解くために太郎さんと花子さんが会話をしています、会話を読んで、問(1)〜(3)に答えなさい。
+
+$$
+\left\{
+\begin{array}{l}
+\sqrt{2}x - 2y = 3 \qquad \cdots \maru{1}\\
+2x + \sqrt{2}y = 3 \qquad \cdots \maru{2}
+\end{array}
+\right.
+$$
+
+\begin{screen}
+\begin{itemize}
+\item[太郎:] 連立方程式の解き方には2種類あったよね。
+\item[花子:] 代入法と加減法があったね。この方程式も同じように解けるのかな。
+\item[太郎:] 加減法で解いてみよう。加減法は1つの文字の係数の絶対値をそろえて文字を消去するんだったね。$y$の係数をそろえて$y$を消去してみよう。
+\item[花子:] 1つ目の式の$y$の係数は$-2$で、2つ目の式の$y$の係数は$\sqrt{2}$だね。
+\item[太郎:] 係数を同じ数の平方根か整数にそろえることができればいいね。どうすればいいのだろう。
+\item[花子:] うーん、難しいなあ。
+\end{itemize}
+\end{screen}
+
+\squestion 太郎さんと花子さんは$y$の係数をそろえることに困ってしまいました。$y$の係数の絶対値をそろえるためには,どちらの式を何倍すればよいですか。
+
+\vspace{15mm}
+
+\squestion (1)の考え方を使って,加減法で上の連立方程式を解きなさい。
+
+\vspace{40mm}
+
+加減法で連立方程式を解いたあと,太郎さんと花子さんは次の会話をしました。
+
+\begin{screen}
+\begin{itemize}
+\item[太郎:] 連立方程式を加減法で解くことができたね。代入法でも解けるのかな。
+\item[花子:] 今までの連立方程式はどちらのやり方でもよかったのだから、解けるにきまっているよ。
+\item[太郎:] じゃあ、代入法で解いてみようよ。
+\item[花子:] 代入法で解くために$\maru{1}$の式を$y$について解いてみよう。
+\end{itemize}
+\end{screen}
+
+\squestion $\maru{1}$の式を$y$について解き、代入法で連立方程式を解きなさい。
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

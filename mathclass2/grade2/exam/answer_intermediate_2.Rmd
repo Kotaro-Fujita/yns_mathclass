@@ -1,0 +1,159 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{answerbox}
+  - \usepackage{setspace}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\answerbox{Swidth=10mm}
+
+\large
+2年生数学科2学期中間テスト 解答用紙
+
+\begin{flushright}
+組(\hspace{5mm})\hspace{1pt}番号(\hspace{5mm})\hspace{1pt}名前(\hspace{50mm})
+\end{flushright}
+
+\hrule
+
+\begin{multicols}{2}
+
+\begin{spacing}{0.5}
+
+\begin{multicols}{2}
+\begin{ansbox}
+\pbox{1}[height=65mm]
+\ptxt{1}{c}{%
+\begin{tikzpicture}[scale=0.45]
+\draw [help lines] (-6,-6) grid (6,6);
+\draw [thick] (-6,0) -- (6,0) node [right]{$x$};
+\draw [thick] (0,-6) -- (0,6) node [above]{$y$};
+\draw (0,0) node [below left] {O};
+\draw (-5,0) node [below] {$-5$};
+\draw (5,0) node [below] {$5$};
+\draw (0,5) node [left] {5};
+\draw (0,-5) node [left] {$-5$};
+\end{tikzpicture}}
+\end{ansbox}
+
+\columnbreak
+\begin{ansbox*}
+\pbox{1}[height=65mm,shoumon=2]
+\ptxt{1}{c}{%
+\begin{tikzpicture}[scale=0.45]
+\draw [help lines] (-6,-6) grid (6,6);
+\draw [thick] (-6,0) -- (6,0) node [right]{$x$};
+\draw [thick] (0,-6) -- (0,6) node [above]{$y$};
+\draw (0,0) node [below left] {O};
+\draw (-5,0) node [below] {$-5$};
+\draw (5,0) node [below] {$5$};
+\draw (0,5) node [left] {5};
+\draw (0,-5) node [left] {$-5$};
+\end{tikzpicture}}
+\end{ansbox*}
+\end{multicols}
+
+\begin{ansbox}[daimon=1]
+\pbox[2]{3}[shoumon=3]
+\end{ansbox}
+
+\end{spacing}
+
+\vspace{10mm}
+
+\begin{ansbox}
+\pbox[2]{2}
+\end{ansbox}
+
+\vspace{10mm}
+
+\begin{ansbox}
+\pbox[2]{2}
+\pbox{1}
+\end{ansbox}
+
+\vspace*{40mm}
+
+\columnbreak
+
+
+\begin{ansbox}[space=3mm]
+\pbox{1}
+\pbox*{2}
+\ptxt{2}{l}{$\, (2) \,$BC}
+\ptxt{3}{l}{変域}
+\pbox*{2}
+\ptxt{4}{l}{CD}
+\ptxt{5}{l}{変域}
+\pbox{1}[height=60mm]
+\ptxt{6}{c}{%
+\begin{tikzpicture}[scale=0.6]
+\draw [help lines] (0,0) grid (12,7);
+\draw [thick] (0,0) -- (12,0);
+\draw [thick] (0,0) -- (0,7) node [above]{$y$};
+\draw (0,0) node [below left] {0};
+\foreach \x in {2, 4, ..., 10} \draw ({\x},0) node[below]{$\x$};
+\foreach \y in {2, 4, 6} \draw (0,{\y}) node[left]{$\y$};
+\draw (12,0) node[below]{$x$};
+\end{tikzpicture}}
+
+\end{ansbox}
+
+\begin{ansbox}
+\pbox[1]{2}[height=40mm]
+\end{ansbox}
+
+\begin{flushright}
+\begin{tabular}{@{}r}
+\begin{tikzpicture}
+  \draw (-.5, 0) rectangle (2.5, 2);
+  \draw (2.5, 0) rectangle (5.5, 2);
+  \draw (5.5, 0) rectangle (9, 2);
+  \draw (1, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{知・技}};
+  \draw (4, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{思・判・表}};
+  \draw (7.2, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{合計}};
+\end{tikzpicture}
+\end{tabular}
+\end{flushright}
+\end{multicols}

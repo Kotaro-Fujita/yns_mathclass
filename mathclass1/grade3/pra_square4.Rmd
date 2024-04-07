@@ -1,0 +1,185 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+平方根の計算練習 No.3
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\question 次の計算をしなさい。
+
+\squestion $\sqrt{32} \times \sqrt{20}$ \hspace{30mm} \squestion $\sqrt{6} \times \sqrt{42}$
+
+\vspace{30mm}
+
+\squestion $2\sqrt{15} \times 3\sqrt{3}$ \hspace{30mm} \squestion $\sqrt{3} \div \sqrt{10}$
+
+\vspace{30mm}
+
+\squestion $3\sqrt{5} \div \sqrt{32}$ \hspace{30mm} \squestion $\sqrt{50} \div \sqrt{6}$
+
+\vspace{30mm}
+
+\squestion $8\sqrt{2} + 4\sqrt{2}$ \hspace{30mm} \squestion $8\sqrt{3} - 5\sqrt{3}$
+
+\vspace{30mm}
+
+\squestion $4\sqrt{5} - 3\sqrt{7} - 2\sqrt{5} + \sqrt{7}$ \hspace{30mm} \squestion $4\sqrt{3} - 3\sqrt{6} - \sqrt{3} + 2\sqrt{6}$
+
+\vspace{30mm}
+
+\squestion $\sqrt{32} + \sqrt{8}$ \hspace{30mm} \squestion $\sqrt{45} - \sqrt{80}$
+
+\vspace{30mm}
+
+\squestion $-\sqrt{2} + 5\sqrt{8} + \sqrt{50}$ \hspace{30mm} $\sqrt{12} - \sqrt{27} + \dfrac{1}{\sqrt{3}}$
+
+\vspace{30mm}
+
+\squestion $\sqrt{5}(\sqrt{10} -1)$ \hspace{30mm} \squestion $(\sqrt{7} - \sqrt{3})^2$
+
+\vspace{30mm}
+
+\squestion $(\sqrt{5} + 2)(\sqrt{5} - 2)$ \hspace{30mm} \squestion $(\sqrt{6} + 2)(\sqrt{6} - 2)$
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

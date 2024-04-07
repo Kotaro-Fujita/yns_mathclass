@@ -1,0 +1,65 @@
+---
+output: 
+  pdf_document:
+    highlight: tango
+    latex_engine: xelatex
+    number_sections: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \pagestyle{empty}
+documentclass: bxjsarticle
+classoption: xelatex, ja=standard
+---
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE,      # Rコード: FALSE で非表示, TRUE で表示
+                      warning = FALSE,  # 警告文: FALSE で非表示, TRUE で表示
+                      message = FALSE,  # メッセージ: FALSE で非表示, TRUE で表示
+                      fig.width = 7,    # 図の幅の既定値
+                      fig.height = 5)   # 図の高さの既定値
+## PDF に出力する際は cairo を使用する
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+
+\begin{flushleft}
+\noindent
+\large
+計算練習
+\end{flushleft}
+\vspace{1mm}
+\hrule
+
+次の計算をしなさい。
+
+(i) $(6x - 9x) \div 3x$
+
+\vspace{35mm}
+
+(ii) $(8a^2b - 12ab + 4ab^2) \div 4a$
+
+\vspace{35mm}
+
+(iii) $(xy - 6y^2) \div \frac{1}{2} y$
+
+\vspace{35mm}
+
+(iv) $(4a^2b + 2ab) \div (- \frac{2}{3}ab)$
+
+\vspace{35mm}
+
+\hrule
+ここまでの学習を振り返りましょう。質問などはありませんか。
+
+\vspace{20mm}
+
+\begin{flushright}
+  名前（\hspace{50mm}）
+\end{flushright}

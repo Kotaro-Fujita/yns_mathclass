@@ -1,0 +1,3 @@
+"0","plt <- plt +"
+"0","  geom_vline(xintercept = t_mean, color = ""tomato"")"
+"0","plot(plt)"

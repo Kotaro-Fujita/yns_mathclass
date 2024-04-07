@@ -1,0 +1,104 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{tikz}
+  - \usepackage{amsmath}
+  - \usepackage{amsfonts}
+  - \usepackage{latexsym}
+  - \usepackage{graphics}
+  - \usepackage{here}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+
+\begin{flushleft}
+\noindent
+\large
+加法減法の復習
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+次の計算をしなさい。
+
+(1) $(-6) +(-3)$ \hspace{20mm} (2) $(-9)+(+8)$ \hspace{20mm} (3) $(+7)+(-5)$ \hspace{20mm}
+
+\vspace{25mm}
+
+(4) $(-4) + (+11)$ \hspace{20mm} (5) $(+2) - (+9)$ \hspace{20mm} (6) $(-8) - (-5)$
+
+\vspace{25mm}
+
+(7) $(+10) - (-3)$ \hspace{20mm} (8) $(-6) - (+7)$ \hspace{20mm}
+
+\vspace{25mm}
+
+次の式の項をいいなさい。
+
+(1) $-6+2-7$ 
+
+\vspace{18mm}
+
+(2) $2-3-6$
+
+\vspace{18mm}
+
+次の式の項を**加法だけの式になおしてから**、項だけを並べた式に表しなさい。
+
+(1) $-4 + (-6)-7-(-9)$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,173 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+
+\begin{flushleft}
+\noindent
+\large
+2年生数学科1学期中間テスト
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+**※解答はすべて解答欄に書くこと。ただし、余白や裏面を計算スペースとして使ってもよい。**
+
+\begin{multicols}{2}
+\question 次の空欄に入る言葉を下の語群ア〜キから選び、記号で答えなさい。
+
+$2 \pi r$のように、数や文字についての乗法だけで作られた式を(1)という。$2 \pi r + 2 \pi$のように、単項式の和の形で表された式を(2)といい、そのひとつひとつの(1)を、(2)の(3)という。
+
+(1)でかけられている文字の個数を、その式の(4)という。(2)では、各項の(4)のうちでもっとも大きいものをその多項式の(4)という。
+
+また、$5x+7y-3x+6y$のように、文字の部分が同じである(3)を(5)という。
+
+\begin{itembox}[l]{語群}
+ア. 同類項 \hspace{5mm} イ. 合同式 \hspace{5mm} ウ. 多項式 \hspace{5mm} エ. 単項式 \hspace{5mm} オ. 1次式 \hspace{5mm} カ. 項 \hspace{5mm} キ. 次数 \hspace{5mm}
+\end{itembox}
+
+\vspace{5mm}
+
+\question 多項式$3x^2 -5x -1$について、次の問に答えなさい。
+
+(1) 項をすべていいなさい。  \hspace{5mm} (2) 何次式ですか。
+
+\vspace{5mm}
+
+\question 次の計算をしなさい。
+
+(1) $3(x -2y) - 2(5x -y)$ \hspace{5mm} (2) $\dfrac{2a-b}{3} - \dfrac{5a -3b}{4}$ \hspace{5mm} (3) $6ab \div 2a \times (-3b)$
+
+\vspace{25mm}
+
+\question $x = -5, \, y = 3$のとき、$12x^2y \div 3x$の値を求めなさい。
+
+\vspace{20mm}
+
+\question 次の等式を[\hspace{3mm}]の中の文字について解きなさい。
+
+(1) $4x + 3y = 12 \quad [y]$ \hspace{5mm}(2) $S = \dfrac{1}{2}ah \quad [a]$
+
+\vspace{20mm}
+
+\question 2けたの自然数の十の位を$x$、一の位を$y$とするとき、2けたの自然数はどのように表されますか。また、この自然数の十の位と一の位を入れかえた数はどの用に表されますか。$x$と$y$を使って表しなさい。
+
+\vspace{5mm}
+
+\question 連続する3つの自然数の和が3の倍数になることを下のように説明しました。下のア、イに当てはまる式を、それぞれ書き入れ、説明を完成させなさい。
+
+\begin{screen}
+連続する3つの自然数のうち、最も小さい数を$n$とすると、連続する3つの自然数は$n, \, n+1, \, n+2$と表される。したがって、それらの和は
+$$
+n + (n+1) + (n+2) = 3n + 3 = \fbox{ \mbox{ア} }
+$$
+\fbox{ イ }は整数だから、\fbox{ ア }は3の倍数である。
+
+\end{screen}
+
+\vspace{5mm}
+
+\question 連続する3つの偶数の和がどんな数になるかを調べます。
+
+\hspace{10mm} 10, 12, 14のとき\hspace{5mm}　$10 + 12 + 14 = 36$ \hspace{5mm} $\rightarrow$ \hspace{5mm} $36 = 6\times 6$
+
+\hspace{10mm} 24, 26, 28のとき\hspace{5mm}　$24 + 26 + 28 = 78$ \hspace{5mm} $\rightarrow$ \hspace{5mm} $78 = 6\times 13$
+
+\hspace{10mm} 36, 38, 40のとき\hspace{5mm}　$36 + 38 + 40 = 114$ \hspace{3mm} $\rightarrow$ \hspace{3mm} $114 = 6\times 19$
+
+これらの結果から、\fbox{連続する3つの偶数の和は、6の倍数になる。}ことを予想しました。
+
+(1) この予想がいつでも成り立つことを説明します。下の説明を完成しなさい。
+
+\begin{screen}
+整数を$n$として、最も小さい偶数を$2n$とすると、3つの偶数は、$2n, \, 2n+2, \, 2n + 4$と表される。それらの和は、
+
+\begin{itembox}[l]{}
+$\quad$
+
+\vspace{10mm}
+
+\end{itembox}
+\end{screen}
+
+(2) 連続した3つの偶数の和について、「連続する3つの偶数の和は、6の倍数になる。」ということから、連続する3つの偶数の和は、2や3の倍数になることもいえます。さらに、これらの性質以外にも成り立つ性質があります。上の予想のように「〜は、$\dots \dots$になる。」という形で書きなさい。
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,198 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+
+\begin{flushleft}
+\noindent
+\large
+3年生数学科1学期中間テスト
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+**※解答はすべて解答欄に書くこと。ただし、余白や裏面を計算スペースとして使ってもよい。**
+
+\begin{multicols}{2}
+
+\question 次の計算をしなさい。
+
+(1) $2a(3a - 5b)$ \hspace{5mm} (2) $(p + q)^2$ \hspace{5mm} (3) $(x + 3)(x + 6)$
+
+\vspace{12mm}
+
+(4) $4a(a - 3) - 2a(3a - 6)$ \hspace{5mm} (5) $(a - b)(c - d)$ \hspace{5mm} (6) $(x + 2)^2$ 
+
+\vspace{12mm}
+
+(7) $(x + 7)(x - 7)$ \hspace{5mm} (8) $(3x + 6y + 9) \times \dfrac{2}{3}x$ \hspace{5mm} (9) $(x - 3)^2$
+
+\vspace{12mm}
+
+(10) $(6a^2b -9ab^2) \div \dfrac{3}{2}ab$ \hspace{5mm} (11) $(2x + y - 1)(5x - 3y)$
+
+\vspace{12mm} 
+
+(11) $(x + \dfrac{1}{3})(x - \dfrac{1}{3})$ \hspace{5mm} (12) $(x + 6)(x + 2)$ \hspace{5mm} (13) $(7x - 2)(7x + 2)$
+
+\vspace{12mm}
+
+(14) $(a - b - 6)^2$ \hspace{5mm} (15) $(x - 2)^2 + (x + 4)(x + 1)$
+
+\vspace{12mm}
+
+\question 次の式を因数分解しなさい。
+
+(1) $x^2 -3x +2$ \hspace{5mm} (2) $x^2  - 4$ \hspace{5mm} (3) $ax - bx$
+
+\vspace{10mm}
+
+(4) $y^2 -19y -42$ \hspace{5mm} (5) $x^2 -10x +16$ \hspace{5mm} (6) $a^2 + 24a + 144$
+
+\vspace{10mm}
+
+\columnbreak
+
+(7) $x^2 - 36$ \hspace{5mm} (8) $x^2 -x -20$ \hspace{5mm} (9) $3x^2y +6xy^2$
+
+\vspace{10mm}
+
+(10) $x^2 + 7x + 6$ \hspace{5mm} (11) $2x^2 -18$ \hspace{5mm} (12) $a(x + y) -b(x + y)$ 
+
+\vspace{10mm} 
+
+(13) $2x^2 + 16x + 24$ \hspace{5mm} (14) $(2x + 7)^2 - (x - 3)^2$ \hspace{5mm} (15) $(2x +3)(2x -3) - (x -1)(3x  +1)$
+
+\vspace{10mm}
+
+\question 次の式を計算しなさい。
+
+(1) $61 \times 59$ \hspace{5mm} (2) $18^2$ \hspace{5mm} (3) $22^2 - 18^2$ \hspace{5mm} (4) $25^2$ \hspace{5mm} (5) $101^2$
+
+\vspace{10mm}
+
+\question $x = 78, \, y = 38$のとき、$x^2 -2xy +y^2$の値を求めなさい。
+
+\vspace{5mm}
+
+\noindent\begin{tabular}{@{}p{12cm}}
+\question 1辺の長さが$a$mの正方形の縦の長さを$b$m短くし、横の長さを$b$m長くした長方形を作るとき、長方形の面積は正方形の面積より$b^2\mbox{m}^2$小さくなることを証明した。
+
+空欄ア〜オにあてはまるものを書き入れて、証明を完成させなさい。
+\end{tabular}\hfill
+\begin{tabular}{c}
+  \begin{tikzpicture}
+    \draw (0, 0) rectangle (3.3, -2);
+    \draw[dashed] (0, -2.7) rectangle (2.5, 0);
+    \draw[densely dashed] (0,0) arc [start angle=60, end angle=120,x radius=-2.5, y radius=-1.5];
+    \draw[densely dashed] (2.5,0) arc [start angle=60, end angle=120,x radius=-0.8, y radius=-1];
+    \draw(1.2,-0.2) node[inner sep=1pt, fill=white]{$a\mbox{m}$};
+    \draw(2.9,-0.2) node[inner sep=1pt, fill=white]{$b\mbox{m}$};
+    \draw[densely dashed] (0,0) arc [start angle=150, end angle=210,x radius=1.8, y radius=2.7];
+    \draw(-0.4,-1.5) node[inner sep=1pt, fill=white]{$a\mbox{m}$};
+    \draw[densely dashed] (0,-2.7) arc [start angle=150, end angle=210,x radius=-1, y radius=-0.7];
+    \draw(0.3,-2.35) node[inner sep=1pt, fill=white]{$b\mbox{m}$};
+  \end{tikzpicture}
+\end{tabular}
+
+\begin{itembox}[l]{証明}
+
+長方形の縦の長さは $(\fbox{　ア　})$m, 横の長さは$(a + b)$mだから、正方形の面積から、長方形の面積をひいた差は、
+$$
+\begin{aligned}
+\fbox{\mbox{　イ　}}^2 - (\fbox{\mbox{　ウ　}})(a + b) & = \fbox{\mbox{　エ　}} - (\fbox{\mbox{　オ　}})　\\
+&= b^2(\mbox{m}^2)
+\end{aligned}
+$$
+したがって、長方形の面積は、正方形の面積より、$b^2\mbox{m}^2$小さくなる。
+\end{itembox}
+\vspace{5mm}
+
+\question 2つの続いた奇数の積に1を加えた数は、4の倍数になることを証明しなさい。
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

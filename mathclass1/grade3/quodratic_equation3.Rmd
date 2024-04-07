@@ -1,0 +1,225 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=20truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+2次方程式の解き方No.3
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\begin{itembox}[l]{重要な性質}
+2つの数を$A, \, B$とするとき\\
+\begin{center}
+  $AB = 0$\hspace{5mm} ならば\hspace{5mm} $A = 0$ \hspace{5mm} または $B = 0$
+\end{center}
+\end{itembox}
+
+例1. $(x - 4)(x - 8) = 0$を解いてみよう。
+
+\vspace{15mm}
+
+問1. 次の方程式を解きなさい。
+
+(1) $(x - 2)(x + 4) = 0$ \hspace{20mm} (3) $x(x - 5) = 0$
+
+\vspace{20mm}
+
+例2. $x^2 - 6x + 5 = 0$を解きなさい。
+
+\vspace{15mm}
+
+問2. 次の方程式を解きなさい。
+
+(1) $x^2 -6x + 8 = 0$ \hspace{15mm} (2) $x^2 +5x +6 = 0$
+
+\vspace{20mm}
+
+例3. $x^2 + 6x + 9 = 0$を解きなさい。
+
+\vspace{15mm}
+
+問3. 次の方程式を解きなさい。
+
+(1) $x^2 + 14x +49 = 0$ \hspace{15mm} (2) $x^2 -4x +4 = 0$
+
+\vspace{15mm}
+
+\begin{itembox}[l]{考えてみよう}
+2次方程式$x^2 = 4x$の解を求めてみましょう。
+\end{itembox}
+\begin{multicols}{2}
+<解答>
+\begin{align*}
+x^2 &= 4x\\
+\mbox{両辺を}x\mbox{でわって}\\
+x &= 4
+\end{align*}
+\columnbreak
+
+\vspace{15mm}
+
+\end{multicols}
+
+問5. 次の方程式を解きなさい。
+
+(1) $x^2 = 18x$ \hspace{20mm} (2) $x^2 - x = 0$
+
+\vspace{20mm}
+
+練習問題.
+
+\squestion $(x + 5)(x + 3) = 0$ \hspace{20mm} \squestion $(x + 1)(2x - 1) = 0$
+
+\vspace{20mm}
+
+\squestion $x^2 + 7x - 18 = 0$ \hspace{20mm} \squestion $x^2 + 2x +1 = 0$
+
+\vspace{20mm}
+
+\squestion $x^2 -13x +36 = 0$ \hspace{20mm} \squestion $x^2 -x -56 = 0$
+
+\vspace{20mm} 
+
+\squestion $x^2 - 24x + 144 = 0$ \hspace{20mm} $x^2 - 25 = 0$
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

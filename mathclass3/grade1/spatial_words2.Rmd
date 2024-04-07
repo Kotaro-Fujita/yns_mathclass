@@ -1,0 +1,263 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: FALSE
+    keep_tex: yes
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing,arrows,calc}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+  - \usepackage{pgfplots}
+  - \pgfplotsset{compat=1.15}
+  - \usepackage{mathrsfs}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{ニ}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{\kana}}}
+
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\newcommand{\myarc}[1]{
+   \tikz [baseline = (N.base), every node/.style={}] {
+      \node [inner sep = 0pt] (N) {$\mathrm{#1}$};
+      \draw [line width = 0.4pt] plot [smooth, tension=1.3] coordinates {
+         ($(N.north west) + (0.1ex,0)$)
+         ($(N.north)      + (0,0.5ex)$)
+         ($(N.north east) + (0,0)$)
+      };
+   }
+}
+
+\makeatletter
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+\newcommand{\goku}[1]{\, \fbox{\phantom{\text{#1}} \quad} \,}
+
+## 立体の見方と調べ方$\maru{2}$
+
+\begin{multicols}{2}
+右の図の直方体で、線分AGをこの直方体の\goku{対角線}という。BH, CE, DFも対角線である。
+
+\columnbreak
+
+\begin{center}
+\begin{figurehere}
+\includegraphics{media/image35.png}
+\end{figurehere}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+
+平面Pに対して、どの方向にも傾いていない直線$l$を考えよう。このとき、$l$はPとの交点Oを通る上のどの直線にも\goku{垂直}になっている。このようなとき、直線$l$は平面Pに\goku{垂直である}という。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image46.png}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+
+平面Pと交わる直線$l$がその交点Oを通るP上の異なる2つの直線$m, \, n$に垂直になっていれば、直線$l$は平面Pに\goku{垂直である}。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image49.png}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+2つの平面P, Qが交わるとき、交線$l$上の点で、それぞれの平面上にひいた2つの垂線のつくる角を平面P, Qのつくる\goku{角}という。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image60.png}
+\end{center}
+
+\end{multicols}
+
+\begin{multicols}{2}
+2つの平面P, Qのつくる角が直角のとき、その2つの平面P, Qは垂直であるといい、\goku{P$\perp$Q}と表す。
+
+平面Pに垂直な直線をふくむ平面は、平面Pに\goku{垂直である}。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image63.png}
+\end{center}
+\end{multicols}
+
+\newpage
+
+\begin{multicols}{2}
+右の図は長方形の紙を二つ折にして机の面Pに立てた図に、記号をつけたものです。折り目の直線EFは平面Pに垂直である。なぜなら、四角形ABFE, DCFEは長方形であるから、\goku{EF$\perp$BF}, EF$\perp$CFとなる。平面Pと交わる直線EFがその交点Fを通るP上の異なる2つの直線BF, CFに垂直になっているから、直線EFは平面Pに\goku{垂直である}。
+
+また、平面ABEF, EFCDは平面Pに垂直な直線EFをふくむから、平面Pに\goku{垂直である}。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image57.png}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+1つの点Aから平面Pにひいた垂線と、Pとの交点をHとするとき、線分AHの\goku{長さ}を、点Aと\goku{平面Pとの距離}という。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image78.png}
+\end{center}
+
+\end{multicols}
+
+\vspace{10mm}
+
+\begin{multicols}{2}
+平行な平面について、一方の平面上の点ともう一方の平面との距離は\goku{すべて等しい}。この距離を\goku{平面と平面の距離}という。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image80.png}
+\end{center}
+\end{multicols}
+
+角柱や円柱では、2つの底面は平行で、一方の底面ともう一方の底面との距離が、その角柱や円柱の\goku{高さ}である。角錐や円錐では、底面とそれに対する\goku{頂点との距離}がその高さである。
+
+\begin{center}
+\includegraphics{media/image82.png}
+\end{center}
+
+\newpage
+
+下の図のように、点が動くことによって、\goku{線}ができる。また、線が動くことによって\goku{面}ができる。さらに、面が動くことによって\goku{立体}ができる。
+
+\begin{center}
+\includegraphics{media/image87.png}
+\end{center}
+
+角柱や円柱は、底面がそれと垂直な方向に動いてできた立体とも考えられる。底面の周の動いたあとは、その立体の\goku{側面}であり、動いた距離が\goku{高さ}である。
+
+\begin{center}
+\includegraphics{media/image88.png}
+\hspace{8mm}
+\includegraphics{media/image89.png}
+\end{center}
+
+円柱や円錐は、それぞれ長方形や直角三角形を空間で\goku{回転させて}できた立体と考えることができる。このとき、円柱や円錐の側面をえがく線分ABを円柱や円錐の\goku{母線}という。
+
+\begin{center}
+\includegraphics{media/image102.png}
+\end{center}
+
+\begin{multicols}{2}
+円柱や円錐のように、1つの直線を軸として平面図形を回転させてできる立体を\goku{回転体}という。球は、\goku{半円}をその\goku{直径}を軸として回転させてできた回転体である。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image104.png}
+\end{center}
+\end{multicols}
+
+\begin{multicols}{2}
+回転体を\goku{回転の軸をふくむ}平面で切ると、その切り口は、回転の軸を\goku{対称の軸}とする\goku{線対称}な図形となる。
+
+\columnbreak
+
+\begin{center}
+\includegraphics{media/image105.png}
+\end{center}
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

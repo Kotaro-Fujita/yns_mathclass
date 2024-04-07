@@ -1,0 +1,279 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+  - \usepackage{pxrubrica}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries \ruby[g]{数}{すう}\hspace{2em}\ruby[g]{学}{がく}}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{1}$\ruby[g]{年}{ねん}）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries \ruby[g]{注}{ちゅう}\hspace{5em}\ruby[g]{意}{い}}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「\ruby[g]{開始}{かいし}」の\ruby[g]{合図}{あいず}があるまでは,\ruby[g]{開}{ひら}いてはいけません。}
+
+  \item {\large \ruby[g]{問題}{もんだい}は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「\ruby[g]{開始}{かいし}」の\ruby[g]{合図}{あいず}があったら,まず,\ruby[g]{問題用紙}{もんだいようし}・\ruby[g]{解答用紙}{かいとうようし}に,\ruby[g]{組}{くみ}・\ruby[g]{番号}{ばんごう}と\ruby[g]{名前}{なまえ}などを\ruby[g]{書}{か}きなさい。}
+
+  \item {\large \ruby[g]{答}{こた}えは,すべて\ruby[g]{解答用紙}{かいとうようし}に\ruby[g]{書}{か}きなさい。また、\ruby[g]{所定}{しょてい}の\ruby[g]{欄}{らん}に\ruby[g]{濃}{こ}くはっきりと\ruby[g]{書}{か}きなさい。}
+
+  \item {\large 「\ruby[g]{終了}{しゅうりょう}」の\ruby[g]{合図}{あいず}で,すぐ\ruby[g]{鉛筆}{えんぴつ}をおき,\ruby[g]{解答用紙}{かいとうようし}を\ruby[g]{裏返}{うらがえ}しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}\ruby[g]{組}{くみ} \hspace{30mm}\ruby[g]{番}{ばん} \hspace{15mm} \ruby[g]{名前}{なまえ} \hspace{60mm}}}
+\end{center}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\question \ruby[g]{空欄}{くうらん}にあてはまる\ruby[g]{言葉}{ことば}や\ruby[g]{数字}{すうじ}を\ruby[g]{答}{こた}えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技$2 \times 6$点＞}
+\end{flushright}
+
+\ruby[g]{式}{しき}$2x + 1 = 7 \cdots \maru{1}$や$\dfrac{1}{3}x = -6 \cdots \maru{2}$のように\ruby[g]{文字}{もじ}に\ruby[g]{代入}{だいにゅう}する\ruby[g]{値}{あたい}によって、\ruby[g]{成}{な}り\ruby[g]{立}{た}ったり、\ruby[g]{成}{な}り\ruby[g]{立}{た}たなかったりする\ruby[g]{等式}{とうしき}を$\fbox{\quad \maru{\mbox{ア}} \quad}$という。また、$\maru{\mbox{ア}}$を\ruby[g]{成}{な}り\ruby[g]{立}{た}たせる\ruby[g]{文字}{もじ}の\ruby[g]{値}{あたい}を、$\maru{\mbox{ア}}$の$\fbox{\quad \maru{イ} \quad}$という。また、$\maru{ア}$の$\maru{イ}$を\ruby[g]{求}{もと}めることを\ruby[g]{方程式}{ほうていしき}を$\fbox{\quad \maru{ウ} \quad}$という。
+
+\ruby[g]{式}{しき}$\maru{1}$と$\maru{2}$を\ruby[g]{等式}{とうしき}の\ruby[g]{性質}{せいしつ}を\ruby[g]{使}{つか}って\ruby[g]{解}{と}くと、
+\begin{multicols}{2}
+$$
+\begin{aligned}
+2x + 1 &= 7 \\
+\mbox{\ruby[g]{両辺}{りょうへん}から}&\fbox{\quad \maru{\mbox{エ} \quad}}\mbox{をひくと} \\
+2x &= 6 \\
+\mbox{\ruby[g]{両辺}{りょうへん}を}&\fbox{\quad \maru{\mbox{オ} \quad}}でわると \\
+x &= 3
+\end{aligned}
+$$
+\columnbreak
+
+$$
+\begin{aligned}
+\dfrac{1}{3}x &= 6 \\
+\mbox{\ruby[g]{両辺}{りょうへん}に}&\fbox{\quad \maru{\mbox{カ} \quad}}\mbox{をかけると}\\
+x &= 18
+\end{aligned}
+$$
+
+\end{multicols}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{方程式}{ほうていしき}を\ruby[g]{解}{と}きなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技$2 \times 25$点＞}
+\end{flushright}
+
+\squestion $x - 7 = 6$ \hfill \squestion $\dfrac{1}{2}x + 3 = x - 1$ \hfill \squestion $3(x - 2) = 5x - 10$ \hfill \squestion $x : 3 = 4 : 5$
+
+\vspace{30mm}
+
+\squestion $2x + 9 = 5$\hfill \squestion $2x + 5 = -3x + 10$ \hfill \squestion $5x + 3 = 2(x - 9)$ 
+
+\vspace{30mm}
+
+\squestion $\dfrac{2x - 1}{5} = \dfrac{x - 2}{4}$ \hfill \squestion $0.005x + 1.2 = 0.16x - 1$ \hfill \squestion $5 : 6 = 15 : x$ 
+
+\vspace{30mm}
+
+\squestion $x : (14 -x) = 3 : 4$ \hfill \squestion $-x + 8 = 3x$ \hfill \squestion $12y + 1 = 9y + 5$
+
+\newpage
+
+\squestion $3x - 4(2x - 1) = 29$ \hfill \squestion $2(x - 1) = 7(- x - 8)$ \hfill \squestion $1.3 - 0.8x = 0.9 - x$ 
+
+\vspace{30mm}
+
+\squestion $\dfrac{3}{2}a - 7 = \dfrac{1}{3}a$ \hfill \squestion $0.3(0.2x - 1) = 0.54$ \hfill \squestion $\dfrac{2}{3}x -3 = \dfrac{1}{12}(3x + 4)$
+
+\vspace{30mm}
+
+\squestion $(x + 1):3 = 5x :12$ \hfill \squestion $3x = 21$ \hfill \squestion $17x = -17$ 
+
+\vspace{30mm}
+
+\squestion $18 = -2x$ \hfill \squestion $\dfrac{x}{7} = 3$ \hfill \squestion $\dfrac{4x -5}{3} = 2x - 9$
+
+\vspace{30mm}
+
+\newpage
+
+\begin{multicols}{2}
+\question 
+\ruby[g]{正}{ただし}さんは、\ruby[g]{右}{みぎ}の\ruby[g]{方程式}{ほうていしき}の\ruby[g]{解}{と}き\ruby[g]{方}{かた}がまちがっていることに\ruby[g]{気}{き}づきました。アからウのどこで$\underline{\mbox{\ruby[g]{初}{はじ}めてまちがえていますか}}$。\ruby[g]{初}{はじ}めてまちがえている\ruby[g]{式}{しき}の\ruby[g]{記号}{きごう}を\ruby[g]{書}{か}きなさい。また、この\ruby[g]{方程式}{ほうていしき}の\ruby[g]{正}{ただ}しい\ruby[g]{解}{かい}を\ruby[g]{求}{もと}めなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技$3 \times 2$点＞}
+\end{flushright}
+
+\columnbreak
+\begin{screen}
+\begin{align*}
+5x - 2 &= 7x + 10 \\
+5x + 7x &= 10 + 2  &\cdots \mbox{ア}\\
+12x &= 12 &\cdots \mbox{イ}\\
+x &= 0 &\cdots \mbox{ウ}
+\end{align*}
+\end{screen}
+\end{multicols}
+
+\vfill
+
+\question $x$についての\ruby[g]{方程式}{ほうていしき}$5x + 5 = 3x -4a$の\ruby[g]{解}{かい}が$-3$であるとき、$a$の\ruby[g]{値}{あたい}を\ruby[g]{求}{もと}めなさい。
+\begin{flushright}
+\footnotesize{＜知・技5点＞}
+\end{flushright}
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+\question 1\ruby[g]{本}{ぽん}150\ruby[g]{円}{えん}のジュースを\ruby[g]{何本}{なんぼん}かと、200\ruby[g]{円}{えん}のお\ruby[g]{菓子}{かし}を1\ruby[g]{個買}{か}ったら、\ruby[g]{代金}{だいきん}の\ruby[g]{合計}{ごうけい}が140\ruby[g]{円}{えん}でした。このとき、\ruby[g]{次}{つぎ}の\ruby[g]{問}{とい}に\ruby[g]{答}{こた}えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技$5 \times 2$点＞}
+\end{flushright}
+
+
+\squestion ジュースを$x$\ruby[g]{本}{ほん}\ruby[g]{買}{か}ったとして、ジュースの\ruby[g]{本数}{ほんすう}を\ruby[g]{求}{もと}めるための\ruby[g]{方程式}{ほうていしき}をつくりなさい。
+
+\vfill
+
+\squestion (1)で\ruby[g]{作}{つく}った\ruby[g]{方程式}{ほうていしき}を\ruby[g]{解}{と}いて、ジュースの\ruby[g]{本数}{ほんすう}を\ruby[g]{求}{もと}めなさい。
+
+\vfill
+
+\question ウスターソースとケチャップを$2 : 3$の\ruby[g]{割合}{わりあい}で\ruby[g]{混}{ま}ぜて、ハンバーグソースを\ruby[g]{作}{つく}ります。
+ケチャップを$120 \si{ml}$\ruby[g]{使}{つか}うとき、ウスターソースは\ruby[g]{何}{なん}$\si{ml}$あればよいでしょうか。＜知・技5点＞
+
+\vfill
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+\question \ruby[g]{武}{たけし}さんは、ケーキがすべて\ruby[g]{同}{おな}じ\ruby[g]{値段}{ねだん}で\ruby[g]{販売}{はんばい}されるセールに\ruby[g]{出}{で}かけ、おばあちゃんの\ruby[g]{家}{いえ}に\ruby[g]{持}{も}っていくお\ruby[g]{土産}{みやげ}のケーキを\ruby[g]{買}{か}ってきました。\ruby[g]{武}{たけし}さんは、\ruby[g]{次}{つぎ}のように\ruby[g]{言}{い}っています。
+
+\begin{flushright}
+\footnotesize{＜(1)思・判・表$5 \times 2$点、(2)思・判・表6点＞}
+\end{flushright}
+
+\begin{figure}[h]
+\includegraphics[height=30truemm]{cake.jpg}
+\end{figure}
+
+\begin{multicols}{2}
+\squestion \ruby[g]{武}{たけし}さんが\ruby[g]{持}{も}っている\ruby[g]{金額}{きんがく}は、\ruby[g]{右}{みぎ}のようにして\ruby[g]{求}{もと}めることができます。
+
+\ruby[g]{右}{みぎ}の\doublebox{\qquad\phantom{250円}}に、\ruby[g]{武}{たけし}さんが\ruby[g]{持}{も}っている\ruby[g]{式}{しき}を\ruby[g]{書}{か}き、\ruby[g]{問題}{もんだい}の\ruby[g]{答}{こた}えを\ruby[g]{求}{もと}めなさい。
+
+\columnbreak
+\begin{screen}
+ケーキ1\ruby[g]{個}{こ}の\ruby[g]{値段}{ねだん}を$x$\ruby[g]{円}{えん}とすると
+\begin{align*}
+10x - 300 &= 8x + 160 \\
+2x &= 460 \\
+x &= 230
+\end{align*}
+したがって、\ruby[g]{武}{たけし}さんが\ruby[g]{持}{も}っている\ruby[g]{金額}{きんがく}は
+
+\hspace*{25mm}\doublebox{\qquad \phantom{250円}}
+
+これは、\ruby[g]{問題}{もんだい}に\ruby[g]{適}{てき}している。
+\begin{flushright}
+$\underline{\mbox{答 }\fbox{\quad\phantom{250}}\mbox{円}}$
+\end{flushright}
+\end{screen}
+
+\end{multicols}
+
+\squestion (1)で、\ruby[g]{武}{たけし}さんが\ruby[g]{持}{も}っている\ruby[g]{金額}{きんがく}を\ruby[g]{求}{もと}めた\ruby[g]{方法}{ほうほう}は、\ruby[g]{次}{つぎ}のように\ruby[g]{説明}{せつめい}できます。
+
+\begin{screen}
+ケーキ1\ruby[g]{個}{こ}の\ruby[g]{値段}{ねだん}を$x$\ruby[g]{円}{えん}とし、\ruby[g]{武}{たけし}さんが\ruby[g]{持}{も}っている\ruby[g]{金額}{きんがく}に\ruby[g]{着目}{ちゃくもく}して\ruby[g]{方程式}{ほうていしき}をつくり、$x$の\ruby[g]{値}{あたい}を\ruby[g]{求}{もと}め、\ruby[g]{方程式}{ほうていしき}の\ruby[g]{左辺}{さへん}または\ruby[g]{右辺}{うへん}に$x$の\ruby[g]{値}{あたい}を\ruby[g]{代入}{だいにゅう}して、\ruby[g]{持}{も}っている\ruby[g]{金額}{きんがく}を\ruby[g]{求}{もと}める。
+\end{screen}
+
+この\ruby[g]{問題}{もんだい}は、\ruby[g]{方程式}{ほうていしき}$\dfrac{x + 300}{10} = \dfrac{x -160}{8}$を\ruby[g]{解}{と}くことでも、\ruby[g]{武}{たけし}さんが\ruby[g]{持}{も}っている\ruby[g]{金額}{きんがく}を\ruby[g]{求}{もと}めることができます。その\ruby[g]{方法}{ほうほう}を、\ruby[g]{上}{うえ}にならって\ruby[g]{説明}{せつめい}しなさい。
+
+\vfill
+
+\end{flushleft}
+

@@ -1,0 +1,96 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\begin{flushleft}
+\large
+多項式の乗法 No.4
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+\vspace{1mm}
+\hrule
+
+教科書pp.21 - 例3
+
+$(a + b -2)(a + b + 2)$を展開しなさい。
+
+\vspace{20mm}
+問9. 次の計算をしなさい。
+
+(1) $(x + y + 3)(x + y - 5)$ \hspace{40mm} (2) $(a + b + c)^2$
+
+\vspace{25mm}
+
+(3) $(a - b -6)^2$ \hspace{60mm} (4) $(a + b + 3)(a - b + 3)$
+
+\vspace{25mm}
+
+例7. $2(x + 5)^2 - (x + 3)(x - 3)$を計算しなさい。
+
+\vspace{20mm}
+
+問10. 次の計算をしなさい。
+
+(1) $(x - 2)^2 + (x + 4)(x + 1)$
+
+\vspace{25mm}
+
+(2) $2(x + 1)(x - 1) - (x - 3)(x + 2)$
+
+\vspace{25mm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

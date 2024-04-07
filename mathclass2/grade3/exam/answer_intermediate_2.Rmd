@@ -1,0 +1,176 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{answerbox}
+  - \usepackage{setspace}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\answerbox{Swidth=10mm}
+
+\large
+3年生数学科2学期中間テスト 解答用紙
+
+\begin{flushright}
+組(\hspace{5mm})\hspace{1pt}番号(\hspace{5mm})\hspace{1pt}名前(\hspace{50mm})
+\end{flushright}
+
+\hrule
+
+\begin{multicols}{2}
+\begin{ansbox}
+\pbox[3]{5}
+\pbox*{2}
+\ptxt{6}{l}{$\, (6) \, $2から4まで}
+\ptxt{7}{l}{$-4$から$-1$まで}
+\pbox{1}[shoumon=7]
+\pbox*{2}
+\ptxt{8}{l}{$\, (8) \,$\hspace{50mm}m}
+\ptxt{9}{l}{平均の速さ}
+\pbox*{3}
+\ptxt{10}{l}{$\, (9) \, \maru{\mbox{ア}}$}
+\ptxt{11}{l}{$\maru{\mbox{イ}}$}
+\ptxt{12}{l}{$\maru{\mbox{ウ}}$}
+\pbox{1}[shoumon=10]
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{2}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{2}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{2}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{1}
+\pbox*{3}
+\ptxt{2}{l}{$\, (2) \,$空走距離}
+\ptxt{3}{l}{制動距離}
+\ptxt{4}{l}{停止距離}
+\end{ansbox}
+
+\columnbreak
+
+\begin{ansbox}
+\pbox{1}[height=90mm]
+\ptxt{1}{c}{%
+\begin{tikzpicture}[scale=0.3]
+\draw[help lines] (0,0) grid (24,24);
+\draw (0,0) -- (24,0)node[below]{$x$};
+\draw (0,0) -- (0,24)node[above left]{$y$};
+\draw (0,0)node[below left]{O};
+\foreach \x in {5, 10, ..., 20} \draw (\x,0) -- (\x,24);
+\foreach \y in {5, 10, ..., 20} \draw (0,\y) -- (24,\y);
+\foreach \x in {5, 10, ..., 20} \draw (\x,0)node[below] {$\x$};
+\foreach \y in {5, 10, ..., 20} \draw (0,\y)node[left] {$\y$00};
+\draw [very thick] (0,10) -- (10,10);
+\draw [white, very thick,dashed] (10,0) -- (10,20);
+\draw [white, very thick,dashed] (20,0) -- (20,20);
+\draw [white, very thick,dashed] (10,0) -- (10,20);
+\draw [white, very thick,dashed] (0,20) -- (10,20);
+\fill (10,10) circle[radius=5pt];
+\fill (0,10) circle[radius=5pt];
+\fill [white] (0,10) circle[radius=3.5pt];
+\draw [very thick] (10,20) -- (20,20);
+\fill (20,20) circle[radius=5pt];
+\fill (10,20) circle[radius=5pt];
+\fill [white] (10,20) circle[radius=3.5pt];
+\end{tikzpicture}
+}
+\pbox{1}[height=50mm]
+\end{ansbox}
+
+\vspace{30mm}
+
+\begin{flushright}
+\begin{tabular}{@{}r}
+\begin{tikzpicture}
+  \draw (-.5, 0) rectangle (2.5, 2);
+  \draw (2.5, 0) rectangle (5.5, 2);
+  \draw (5.5, 0) rectangle (9, 2);
+  \draw (1, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{知・技}};
+  \draw (4, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{思・判・表}};
+  \draw (7.2, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{合計}};
+\end{tikzpicture}
+\end{tabular}
+\end{flushright}
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

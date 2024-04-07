@@ -1,0 +1,194 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+正負の数の利用 No. 1
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\question 下の表はある中学校の生徒の身長をまとめたものです。身長の平均は$\si{cm}$ですか。
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+A&B&C&D&E \\
+\hline
+156&148&150&149&152 \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{flushright}
+平均: \underline{\hspace{30mm}}
+\end{flushright}
+
+ここまでは小学生のときにやった通りですね。全員の身長をたすのは大変だったと思います。正負の数を使って、計算を簡単にする方法はないでしょうか。
+
+計算を簡単にする方法として、\textbf{仮平均}という考え方があります。\textbf{仮平均}とは、平均に目安をつけて、その目安からどれだけ離れているかの平均を計算し、仮平均を修正するというものです。これだけ読んでも理解できないでしょう。（わかったら天才です。）
+
+
+さっきの問題を例に考えてみましょう。まず、目安の平均を考えてみます。データをながめると$\SI{150}{cm}$くらいが平均の気がします。なので、仮平均を150にしてみましょう。
+
+次に仮平均からどれだけはなれているかを考えます。仮平均からどれだけはなれているかをまとめたものが次の表です。
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+A&B&C&D&E \\
+\hline
+156&148&150&149&152 \\
+\hline
+$+6$ & $-2$ & $0$ & $-1$ & $+2$ \\
+\hline
+\end{tabular}
+\end{center}
+
+上の表から平均を求めてみましょう。仮平均からの差の和は
+$$
+(+6) + (-2) + 0 + (-1) + (+2) = 5
+$$
+\noindent
+ですね。この和を人数である5でわると、
+$$
+5 \div 5 = 1
+$$
+
+計算ででてきた1という値は、身長は仮平均よりも平均的に$\SI{1}{cm}$はなれているということです。なので、仮平均$\SI{150}{cm}$を修正しましょう。
+$$
+150 + 1 = 151
+$$
+
+修正された値は最初に求めた平均値と一致していますね。仮平均の考え方は、ある数値を基準に差を考えることで平均値を求める計算が楽になるという利点を持っています。
+
+仮平均を利用して、問題を解いてみましょう。
+
+\columnbreak
+
+\question 下の表は、2009年から2018年までのひろしまフラワーフェスティバルの各年の観覧者数を表した　　ものです。
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+年 & 2009 & 2010 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 \\
+\hline
+観覧者数（万人）& 161 & 168 & 169 & 169 & 180 & 172 & 160 & 141 & 154 & 158 \\
+\hline
+\end{tabular}
+
+まず、仮平均を設定しましょう。目安として、160の気がするので、160にしましょう。下の空欄を埋めましょう。
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+年 & 2009 & 2010 & 2011 & 2012 & 2013 & 2014 & 2015 & 2016 & 2017 & 2018 \\
+\hline
+観覧者数（万人）& 161 & 168 & 169 & 169 & 180 & 172 & 160 & 141 & 154 & 158 \\
+\hline
+仮平均との差& $+1$ &  &  & $+9$ &  & $+12$ & 0 &  & $-6$ &  \\
+\hline
+\end{tabular}
+
+仮平均との差の和を求めます。式はどうなるでしょうか、空欄を埋めましょう。
+$$
+(+1) + (\qquad) + (\qquad) + (+9) + (\qquad) + (+12) + 0 + (\qquad) + (-6) + (\qquad) = 
+$$
+データの数でわると、
+$$
+(\qquad) \div 10 = 
+$$
+なので、仮平均を修正すると、
+$$
+160+ (\qquad) = 
+$$
+となります。これが平均値です。答えはいくつですか。
+
+\begin{flushright}
+答え: \underline{\hspace{30mm}}
+\end{flushright}
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

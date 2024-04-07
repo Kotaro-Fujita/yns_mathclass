@@ -1,0 +1,364 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{2}$年）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries 注\hspace{5em}意}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「開始」の合図があるまでは,開いてはいけません。}
+
+  \item {\large 問題は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「開始」の合図があったら,まず,問題用紙・解答用紙に,組・番号と名前などを書きなさい。}
+
+  \item {\large 答えは,すべて解答用紙に書きなさい。また、所定の欄に濃くはっきりと書きなさい。}
+
+  \item {\large 「終了」の合図で,すぐ鉛筆をおき,解答用紙を裏返しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+\question 次の問に答えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技(1)・(2) $4\times4$点、(3)$4\times3$点、(5)・(6) $4 \times 2$点＞}
+\end{flushright}
+
+\squestion 次の方程式$\maru{\mbox{ア}} \sim  \maru{\mbox{エ}}$のグラフをかきなさい。
+
+$\maru{\mbox{ア}}\, -2x + y = 3$ \hfill $\maru{\mbox{イ}} \, y = 2$ \hfill $\maru{\mbox{ウ}} x = -3$ \hfill $\maru{\mbox{エ}} \, -3x - y = 1$
+
+\vspace{15mm}
+
+\squestion 次の方程式$\maru{\mbox{オ}} \sim \maru{\mbox{ク}}$のグラフをかきなさい。
+
+$\maru{\mbox{オ}} \, 5y = -15$ \hfill $\maru{\mbox{カ}} \, 4x - 3y = -6$ \hfill $\maru{\mbox{キ}} \, x + y + 2 = 0$ \hfill $\maru{\mbox{ク}} \, 4x = 16$
+
+\vspace{15mm}
+
+\squestion 次の$\maru{\mbox{ケ}} \sim \maru{\mbox{サ}}$について、$y$を$x$の式で表しなさい。
+
+$\maru{\mbox{ケ}} \, 250\si{g}$の砂糖から、$x \si{g}$使ったときの残り$y \si{g}$
+
+$\maru{\mbox{コ}}\,$時速$3\si{km}$で$x$時間歩いたときの道のり$y \si{km}$
+
+$\maru{\mbox{サ}} \, $水が$50\si{L}$入っている水そうから、毎分$7 \si{L}$の割合で$x$分間排水したときの残りの水の量$y \si{L}$
+
+\vspace{15mm}
+
+\begin{multicols}{2}
+\squestion 右のグラフは、$10 \si{L}$の水が入っている水そうに、一定の割合で給水したとき、$x$分後の水そうの中の水の量を$y \si{L}$として、$x$と$y$の関係を表したものである。$y$を$x$の式で表しなさい。
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw (0,0) -- (11,0) node[right]{$x$};
+\draw (0,0) -- (0,7) node[above]{$y$};
+\draw (0,0) node[below left]{O};
+\draw [help lines] (0,0) grid (11,7);
+\foreach \x in {1, 2, ..., 5} \draw ({2*\x},0) node[below]{$\x$0};
+\foreach \y in {5, 10, 15} \draw (0,{2*\y/5}) node[left]{$\y$};
+\begin{scope} \clip (0,0) rectangle (11,7);
+\draw [thick, domain=0:11] plot(\x,{\x/4+4});
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\vfill
+
+\newpage
+
+\begin{multicols}{2}
+\squestion 家から$15\si{km}$離れた地点から自転車に乗って家に向かった。右のグラフは、出発して$x$分後に家から$y\si{km}$の地点に居るとして、$x$と$y$の関係を表したものである。$y$を$x$の式で表し、出発してから20分後には、家から何$\si{km}$の地点にいるか答えなさい。
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw (0,0) -- (11,0) node[right]{$x$};
+\draw (0,0) -- (0,7) node[above]{$y$};
+\draw (0,0) node[below left]{O};
+\draw [help lines] (0,0) grid (11,7);
+\foreach \x in {1, 2, ..., 5} \draw ({2*\x},0) node[below]{$\x$0};
+\foreach \y in {5, 10, 15} \draw (0,{2*\y/5}) node[left]{$\y$};
+\begin{scope} \clip (0,0) rectangle (11,7);
+\draw [thick, domain=0:11] plot(\x,{-\x*3/5+6});
+\end{scope}
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\question あるガス会社の1ヶ月のガス料金は$\mbox{（基本料金）} + \mbox{（使用料金）}$で計算され、使用料金は使用した量に比例する。また、使用した量が$10\si{m}^3$で1ヶ月のガス料金は2200円であり、使用した量が$x\si{m}^3$のときの1ヶ月のガス料金を$y$円とする。
+
+\begin{flushright}
+\footnotesize{＜知・技 (1) 2点、(2)4点＞}
+\end{flushright}
+
+\begin{multicols}{2}
+
+\squestion $y$を$x$の式で表しなさい。
+
+\squestion ガス料金が4600円になるとき、使用した量は何$\si{m}^3$ですか。
+
+\columnbreak
+
+\begin{center}
+1ヶ月のガス料金\\
+\begin{tabular}{|c|c|}
+\hline
+基本料金 & 使用料金 \\
+\hline
+700円 & ? \\
+\hline
+\end{tabular}
+\end{center}
+
+\end{multicols}
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+
+\begin{multicols}{2}
+\question 右の図で、直線$m$の式は$y = 2x + b$、直線$n$の式は$y = -x + 10$で、点Pは2つの直線の交点です。また、点$\mbox{A}, \, \mbox{B}$はそれぞれ直線$m, \, n$と$x$軸との交点で、Aの$x$座標は$-2$です。次の問に答えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技 $4 \times 3$点＞}
+\end{flushright}
+
+\squestion $b$の値を求めなさい。
+
+\vspace*{25mm}
+
+\columnbreak
+\begin{center}
+\begin{tikzpicture}[scale=0.5]
+\draw (-3,0) -- (11,0) node[below]{$x$};
+\draw (0,-2) -- (0,11.5) node[left]{$y$};
+\draw (0,0) node[below left]{O};
+\begin{scope} \clip (-3,-2) rectangle (11,11.5);
+\draw [thick] plot(\x,{2*\x+4});
+\draw [thick,domain=-3:11] plot(\x,{-\x+10});
+\end{scope}
+\fill (-2,0) circle[radius=3pt] node[above left]{A};
+\fill (10,0) circle[radius=3pt] node [above]{B};
+\draw (2,8) node[right]{P};
+\draw (-1.5,11.5) node[left]{$n$};
+\draw (3.75,11.5) node[right]{$m$};
+\end{tikzpicture}
+\end{center}
+
+\end{multicols}
+
+\squestion $\triangle\mbox{ABP}$の面積を求めなさい。ただし、座標の1目もりを$1\si{cm}$とします。
+
+\vfill
+
+\squestion 点Pを通り、$\triangle\mbox{ABP}$の面積を2等分する直線の式を求めなさい。
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+
+\begin{multicols}{2}
+
+\question  右の図の長方形ABCDで、点PはAを出発して辺上を$\mbox{B}, \, \mbox{C}$を通ってDまで動く。点PがAから$x\si{cm}$動いたときの$\triangle\mbox{APD}$の面積を$y\si{cm}^2$とする。
+
+\begin{flushright}
+\footnotesize{＜知・技$3 \times 2$点、(2)$3 \times 2$点＞}
+\end{flushright}
+
+\squestion 点Pが辺AB上を動くとき、$y$を$x$の式で表しなさい。また、$x$の変域を答えなさい。
+
+\vspace*{15mm}
+
+\columnbreak
+
+\begin{tikzpicture}
+\coordinate (A) at (0,4);
+\coordinate (B) at (0,0);
+\coordinate (C) at (6,0);
+\coordinate (D) at (6,4);
+\coordinate (P) at (0,2.7);
+\draw [dashed] (A) to [out=210,in=160, edge node = {node [font=\footnotesize, midway, fill=white]{$x\si{cm}$}}] (P);
+\draw [dashed] (A) to [out=10,in=170, edge node = {node [font=\footnotesize, midway, fill=white]{$4\si{cm}$}}] (D);
+\draw [dashed] (D) to [out=290,in=70, edge node = {node [font=\footnotesize, midway, fill=white]{$3\si{cm}$}}] (C);
+\fill [lightgray] (A) -- (P) -- (D) -- cycle;
+\draw (A) -- (B) -- (C) -- (D) -- cycle;
+\draw (A) node[above left]{A};
+\draw (B) node[below left]{B};
+\draw (C) node[below right]{C};
+\draw (D) node[above right]{D};
+\fill (P) circle[radius=3pt] node[left]{P};
+\draw (P) -- (A) node[midway, above right, font=\footnotesize]{$y\si{cm}^2$};
+\draw (0,2.2) node[left]{$\downarrow$};
+
+\end{tikzpicture}
+
+\end{multicols}
+
+\squestion 点Pが辺$\mbox{BC}, \, \mbox{CD}$上を動くとき、$y$を$x$の式で表しなさい。また、$x$の変域を答えなさい。
+
+\vspace{20mm}
+
+\squestion 点Pが辺$\mbox{AB}, \, \mbox{BC}, \, \mbox{CD}$上を動くときの$\triangle\mbox{APD}$の面積の変化のようすを表すグラフをかきなさい。
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+
+\begin{multicols}{2}
+\question 右の表は9月18日から22日までの魚梁瀬ダムの水位についてまとめたものです。次の各問に答えなさい。ただし、なぜその解答に至ったのかの理由もあわせて答えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技(1)5点、思・判・表(2)5点＞}
+\end{flushright}
+
+\columnbreak
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+日付 & 水位$(\si{m})$ \\
+\hline
+9月18日 & 0.28 \\
+\hline
+9月19日 & 0.39 \\
+\hline
+9月20日 & 0.50 \\
+\hline
+9月21日 & 0.63 \\
+\hline
+9月22日 & 0.76 \\
+\hline
+
+\end{tabular}
+\end{center}
+\end{multicols}
+
+\squestion 魚梁瀬ダムの水位の増減が一定であるとみなしたとき、9月18日から$x$日後のダムの水位を$y$として、$y$を$x$の式で表しなさい。ただし、2点$(1, \, 0.39), \, (4, \, 0.63)$を通るものとする。
+
+\vspace{30mm}
+
+\squestion 魚梁瀬ダムの水防団待機水位は$1.90\si{m}$です。9月22日以降も(1)で求めた式にしたがってダムの水位が増減すると考えるとき、水防団待機水位に達するのは$\underline{\mbox{9月22日から}}$何日後でしょうか。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{flushleft}

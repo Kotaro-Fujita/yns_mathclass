@@ -1,0 +1,249 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+2次方程式の解き方No.1
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+例1. (1) $x^2 - 25 = 0$を解いてみよう。
+
+\vspace{15mm}
+
+(2) $3x^2 - 24 = 0$を解いてみよう。
+
+\vspace{15mm}
+
+問1. 次の方程式を解きなさい。
+
+(1) $x^2 - 36 = 0$ \hspace{15mm} (2) $x^2 - 6 = 0$ \hspace{15mm} (6) $25x^2 = 7$
+
+\vspace{20mm}
+
+例2. $(x + 1)^2 = 25$を解いてみよう。
+
+\hspace{15mm}
+
+例3. $(x - 3)^2 - 5 = 0$を解きなさい。
+
+\vspace{15mm}
+
+問2. 次の方程式を解きなさい。
+
+(1) $(x + 2)^2 = 49$ \hspace{15mm} (2) $(x + 7)^2 - 6 = 0$ \hspace{15mm} (3) $(x - 5)^2 - 4 = 0$
+
+\vspace{20mm}
+
+例. $x^2 + 6x -1 = 0$を解いてみよう。
+
+\columnbreak
+
+問3. 次の$\square$にあてはまる数を入れて、方程式を変形して解きなさい。
+
+\begin{multicols}{2}
+(1)
+$$
+\begin{aligned}
+ x^2 + 10x &= 6\\
+x^2 + 10x + \fbox{\phantom{25}} &= 6 + \fbox{\phantom{25}} \\
+(x + \fbox{\phantom{5}})^2 &= \fbox{\phantom{31}} 
+\end{aligned} 
+$$
+\columnbreak
+
+(2)
+$$
+\begin{aligned}
+x^2 -2x &= 2 \\
+x^2 -2x + \fbox{\phantom{1}} &= 2 + \fbox{\phantom{1}} \\
+(x - 1)^2 &= \fbox{\phantom{3}}
+\end{aligned}
+$$
+\end{multicols}
+
+\vspace{15mm}
+
+例4. $x^2 + 8x = 9$を解きなさい。
+
+\vspace{20mm}
+
+問4. 次の方程式を解きなさい。
+
+(1) $x^2 + 4x = 5$ \hspace{30mm} (2) $x^2 -10x +25 = 0$
+
+\vspace{20mm}
+
+例5. $x^2 + 3x +1 = 0$ を解きなさい。
+
+\vspace{35mm}
+
+問6. $x^2 - 5x +2 = 0$を解きなさい。
+
+\vspace{35mm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

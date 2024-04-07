@@ -1,0 +1,199 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: FALSE
+    keep_tex: yes
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing,arrows,calc}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+  - \usepackage{pgfplots}
+  - \pgfplotsset{compat=1.15}
+  - \usepackage{mathrsfs}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{ニ}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{\kana}}}
+
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\newcommand{\myarc}[1]{
+   \tikz [baseline = (N.base), every node/.style={}] {
+      \node [inner sep = 0pt] (N) {$\mathrm{#1}$};
+      \draw [line width = 0.4pt] plot [smooth, tension=1.3] coordinates {
+         ($(N.north west) + (0.1ex,0)$)
+         ($(N.north)      + (0,0.5ex)$)
+         ($(N.north east) + (0,0)$)
+      };
+   }
+}
+
+\makeatletter
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+\newcommand{\goku}[1]{\fbox{\phantom{\text{#1}} \quad}}
+
+## 立体の見方と調べ方
+
+直線といえば、両方にかぎりなくのびていると考えるのと同じように、ふつう平面は
+
+\noindent
+\goku{かぎりなくひろがっているもの}と考える。
+
+\begin{multicols}{2}
+
+平面P上の2点A, Bを通る直線$l$は、平面Pにふくまれる。このとき、直線$l$は\goku{平面P上にある}という。
+
+直線$l$をふくむ平面は、右の図の平面P, Q, Rのようにいくつもある。しかし、直線$l$と$l$上にない点とをふくむ平面は\goku{1つ}しかない。
+
+\columnbreak
+
+\begin{center}
+
+\begin{figurehere}
+\includegraphics{media/image11.png}
+\end{figurehere}
+
+\begin{figurehere}
+\includegraphics{media/image14.png}
+\end{figurehere}
+
+\end{center}
+
+\end{multicols}
+
+空間内にある2つの平面は、$\maru{ア}$のように\goku{交わる}か$\maru{イ}$のように\goku{交わらない}かのどちらかである。$\maru{ア}$のように、平面と平面が交わったところにできる線は直線となり、この直線を\goku{交線}という。$\maru{イ}$のように、空間内の交わらない2つの平面を、\goku{平行な}平面という。
+
+\begin{center}
+\includegraphics{media/image24.png}
+\end{center}
+
+
+空間内にある平面と直線の位置関係は、$\maru{ウ}$のように直線が平面に\goku{ふくまれる}場合、$\maru{エ}$のように\goku{交わる}場合、$\maru{オ}$のように\goku{出あわない}場合がある。$\maru{オ}$のように、直線と平面が出あわないとき、その直線と平面は\goku{平行である}という。
+
+\begin{center}
+\includegraphics{media/image27.png}
+\end{center}
+
+\newpage
+
+平面図形では、交わらない2つの直線は平行であるが、空間内では次の$\maru{カ}, \, \maru{キ}$の2通りの場合がある。
+
+\begin{center}
+\includegraphics{media/image30.png}
+\end{center}
+
+$\maru{カ}$のように、1つの平面上にあって交わらない2つの直線は、\goku{平行である}という。また、$\maru{キ}$のように、空間内で、平行でなく交わらない2つの直線は\goku{ねじれの位置にある}という。
+
+空間内にある2つの直線の位置関係は、次の場合に分類できる。
+
+\begin{center}
+\includegraphics{media/image32.png}
+\end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

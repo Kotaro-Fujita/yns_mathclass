@@ -1,0 +1,94 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\begin{flushleft}
+\noindent
+\large
+頭の体操！！
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+(i) 1個90円のオレンジと1個140円のりんごを合わせて15個買いました。そのときの代金の合計は1800円でした。オレンジとりんご、それぞれ何個買いましたか。
+
+\vspace{60mm}
+
+(ii) 1個350円のケーキと1個250円のプリンを合わせて10個買い、代金の合計がちょうど3200円になるようにします。\newline ケーキとプリンは、それぞれ何個買えばよいですか。
+
+
+
+
+\footnote{ここまでの学習を振り返りましょう。質問などはありませんか。\newline }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

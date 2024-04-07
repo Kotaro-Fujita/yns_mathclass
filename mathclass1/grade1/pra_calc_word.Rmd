@@ -1,0 +1,215 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+文字式の計算練習
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\question 次の計算をしなさい。
+
+(1) $5x + 2x$ \hspace{20mm} (2) $7x - x$ 
+
+\vspace{20mm}
+
+(3) $2a -4a + 5a$ \hspace{20mm} (4) $x - 6 -2x + 8$
+
+\vspace{20mm}
+
+\question 次の計算をしなさい。
+
+(1) $(6x + 5) + (4x - 3)$ \hspace{20mm} $(4a -3) - (3a - 1)$
+
+\vspace{20mm}
+
+\question 次の計算をしなさい。
+
+(1) $2x \times (-4)$ \hspace{20mm} (2) $30a \times \dfrac{1}{5}$
+
+\vspace{20mm}
+
+(3) $6x \div 3$ \hspace{20mm} (4) $\dfrac{2}{5}a \div 10$
+
+\vspace{20mm}
+
+
+
+\question 次の計算をしなさい。
+
+(1) $5(3x + 2)$ \hspace{20mm} (2) $(3a - 2) \times (-3)$ 
+
+
+\vspace{20mm}
+\columnbreak
+
+(3) $(10x - 25) \div 5$ \hspace{20mm} (4) $(15 + 9) \div (-3)$
+
+\vspace{20mm}
+
+\question 次の計算をしなさい。
+
+(1) $6(2x - 1) + (9x + 3)$ \hspace{20mm} (2) $3(2x + 7) - 4(3x + 2)$
+
+\vspace{25mm}
+
+(3) $2(a - 1) - 3(a + 4)$ \hspace{20mm} (4) $5(4x - 2) -2(5x - 4)$
+
+\vspace{25mm}
+
+\question $a = -6$のとき、次の式の値を求めなさい。
+
+(1) $2a$ \hspace{15mm} (2) $-3a + 5$ 
+
+\vspace{15mm}
+
+(3) $\dfrac{18}{a}$ \hspace{15mm} (4) $-2a^2$
+
+\vspace{15mm}
+
+\question $x = 3, \, y = -2$のとき、次の式の値を求めなさい。
+
+(1) $-x + 5y$ \hspace{25mm} (2) $3x - 4y$ \hspace{25mm} (3) $-7x + y^2$
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

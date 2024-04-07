@@ -1,0 +1,241 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=20truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+1次式の計算No.3
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+例6. (1) $5a \times 3$ \hspace{30mm} (2) $(-x) \times 3$
+
+\vspace{15mm}
+
+問8. 次の計算をしなさい。
+
+(1) $4a \times 2$ \hspace{30mm} (3) $(-x) \times 5$
+
+\vspace{15mm}
+
+(3) $8 \times 3n$ \hspace{30mm} (4) $(-2) \times 4a$
+
+\vspace{15mm}
+
+(5) $\dfrac{1}{5}y \times 5$ \hspace{30mm} (6) $(-2x) \times 7$
+
+\vspace{15mm}
+
+数でわることは、その数の\fbox{\phantom{逆数}}をかけることと同じである。
+
+\noindent
+文字を含む式の除法でも同じように計算できる。
+
+例7. (1) $8x \div 2$ \hspace{30mm} (2) $\dfrac{3}{4} \div 6$
+
+\vspace{20mm}
+
+問9. 次の計算をしなさい。
+
+(1) $12x \div 3$ \hspace{30mm} (2) $\dfrac{4}{5} \div 10$
+
+\vspace{30mm}
+
+(3) $4x \div \dfrac{2}{3}$ \hspace{30mm} (4) $\dfrac{3}{5} y \div \biggl(-\dfrac{2}{5} \biggl)$
+
+\vspace{30mm}
+
+例8. (1) $2(x + 3)$ \hspace{30mm} (2) $5(2a - 3)$ 
+
+\vspace{20mm}
+
+問10. 次の計算をしなさい。
+
+(1) $4(a + 2)$ \hspace{30mm} (2) $3(2a - 1)$
+
+\vspace{30mm}
+
+例9. (1) $(3x - 5) \times (-2)$ \hspace{30mm} (2) $-(4a - 5)$
+
+\vspace{20mm}
+
+問11. 次の計算をしなさい。
+
+(1) $(2x - 5) \times (-3)$ \hspace{30mm} (2) $-(6a - 9)$
+
+\vspace{30mm}
+
+(3) $-4(c + 5)$ \hspace{30mm} (4) $\dfrac{1}{2}(4x + 8)$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

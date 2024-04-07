@@ -1,0 +1,125 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=20truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\begin{flushleft}
+\noindent
+\large
+トレーニング
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\question 2つの続いた偶数$4, \, 6$について、$6^2 - 4^2$を計算すると20となり、4と6の和10の2倍に等しくなります。このように、「2つの続いた偶数では、大きい偶数の平方から、小さい偶数の平方をひいた差は、はじめの2つの偶数の和の2倍に等しくなる。」ことを、文字$n$を使って証明しなさい。ただし、証明は、「$n$を整数とし、小さい偶数を$2n$とする。」に続けて完成させなさい。
+
+（証明）（$n$を整数とし、小さい偶数を$2n$とする。）
+
+\vfill
+
+\question 一の位が0でない2けたの自然数$A$があります。$A$の十の位の数と一の位の数を入れかえてできる自然数を$B$とします。次の問いに答えなさい。
+
+\squestion $A+B$が11の倍数になることを、$A$の十の位の数を$x, \, A$の一の位の数を$y$として説明しなさい。
+
+\vfill
+
+\squestion $A-B$が7の倍数になるときの自然数$A$をすべて求めなさい。ただし、$A$の十の位の数は、一の位の数より大きいものとします。
+
+\vfill
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

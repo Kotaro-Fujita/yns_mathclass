@@ -1,0 +1,514 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+    keep_tex: yes
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing,arrows,calc}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+  - \usepackage{pgfplots}
+  - \pgfplotsset{compat=1.15}
+  - \usepackage{mathrsfs}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{ニ}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{\kana}}}
+
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\newcommand{\myarc}[1]{
+   \tikz [baseline = (N.base), every node/.style={}] {
+      \node [inner sep = 0pt] (N) {$\mathrm{#1}$};
+      \draw [line width = 0.4pt] plot [smooth, tension=1.3] coordinates {
+         ($(N.north west) + (0.1ex,0)$)
+         ($(N.north)      + (0,0.5ex)$)
+         ($(N.north east) + (0,0)$)
+      };
+   }
+}
+
+\makeatletter
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+\newcommand{\haiten}[1]{%
+\begin{flushright}%
+\footnotesize{＜#1＞}%
+\end{flushright}%
+}
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{1}$年）}\\
+
+\vspace{15truemm}
+
+\hspace{2.5em}{\large \gtfamily \bfseries（この問題は定規とコンパスが必要です。）}
+
+\vspace{64truemm}
+
+{\large\gtfamily\bfseries 注\hspace{5em}意}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「開始」の合図があるまでは,開いてはいけません。}
+
+  \item {\large 問題は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「開始」の合図があったら,まず,問題用紙・解答用紙に,組・番号と名前などを書きなさい。}
+
+  \item {\large 答えは,すべて解答用紙に書きなさい。また、所定の欄に濃くはっきりと書きなさい。}
+
+  \item {\large 「終了」の合図で,すぐ鉛筆をおき,解答用紙を裏返しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\question 次の空欄に当てはまる言葉や記号を書きなさい。
+
+\haiten{知・技$1 \times 31$点}
+
+2点A, Bを通り、両方にかぎりなくのびているものを\kuran{直線AB}という。直線ABのうち、AからBまでの部分を\kuran{線分AB}という。また、線分ABをBのほうへまっすぐにかぎりなくのばしたものを\kuran{半直線AB}という。
+
+図形を、一定の方向に、一定の距離だけ動かす移動を\kuran{平行移動}という。線分ABと線分CDの長さが等しいことをAB \kuran{$=$} CDとかく。図形をある点を中心として、一定の角度だけ回転させる移動を\kuran{回転移動}といい、中心とする点を\kuran{回転の中心}という。図形を$\ang{180}$だけ回転移動させることを\kuran{点対称移動}という。また、図形をある直線を折り目として折り返す移動を\kuran{対称移動}といい、折り目の直線を\kuran{対称の軸}という。
+
+平行な2直線を\kuran{平行線}という。2直線AB, CDが平行であることを
+
+\noindent
+AB \kuran{$\jpara$} CDとかく。1つの点Oから出る2つの半直線OA, OBによって角ができる。この角を\kuran{$\angle$}AOBとかく。2直線が垂直であるとき、一方の直線を他方の直線の\kuran{垂線}という。線分ABと直線$l$が垂直であることを、AB\kuran{$\perp$}$l$とかく。
+
+線分を2等分する点を、その線分の\kuran{中点}という。線分の中点を通り、その線分に垂直な直線をその線分の\kuran{垂直二等分線}という。2点からの距離が等しい点は、垂直二等分線上にある。
+
+1つの角を2等分する半直線を、その角の\kuran{二等分線}という。角の二等分線は、その角の\kuran{対称の軸}である。角の二等分線上の点から角の二辺までの距離は等しい。また、角の内部にあって、その角の2辺までの距離が等しい点は、その角の二等分線上にある。
+
+円周上の2点をA, Bとするとき、AからBまでの円周の部分を弧ABといい、\kuran{$\myarc{AB}$}と表す。円周上の2点を結ぶ線分を弦といい、両端がA, Bである弦を\kuran{弦AB}という。
+
+円の中心を通る直線に垂直な直線を平行移動させていくと、1点だけで円と出あう場所がある。このとき、この直線は円に\kuran{接する}といい、この直線を円の\kuran{接線}、円と直線が接する点を\kuran{接点}という。円の接線は、接点を通る半径に\kuran{垂直}である。
+
+弧の両端を通る2つの半径とその弧で囲まれた図形を\kuran{おうぎ形}という。おうぎ形で、2つの半径のつくる角を\kuran{中心角}という。
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[height=52mm]{media_ku/image4.png}
+\end{figurehere}
+\end{center}
+
+上の$\maru{ア} \sim \maru{エ}$の立体のように、平面だけで囲まれた立体を\kuran{多面体}という。また、$\maru{イ}$や$\maru{エ}$のような立体を\kuran{角錐}という。$\maru{カ}$のような立体を\kuran{円錐}という。
+
+底面が正三角形、正方形、$\cdots$で、側面がすべて合同な長方形である角柱をそれぞれ、正三角柱、正四角柱、$\cdots$という。また、底面が正三角形、正方形、$\cdots$で、側面がすべて合同な二等辺三角形である角錐を、それぞれ正三角錐、正四角錐、$\cdots$という。
+
+立方体のように、多面体で次の2つの性質をもち、へこみのないものを\kuran{正多面体}という。
+
+\begin{itemize}
+\item どの面もすべて合同な正多角形である。
+\item どの頂点にも面が同じ数だけ集まっている。
+\end{itemize}
+
+\vfill
+
+\question 下の図の立体について、次の問に答えなさい。
+
+\haiten{知・技$2 \times 6$点}
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[height=40mm]{media/tu2.jpg}
+\end{figurehere}
+\end{center}
+
+\squestion $\maru{ア}, \, \maru{ウ}, \, \maru{エ}$の立体の名前と、それが何面体であるかを答えなさい。
+
+\squestion $\maru{オ}, \, \maru{カ}$の立体の名前と、側面の形を答えなさい。
+
+\squestion $\maru{ク}$の立体の名前を答えなさい。
+
+\setcounter{skaunta}{0}
+
+\vfill
+
+\question 正四面体、正六面体、正八面体について、下の表の空欄をうめて、表を完成させなさい。
+
+\haiten{知・技$2 \times 4$点}
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[height=40mm]{media/tu3.jpg}
+\end{figurehere}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+ & 面の数 & 辺の数 & 頂点の数 \\
+\hline
+正四面体 & \squestion & 6 & 4\\
+\hline
+正六面体 & 6 & 12 & \squestion \\
+\hline
+正八面体 & \squestion  & \squestion  & 6\\
+\hline
+\end{tabular}
+
+\end{center}
+
+\vfill
+
+\newpage
+
+\begin{multicols}{2}
+
+\question 右の長方形ABCDについて、線分ADと線分BCの関係を、記号を使って2通りの方法で表しなさい。
+
+\haiten{知・技$4$点}
+
+\columnbreak
+
+\begin{center}
+\begin{figurehere}
+\includegraphics{media/image1.png}
+\end{figurehere}
+\end{center}
+
+\end{multicols}
+
+\vspace*{\fill}
+
+\begin{multicols}{2}
+
+\question 右の図形について、次の問に答えなさい。
+
+\haiten{知・技$2 \times 2$点}
+
+\setcounter{skaunta}{0}
+
+\squestion 三角形を直線$l$を対称の軸として対称移動させた図形をかきなさい。
+
+\vspace*{\fill}
+
+\columnbreak
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=30mm]{media/tu4.png}
+\end{figurehere}
+
+\end{center}
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\squestion 三角形を点Oを中心として$\ang{180}$回転移動させた図形をかきなさい。
+
+\vspace*{\fill}
+
+\columnbreak
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=30mm]{media/image3.png}
+\end{figurehere}
+\end{center}
+
+\end{multicols}
+
+\begin{multicols}{2}
+
+\vspace*{\fill}
+
+\setcounter{skaunta}{0}
+\question 右の図の多角形ABCDEFは、1辺が$2\si{cm}$の正六角形で、点Oは3つの対角線の交点です。
+
+\haiten{(1)(2)知・技$2 \times 2$点、(3)思・判・表2点}
+
+\squestion $\triangle$EFOは$\triangle$BCOを、対角線ADを対称の軸として対称移動させた図形とみることができます。このとき、ADとBFの関係を式で表しなさい。
+
+\columnbreak
+
+\vspace*{\fill}
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=30mm]{media/image5.png}
+\end{figurehere}
+\end{center}
+
+\vspace*{\fill}
+
+\end{multicols}
+
+\vspace*{\fill}
+
+\squestion $\triangle$BCOは、平行移動だけで$\triangle$AOFに重ねることができます。このときの移動の距離は何$\si{cm}$ですか。
+
+\vspace*{\fill}
+
+\squestion $\triangle$BCOは、回転移動だけで$\triangle$AOFに重ねることができます。どのように移動したらよいか、その方法を説明しなさい。
+
+\vspace*{\fill}
+
+\setcounter{skaunta}{0}
+
+\newpage
+
+\question 次の作図をしなさい。ただし、作図に用いた線は残しておくこと。
+
+\haiten{知・技$2 \times 5$点}
+
+\squestion $\triangle$ABCで、辺BCを底辺としたときの高さAP
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=50mm]{media/image10.png}
+\end{figurehere}
+\end{center}
+
+\squestion 線分ABの中点M
+
+\vspace{30mm}
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=50mm]{media/image11.png}
+\end{figurehere}
+\end{center}
+
+\squestion $\angle$AOBの二等分線OC
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=50mm]{media/image8.png}
+\end{figurehere}
+\end{center}
+
+\squestion 線分ABの垂直二等分線
+
+\vspace{30mm}
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=50mm]{media/image11.png}
+\end{figurehere}
+\end{center}
+
+\squestion 辺AC, AB, BDに接する円O
+
+\vspace{15mm}
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[width=50mm]{media/image191.png}
+\end{figurehere}
+\end{center}
+
+\newpage
+
+\begin{multicols}{2}
+
+\setcounter{skaunta}{0}
+\question さやかさんは、右の四角形\maru{1}を、ある点Oを回転の中心として、回転移動させた図形を並べて、模様をつくることにしました。右の四角形\maru{2}は、四角形\maru{1}を、点Oを回転の中心として時計回りに$\ang{120}$移動させた図形です。
+
+\haiten{(1)知・技2点、(2)思・判・表4点}
+
+\columnbreak
+
+\begin{center}
+\begin{figurehere}
+\includegraphics{media/image12.png}
+\end{figurehere}
+\end{center}
+
+\end{multicols}
+
+\squestion 四角形\maru{2}の印を付けた角（\begin{figurehere}\includegraphics[scale=1.0]{media/image13.png}\end{figurehere}）に対応する角を、次のア$\sim$エの中から選び、記号で答えなさい。
+
+\begin{itemize}
+\item[ア] $\angle$A
+\item[イ] $\angle$B
+\item[ウ] $\angle$C
+\item[エ] $\angle$D
+\end{itemize}
+
+
+
+\squestion さやかさんは、四角形\maru{1}を四角形$\maru{2}$に回転移動させた後、回転の中心Oの位置が分からなくなりました。回転の中心Oの求め方を、「垂直二等分線」の言葉を使って説明しなさい。
+
+\vspace{20mm}
+
+\question $\ang{75}$を作図しなさい。
+
+\haiten{思・判・表5点}
+
+\newpage
+
+\setcounter{skaunta}{0}
+\question 次のおうぎ形に関する問に答えなさい。
+
+\haiten{知・技$2 \times 7$点}
+
+\squestion 半径が$6\si{cm},$中心角が$\ang{30}$のおうぎ形の面積
+
+\vspace{20mm}
+
+\squestion 半径が$10\si{cm},$中心角が$\ang{108}$のおうぎ形の弧の長さ
+
+\vspace{20mm}
+
+\squestion 弧の長さが$10 \pi,$中心角が$\ang{120}$のおうぎ形の面積
+
+\vspace{20mm}
+
+\squestion 半径が$12\si{cm},$面積が$72 \pi \si{cm}^2$のおうぎ形の中心角
+
+\vspace{20mm}
+
+\squestion 弧の長さが$6 \pi \si{cm}, $中心角が$\ang{120}$のおうぎ形の半径
+
+\vspace{20mm}
+
+\squestion 中心角が$\ang{90} \si{cm},$弧の長さが$9 \pi \si{cm}$のおうぎ形の面積
+
+\vspace{20mm}
+
+\begin{multicols}{2}
+
+\squestion 右の図は、2つのおうぎ形を組み合わせたものである。色をつけた部分について、次のものを求めなさい。
+
+\columnbreak
+
+\begin{center}
+\begin{figurehere}
+\includegraphics[height=30mm]{media/tu1.jpg}
+\end{figurehere}
+\end{center}
+
+\end{multicols}
+
+\vfill
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

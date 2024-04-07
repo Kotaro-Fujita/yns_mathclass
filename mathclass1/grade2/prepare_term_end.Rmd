@@ -1,0 +1,423 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=40truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+テスト対策
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\question 次の連立方程式を加減法で解きなさい。
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+5x - 3y = 1 \\
+2x + 3y = 13
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion
+$
+\left\{
+\begin{array}{l}
+3x + 5y = 19 \\
+4x + y = -3
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$
+\left\{
+\begin{array}{l}
+-2x + 5y = 18 \\
+-4x + 7y = 24
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion
+$
+\left\{
+\begin{array}{l}
+3x + 2y = 7 \\
+2x - 3y = 9
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+
+\setcounter{skaunta}{0}
+
+\question 次の連立方程式を代入法で解きなさい。
+
+\squestion
+$
+\left\{
+\begin{array}{l}
+5x - 4y = -13 \\
+y = 3x - 2
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+
+\squestion
+$
+\left\{
+\begin{array}{l}
+x = - 2y - 3 \\
+2x + y = 6
+\end{array}
+\right.
+$
+
+\setcounter{skaunta}{0}
+\vspace{20mm}
+\question 次の連立方程式を解きなさい。
+
+\squestion
+$
+\left\{
+\begin{array}{l}
+x - 5y = 28 \\
+2x + y = 1
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$
+\left\{
+\begin{array}{l}
+y = -2x -8 \\
+y = 5x + 6
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$
+\left\{
+\begin{array}{l}
+3x -4y = 27 \\
+5(x + y) = -7y -11
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$
+\left\{
+\begin{array}{l}
+2x + 0.3y = 0.4 \\
+y = -x + 7
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$
+\left\{
+\begin{array}{l}
+0.25x + 0.5y = 2 \\
+\dfrac{3}{2} - \dfrac{1}{3}y = -8
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion $5x + y = 10 -3y = 3x -y$
+\vspace{30mm}
+
+\squestion
+$
+\left\{
+\begin{array}{l}
+\dfrac{x}{6} + \dfrac{y}{2} = 3 \\
+3x - 5y = 12
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$
+\left\{
+\begin{array}{l}
+0.1x + 0.4y = 0.4 \\
+2(x - 3y) + 5y = -10
+\end{array}
+\right.
+$
+
+\vspace{20mm}
+\squestion
+$4x + 5y = -3x + y = 19$
+
+\vspace{30mm}
+
+
+\squestion$4x -y -7 = 3x + 2y = -1$
+
+\vspace{30mm}
+
+\squestion 
+$\dfrac{x +y}{4} = \dfrac{x +1}{3} = 1$
+
+\vspace{30mm}
+
+\squestion 
+$3x + 2y = 5 + 3y = 2x + 11$
+
+\vspace{30mm}
+
+\question $x, \, y$についての連立方程式
+
+$
+\left\{
+\begin{array}{l}
+ax + 6y = 6 \\
+-3x + by = 34
+\end{array}
+\right.
+$
+
+の解が、$(x, \, y) = (-3, \, 5)$であるとき、$x, \, y$の値を求めなさい。
+
+\vspace{40mm}
+
+
+\question 2けたの正の整数があります。この整数は、各位の数の和の4の倍数よりも3大きい数です。また、十の位の数と一の位の数を入れかえてできる2けたの数は、もとの整数よりも9大きくなります。もとの整数を求めなさい。
+
+\vspace{40mm}
+
+\columnbreak
+
+\question ある中学校の昨年の陸上部員数は、男女あわせて50人でした。今年は昨年とくらべて、男子は10%減り、女子は20%増えたので、男女あわせて51人になりました。
+
+昨年の男子と女子の部員数は、それぞれ何人ですか。
+
+\vspace{40mm}
+
+\question ある列車が$1260\si{m}$の鉄橋を渡りはじめてから渡り終わるまでに、60秒かかりました。
+
+また、この列車が$2010\si{m}$のトンネルにはいりはじめてから出てしまうまでに、90秒かかりました。
+
+この列車の長さと時速を求めなさい。
+
+\vspace{30mm}
+
+\question $y$が$x$の関数で、次の(ア)〜（ウ）の式で表されるとき、1次関数であるものをすべて選びなさい。
+
+（ア）$y = -8x + 3$ \hspace{30mm} （イ）$y = -\dfrac{12}{x}$ \hspace{30mm} （ウ）$y = \dfrac{3}{2}(x - 2)$
+
+\vspace{15mm}
+
+\question 次の（ア）〜（オ）のうち、$y$が$x$の1次関数であるものをすべて選びなさい。
+
+（ア）$300\si{g}$ある小麦粉から、$x \si{g}$使ったときの残り$y\si{g}$
+
+（イ）$10\si{km}$の道のりを、時速$x \si{km}$で歩いたときにかかる時間$y$時間
+
+（ウ）時速$4 \si{km}$で$x$時間歩いたときの道のり$y \si{km}$
+
+（エ）縦の長さ$x\si{cm}$、横の長さ$4 \si{cm}$の長方形の周の長さ$y\si{cm}$
+
+（オ）半径$x \si{cm}$の球の表面積$y \si{cm}^2$
+
+\vspace{30mm}
+
+\question 次の1次関数の変化の割合をいいなさい。また、$x$の値が増加するとき、$y$の値は増加しますか、減少しますか。
+
+(1) $y = 7x + 2$ \hspace{30mm} (2) $y = -3x +4$ \hspace{30mm} (3) $y = \dfrac{1}{5} - 6$
+
+\vspace{20mm}
+
+\question 1次関数$y = -6x-5$で、次の場合の$y$の増加量を求めなさい。
+
+(1) $x$の増加量が1のとき \vspace{20mm} (2) $x$の増加量が5のとき
+
+\vspace{20mm}
+
+\question 1次関数$y = - \dfrac{3}{4}x + 1$で、次の場合の$y$の増加量を求めなさい。
+
+(1) $x$の増加量が1のとき \hspace{30mm} (2) $x$の増加量が4のとき
+
+\vspace{20mm}
+
+\columnbreak
+\setcounter{skaunta}{0}
+\question 次の1次関数の式を求めなさい。
+
+\squestion グラフが、点$(2, \, -1)$を通り、傾き3の直線である。
+
+\vspace{30mm}
+
+\squestion 変化の割合が$-5$で、$x = 2$のとき$y = 3$である。
+
+\vspace{30mm}
+
+\squestion グラフが、点$(0, \, 5)$でを通り、$y = \dfrac{2}{3}$のグラフに平行な直線である。
+
+\vspace{30mm}
+
+\squestion グラフが2点、$(0, \, -2), \, (4, \, 1)$を通る直線である。
+
+\vspace{30mm}
+
+\squestion $x = -2$のとき$y = 2$、 $\, x = 2$のとき$y = 8$である。
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

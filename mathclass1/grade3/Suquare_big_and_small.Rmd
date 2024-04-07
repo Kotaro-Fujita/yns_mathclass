@@ -1,0 +1,239 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=15truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+平方根の大小を考えよう
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\noindent
+\squestion 右の図に、$1$辺が$\sqrt{5}$の正方形を、頂点　　の1つを$0$の位置にそろえてかいてみ　　ましょう。
+
+\noindent
+\squestion (1)でかいた正方形の1辺の長さを数直　　線上にとって、$\sqrt{2}$と$\sqrt{5}$の大きさを　　比べてみましょう。
+
+\columnbreak
+\begin{tikzpicture}
+  \draw[help lines] (0, 0) grid (7, 3);
+  \foreach \x in {0, 1, 2, 3, ..., 5} \draw (\x +2, 0)--(\x + 2,-0.2)node[below] {$\x$};
+  \draw (2, 0) -- (3, 1) -- (2, 2) -- (1, 1) -- cycle;
+\end{tikzpicture}
+\end{multicols}
+
+\question 正方形の大きさを変化させて平方根の大小を調べてみましょう。
+
+\begin{multicols}{2}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+  \hline
+  面積($S$) &\hspace{10mm} & \hspace{10mm} \\
+  \hline
+  1辺の長さ($l$) & \hspace{10mm} & \hspace{10mm} \\
+  \hline
+\end{tabular}
+\vspace{3mm}
+
+大小関係は \hspace{1pt}\underline{\hspace{30mm}}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $S$ &\hspace{10mm} & \hspace{10mm} \\
+  \hline
+  $l$ & \hspace{10mm} & \hspace{10mm} \\
+  \hline
+\end{tabular}
+\vspace{3mm}
+
+大小関係は \hspace{1pt}\underline{\hspace{30mm}}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $S$ &\hspace{10mm} & \hspace{10mm} \\
+  \hline
+  $l$ & \hspace{10mm} & \hspace{10mm} \\
+  \hline
+\end{tabular}
+\vspace{3mm}
+
+大小関係は \hspace{1pt}\underline{\hspace{30mm}}
+
+\columnbreak
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $S$ &\hspace{10mm} & \hspace{10mm} \\
+  \hline
+  $l$ & \hspace{10mm} & \hspace{10mm} \\
+  \hline
+\end{tabular}
+\vspace{3mm}
+
+大小関係は \hspace{1pt}\underline{\hspace{30mm}}
+
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $S$ &\hspace{10mm} & \hspace{10mm} \\
+  \hline
+  $l$ & \hspace{10mm} & \hspace{10mm} \\
+  \hline
+\end{tabular}
+\vspace{3mm}
+
+大小関係は \hspace{1pt}\underline{\hspace{30mm}}
+
+\begin{tabular}{|c|c|c|}
+  \hline
+  $S$ &\hspace{10mm} & \hspace{10mm} \\
+  \hline
+  $l$ & \hspace{10mm} & \hspace{10mm} \\
+  \hline
+\end{tabular}
+\vspace{3mm}
+
+大小関係は \hspace{1pt}\underline{\hspace{30mm}}
+
+\end{multicols}
+
+\question 平方根の大小について自分なりの言葉でまとめてみましょう。
+
+\vspace{20mm}
+
+\question 他の人の意見を聴いて気づいたことがあれば書きましょう。
+
+\vspace{15mm}
+
+\footnote{　}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

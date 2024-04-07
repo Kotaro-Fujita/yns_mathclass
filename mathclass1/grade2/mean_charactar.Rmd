@@ -1,0 +1,141 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{tikz}
+  - \usepackage{amsmath}
+  - \usepackage{amsfonts}
+  - \usepackage{latexsym}
+  - \usepackage{graphics}
+  - \usepackage{here}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+
+\begin{flushleft}
+\noindent
+\large
+公式の文字について
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+数学に出てくる文字では英単語の頭文字を使っていることがあります。
+\begin{itembox}[l]{公式の例}
+$$
+\begin{aligned}
+l &= 2 \pi r \qquad &\mbox{（円周）} \\
+V &= Sh \qquad &\mbox{（柱の体積）}\\
+d &= vt \qquad &\mbox{（距離速さ時間）}
+\end{aligned}
+$$
+\end{itembox}
+
+このように様々な公式があります。それぞれの文字は何の頭文字でしょうか。
+空欄を埋めてみましょう。
+\begin{center}
+$l \cdots\,$\fbox{\phantom{length\quad}} （長さ）\hspace{10mm} 
+$r \cdots \,$ \fbox{\phantom{radius\quad}} （半径）
+
+$h \cdots\,$ \fbox{\phantom{height\quad}}（高さ）\hspace{10mm}
+$V \cdots\,$\fbox{\phantom{volume\quad}}（体積）
+
+$O \cdots \,$\fbox{\phantom{origin\quad}} （原点）\hspace{10mm}
+$t \cdots \,$\fbox{\phantom{time\quad}} （時間）
+
+$v \cdots \,$\fbox{\phantom{velocity\quad}} （速さ）\hspace{10mm}
+$d \cdots \,$\fbox{\phantom{distance\quad}}（距離）
+
+$p \cdots \,$\fbox{\phantom{point \quad}}（点） \hspace{10mm}
+$S \cdots \,$\fbox{\phantom{Summation}}（合計）
+
+$p \cdots \,$\fbox{\phantom{probability\quad}}（確率）
+
+\end{center}
+
+上の文字を使った公式を思い出して3つ書いてみましょう。
+
+\vspace{30mm}
+
+上で書いた公式を変形して別の公式にしてみましょう。式は何を求めるものですか。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

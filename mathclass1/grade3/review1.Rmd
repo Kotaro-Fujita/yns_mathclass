@@ -1,0 +1,119 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{tikz}
+  - \usepackage{amsmath}
+  - \usepackage{amsfonts}
+  - \usepackage{latexsym}
+  - \usepackage{graphics}
+  - \usepackage{here}
+documentclass: bxjsarticle
+classoption: 12pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+
+\begin{flushleft}
+\noindent
+\large
+復習No.1
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+次の式を展開しなさい。
+
+(1) $(x + 6)(y + 2)$ \hspace{30mm} (2) $(a - 3)(b + 2)$
+
+\vspace{20mm}
+
+(3) $(a + 1)(a - b + 2)$ \hspace{25mm} (4) $(2x + y - 1)(5x - 3y)$
+
+\vspace{20mm}
+
+(5) $(x + 3)(x + 6)$ \hspace{30mm} (6) $(x + 1)(x - 3)$
+
+\vspace{20mm}
+
+(7) $(x + 6)^2$ \hspace{41mm} (8) $(a + 9)^2$ 
+
+\vspace{20mm}
+
+(9) $(x + 3)(x - 3)$ \hspace{30mm} (10) $(x - 5)(x + 5)$
+
+\vspace{20mm}
+
+(11) $(x - 4)^2$ \hspace{41mm} (12) $(x - 6)(x + 4)$ 
+
+\vspace{20mm}
+
+(9) $(x + 7)(x - 7)$ \hspace{30mm} (10) $(a + b)^2$ 
+
+\vspace{20mm}
+
+(13) $(x + 6)(x + 2)$ \hspace{30mm} (14) $(8 + a)^2$
+
+\vspace{20mm}
+
+(15) $(a - 2)(a + 5)$ \hspace{30mm} (16) $(x - 9)(9 + x)$
+
+\vspace{20mm}
+
+(17) $(3x - 4)(3x - 2)$ \hspace{25.5mm} (18) $(-4a + 3)(-4a - 6)$
+
+\vspace{20mm}
+
+(19) $(5x + 2)^2$ \hspace{40.25mm} (20) $(3x - 4y)^2$
+
+\vspace{20mm}
+
+(21) $(6x + 7)(6x - 7)$ \hspace{25.5mm} (22) $(7a - 4b)(7a + 4b)$
+
+\vspace{20mm}
+
+\newpage
+
+\begin{itembox}[l]{展開の公式}
+\begin{align*}
+  (x + a)(x + b) &= x^2 + (a + b)x + ab \\
+  (x + a)^2 &= x^2 + 2ax + a^2 \\
+  (x - a)^2 &= x^2 - 2ax + a^2 \\
+  (x + a)(x - a) &= x^2 - a^2
+\end{align*}
+\end{itembox}
+
+\end{multicols}
+

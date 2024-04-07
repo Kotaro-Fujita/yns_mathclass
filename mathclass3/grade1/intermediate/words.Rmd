@@ -1,0 +1,144 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+    keep_tex: yes
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing,arrows,calc}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+  - \usepackage{pgfplots}
+  - \pgfplotsset{compat=1.15}
+  - \usepackage{mathrsfs}
+documentclass: bxjsarticle
+classoption: 14pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{二}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{#1}}}
+
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\newcommand{\myarc}[1]{
+   \tikz [baseline = (N.base), every node/.style={}] {
+      \node [inner sep = 0pt] (N) {$\mathrm{#1}$};
+      \draw [line width = 0.4pt] plot [smooth, tension=1.3] coordinates {
+         ($(N.north west) + (0.1ex,0)$)
+         ($(N.north)      + (0,0.5ex)$)
+         ($(N.north east) + (0,0)$)
+      };
+   }
+}
+
+\makeatletter
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+\newcommand{\haiten}[1]{%
+\begin{flushright}%
+\footnotesize{＜#1＞}%
+\end{flushright}%
+}
+
+\newcommand{\goku}[1]{\fbox{\phantom{\text{#1}} \quad}}
+
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\question 次の空欄に当てはまる言葉を書きなさい。
+
+2点A, Bを通り、両方にかぎりなくのびているものを\goku{直線AB}という。直線ABのうち、AからBまでの部分を\goku{線分AB}という。また、線分ABをBのほうへまっすぐにかぎりなくのばしたものを\goku{半直線AB}という。
+
+図形を、一定の方向に、一定の距離だけ動かす移動を\goku{平行移動}という。線分ABと線分CDの長さが等しいことをAB \goku{$=$} CDとかく。図形をある点を中心として、一定の角度だけ回転させる移動を\goku{回転移動}といい、中心とする点を\goku{回転の中心}という。図形を$\ang{180}$だけ回転移動させることを\goku{点対称移動}という。また、図形をある直線を折り目として折り返す移動を\goku{対称移動}といい、折り目の直線を\goku{対称の軸}という。
+
+平行な2直線を\goku{平行線}という。2直線AB, CDが平行であることを
+
+\noindent
+AB \goku{$\jpara$} CDとかく。1つの点Oから出る2つの半直線OA, OBによって角ができる。この角を\goku{$\angle$}AOBとかく。2直線が垂直であるとき、一方の直線を他方の直線の\goku{垂線}という。線分ABと直線$l$が垂直であることを、AB\goku{$\perp$}$l$とかく。
+
+線分を2等分する点を、その線分の\goku{中点}という。線分の中点を通り、その線分に垂直な直線をその線分の\goku{垂直二等分線}という。2点からの距離が等しい点は、垂直二等分線上にある。
+
+1つの角を2等分する半直線を、その角の\goku{二等分線}という。角の二等分線は、その角の\goku{対称の軸}である。角の二等分線上の点から角の二辺までの距離は等しい。また、角の内部にあって、その角の2辺までの距離が等しい点は、その角の二等分線上にある。
+
+円周上の2点をA, Bとするとき、AからBまでの円周の部分を弧ABといい、\goku{$\myarc{AB}$}と表す。円周上の2点を結ぶ線分を弦といい、両端がA, Bである弦を\goku{弦AB}という。
+
+円の中心を通る直線に垂直な直線を平行移動させていくと、1点だけで円と出あう場所がある。このとき、この直線は円に\goku{接する}といい、この直線を円の\goku{接線}、円と直線が接する点を\goku{接点}という。円の接線は、接点を通る半径に\goku{垂直}である。
+
+弧の両端を通る2つの半径とその弧で囲まれた図形を\goku{おうぎ形}という。おうぎ形で、2つの半径のつくる角を\goku{中心角}という。
+
+\begin{figurehere}
+\includegraphics{media_ku/image4.png}
+\end{figurehere}
+
+上の$\maru{ア} \sim \maru{エ}$の立体のように、平面だけで囲まれた立体を\goku{多面体}という。また、$\maru{イ}$や$\maru{エ}$のような立体を\goku{角錐}という。$\maru{カ}$のような立体を\goku{円錐}という。
+
+底面が正三角形、正方形、$\cdots$で、側面がすべて合同な長方形である角柱をそれぞれ、正三角柱、正四角柱、$\cdots$という。また、底面が正三角形、正方形、$\cdots$で、側面がすべて合同な二等辺三角形である角錐を、それぞれ正三角錐、正四角錐、$\cdots$という。
+
+立方体のように、多面体で次の2つの性質をもち、へこみのないものを\goku{正多面体}という。
+
+\setcounter{kaunta}{0}
+\begin{itemize}
+\item[\question] どの面もすべて合同な正多角形である。
+\item[\question] どの頂点にも面が同じ数だけ集まっている。
+\end{itemize}
+
+
+
+
+
+
+

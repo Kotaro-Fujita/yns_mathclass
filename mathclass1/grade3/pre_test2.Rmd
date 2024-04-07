@@ -1,0 +1,136 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+documentclass: bxjsarticle
+classoption: 12pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+
+\begin{flushleft}
+\noindent
+\large
+小テスト第2回となるはずだったもの
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\fbox{\large\makebox[1em]{\text{1}}}\hspace{1pt}次の式を因数分解しなさい。
+
+(1) $x^2 +7x +10$ \hspace{30mm} (2) $x^2 -4x -21$ 
+
+\vspace{20mm}
+
+(3) $ax - bx$ \hspace{30mm} (4) $x^2 + 10x + 25$
+
+\vspace{20mm}
+
+(5) $x^2 -x -20$ \hspace{30mm} (6) $3x^2y + 6xy^2$
+
+\vspace{20mm}
+
+(7) $x^2 +16x +64$ \hspace{30mm} (8) $x^2 -64$
+
+\vspace{20mm}
+
+(9) $6mx - 2nx$ \hspace{30mm} (10) $x^2 -9x +8$
+
+\vspace{20mm}
+
+(11) $a(x + y) -b(x + y)$ \hspace{30mm} (12) $4x^2 - 36y^2$
+
+\vspace{20mm}
+
+(13) $a^2 + 22a +121$ \hspace{30mm} (14) $4a^2 - 25b^2$ 
+
+\vspace{20mm}
+
+(15) $(2x+7)^2-(x-3)^2$ \hspace{30mm} (16) $x^2 + 101x +100$
+
+\vspace{20mm}
+
+(17) $p^2 -2pq +q^2$ \hspace{30mm} (18) $10x^2 +5x$
+
+\vspace{20mm}
+
+(19) $4a^2b -6ab^2 -10ab$ \hspace{30mm}(20) $x^2 -18xy + 81y^2$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}

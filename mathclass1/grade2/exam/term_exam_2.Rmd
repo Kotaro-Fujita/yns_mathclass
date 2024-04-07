@@ -1,0 +1,388 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{2}$年）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries 注\hspace{5em}意}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「開始」の合図があるまでは,開いてはいけません。}
+
+  \item {\large 問題は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「開始」の合図があったら,まず,問題用紙・解答用紙に,組・番号と名前などを書きなさい。}
+
+  \item {\large 答えは,すべて解答用紙に書きなさい。また、所定の欄に濃くはっきりと書きなさい。}
+
+  \item {\large 「終了」の合図で,すぐ鉛筆をおき,解答用紙を裏返しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\newpage
+　 [](
+　 空白ページのための全角スペースあり。
+　 )
+\newpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\question 次の連立方程式を解きなさい。
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  x + 2y =1 \\
+  x -y = 4
+\end{array}
+\right.
+$
+\hspace{50mm}
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  4x + y = -1 \\
+  x -2y = 11
+\end{array}
+\right.
+$
+
+\vfill
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  2x + 3y =4 \\
+  5x -2y = -9
+\end{array}
+\right.
+$
+\hspace{50mm}
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  x + 3y = 10 \\
+  y = 2x -6
+\end{array}
+\right.
+$
+
+\vfill
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  y = 4x -2 \\
+  y = x + 4
+\end{array}
+\right.
+$
+\hspace{50mm}
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  x + 2y =1 \\
+  x = 4
+\end{array}
+\right.
+$
+
+\vfill
+
+\squestion 
+$
+x - y = 5x + y = 3
+$
+\hspace{50mm}
+\squestion 
+$
+\left\{
+\begin{array}{l}
+  0.4x - 0.1y = 1.3 \\
+  4x - 1 = -\dfrac{y}{3}
+\end{array}
+\right.
+$
+
+\vfill
+
+\newpage
+
+\question $x, \, y$についての連立方程式
+
+$
+\left\{
+\begin{array}{l}
+ax + 6y = 6 \\
+-3x + by = 34
+\end{array}
+\right.
+$
+
+の解が、$(x, \, y) = (-3, \, 5)$であるとき、$a, \, b$の値を求めなさい。
+
+\vfill
+
+\question 次の\maru{1}〜\maru{4}の中から,$y$が$x$の1次関数であるものをすべて選び,その番号を書きなさい。
+
+\begin{itemize}
+  \item[\maru{1}] 1辺が$x \si{cm}$の正三角形の周の長さ$y \si{cm}$
+  \item[\maru{2}] 面積が$30 \si{cm}^2$の長方形の縦の長さ$x \si{cm}$と横の長さ$y \si{cm}$
+  \item[\maru{3}] 底面の半径が$x \si{cm}$,高さが$5 \si{cm}$の円錐の体積$y \si{cm}^2$
+  \item[\maru{4}] 水が$10 \si{L}$入っている水そうに,毎分$2 \si{L}$の割合で$x$分間水を入れるときの水そうの水の量$y \si{L}$
+\end{itemize}
+
+\vfill
+
+\question 次の問に答えなさい。
+\setcounter{skaunta}{0}
+
+\squestion 1次関数$y = 7x + 2$の変化の割合をいいなさい。
+
+\squestion 1次関数$y = -\dfrac{3}{4}x + 1$で,$x$の増加量が$8$のときの$y$の増加量を求めなさい。
+
+\squestion 3点$\mbox{P}(-8, \, -2), \, \mbox{Q}(4, \, 7), \, \mbox{R}(6, \, r)$が一直線上にあるとき,$r$の値を求めなさい。
+
+\squestion 1次関数$y = \dfrac{4}{3}x + 2$のグラフをかけ。
+
+\vfill
+
+\newpage
+\question ある列車が$1260\si{m}$の鉄橋を渡りはじめてから渡り終わるまでに、60秒かかりました。
+
+また、この列車が$2010\si{m}$のトンネルにはいりはじめてから出てしまうまでに、90秒かかりました。
+
+この列車の長さと時速を求めなさい。
+\vfill
+
+\question つるとかめが合わせて100匹います。足の数の合計が274本のとき,つるとかめはそれぞれ何匹でしょう。
+
+\vfill 
+
+\newpage
+
+\question $8\%$の食塩水$x \si{g}$と$3\%$の食塩水$y\si{g}$を混ぜて,$6\%$の食塩水を$500\si{g}$作ろうと思います。このとき,次の問に答えなさい。ただし、質量パーセント濃度を求める式は以下に示します。
+$$
+\mbox{質量パーセント濃度}(\%) = \dfrac{\mbox{溶質の質量}(\si{g})}{\mbox{溶液の質量}(\si{g})}
+$$
+
+\setcounter{skaunta}{0}
+
+\squestion 下の表に,数量を整理します。空欄\maru{\mbox{ア}}〜\maru{\mbox{ウ}}を埋めなさい。
+
+\renewcommand{\arraystretch}{1.5}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+食塩水の濃度 & $8\%$ & $3\%$ & $6\%$ \\
+\hline
+食塩水の質量($\si{g}$) & $x$ & $y$ & $500$ \\
+\hline
+食塩水にふくまれる食塩の重さ(\si{g}) & \maru{\mbox{ア}} & \maru{\mbox{イ}} & \maru{\mbox{ウ}} \\
+\hline
+\end{tabular}
+\end{center}
+
+\squestion 食塩水を混ぜる前とあとでは,全体の食塩水の重さやふくまれる食塩の重さは変わりません。これらのことから連立方程式をつくりなさい。
+
+\squestion $x, \, y$の値を求めなさい。
+
+\vfill
+
+
+\begin{multicols}{2}
+\question 右の図のように,$y = \dfrac{a}{x}$のグラフと$y = 4x +b$のグラフが2点$\mbox{P}, \, \mbox{Q}$で交わっている。$y = 4x +b$のグラフと$x$軸との交点$\mbox{R}$の$x$座標は$-1$,交点$\mbox{Q}$の$x$座標が$1$であるとき,$a$の値を求めなさい。
+
+\columnbreak
+\begin{tikzpicture}[scale=0.5]
+\draw(-5,0)--(5,0)node[right]{$x$};
+\draw(0,-5)--(0,5) node[above]{$y$};
+\draw(0,0)node[below left]{O};
+\begin{scope}\clip (-5,-5) rectangle (5,5);
+\draw [samples=100,smooth,thick] plot (\x,{3/\x});
+\draw [samples=100,smooth,thick] plot (\x,{3/\x});
+\draw [thick] plot(\x, 2*\x + 2.5);
+\draw (-6/4,0) node[below left] {\footnotesize{$-1$}};
+\draw (-6/4,0) node[above] {\footnotesize{\mbox{R}}};
+\draw (3/4, 0) node[below] {\footnotesize{$1$}};
+\draw [dashed] (3/4,0)--(3/4,4);
+\draw (3/4,4) node[right] {\footnotesize{\mbox{Q}}};
+\draw (-2,-3.5/2) node[left] {\footnotesize{\mbox{P}}};
+\end{scope}
+\draw (2.5,0.5) node[above right]{$y = \dfrac{a}{x}$};
+\draw (-5,-5) node[below]{$y = 4x + b$};
+\end{tikzpicture}
+\end{multicols}
+\vfill
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

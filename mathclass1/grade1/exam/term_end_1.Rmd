@@ -1,0 +1,371 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{1}$年）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries 注\hspace{5em}意}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「開始」の合図があるまでは,開いてはいけません。}
+
+  \item {\large 問題は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「開始」の合図があったら,まず,問題用紙・解答用紙に,組・番号と名前などを書きなさい。}
+
+  \item {\large 答えは,すべて解答用紙に書きなさい。また、所定の欄に濃くはっきりと書きなさい。}
+
+  \item {\large 「終了」の合図で,すぐ鉛筆をおき,解答用紙を裏返しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\newpage
+　 [](
+　 空白ページのための全角スペースあり。
+　 )
+\newpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\question 次の計算をしなさい。
+
+\squestion $(-4) \times (-8)$ \hspace{30mm} \squestion $(-18) \div 3$ \hspace{30mm} \squestion $7 \times (-6)$ 
+
+\vspace{15mm}
+
+\squestion $(-12) \div \biggl(-\dfrac{2}{5} \biggl)$ \hspace{30mm} \squestion $(-2) \times (-9) \times 3$ \hspace{30mm} \squestion $(-10)^2$
+
+\vfill
+
+\squestion $(-6) \times 2 \times (-4) \times (-5)$ \hspace{30mm} \squestion $3 \times (-4^2)$
+
+\vfill
+
+\squestion $(-14) \times 3 \div \biggl(-\dfrac{7}{4} \biggl)$ \hspace{30mm} \squestion $15 \div (-9) \div \dfrac{5}{6}$
+
+\vfill
+
+\squestion $7 + 45 \div (-3)$ \hspace{50mm} \squestion $(-3) \times 8 - 6 \times (-4)$ 
+
+\vfill
+
+\squestion $(-2)^3 + (-5) \times 2$ \hspace{50mm} \squestion $(-6)^2 \div (-9) - 8$
+
+\vfill
+
+\squestion $9 - 4 \times (5 -8)$ \hspace{50mm} \squestion $(-12 -8 \times 6) \div (-5)$
+
+\vfill
+
+\newpage
+
+\squestion $-8x +5x$ \hspace{30mm} \squestion $6x -x$ \hspace{30mm} \squestion $8x \times 2$
+
+\vfill 
+
+\squestion $18y \div (-6)$ \hspace{30mm} \squestion $(2a -3) - (4a - 7)$ \hspace{30mm} \squestion $-2(3a + 8)$
+
+\vfill 
+
+\squestion $(28a - 20) \div 4$ \hspace{50mm} \squestion $2(2x +3) + 5(x + 1)$ 
+
+\vfill
+
+\squestion $\dfrac{a + 3}{2} + \dfrac{2a +7}{6}$ \hspace{50mm} \squestion $18 \times \dfrac{3x -4}{9}$
+
+\vfill
+
+\question $a, \, b$が自然数のとき,次の\maru{\mbox{ア}}〜\maru{\mbox{エ}}のうち, 答えがいつでも自然数になるものをすべて選び,記号で答えなさい。
+$$
+\begin{aligned}
+\maru{\mbox{ア}} \quad  a + b \qquad \qquad \maru{\mbox{イ}} \quad  a - b \\
+\maru{\mbox{イ}} \quad  a \times b \qquad \qquad \maru{\mbox{エ}} \quad  a \div b
+\end{aligned}
+$$
+\vfill
+
+\newpage
+\vfill
+
+\question 次の2つの計算で, \maru{1}〜\maru{3}の部分では,ある計算法則を使って計算を行っている。どのような法則を使っているかを述べなさい。
+
+\begin{tikzpicture}
+\node at (0,0) {$\underline{0.75 \times 33 \times 8} = \underline{0.75 \times 8 \times 33} = \underline{(0.75 \times 8) \times 33} = 6 \times 33 = 198$};
+\draw[->] (-4.25,-0.4) to [bend right=30] (-2,-0.4);
+\node at (-3.2,-0.55) {\maru{1}};
+\draw[->] (-1.2,-0.4) to [bend right=30] (1,-0.4);
+\node at (0,-0.55) {\maru{2}};
+\end{tikzpicture}
+\vspace{5mm}
+
+\begin{tikzpicture}
+\node at (0,0) {$\underline{79 \times 123 + 79 \times 77} = \underline{79 \times (123 + 77) = 79 \times 200} = 15800$};
+\draw[->] (-3,-0.4) to [bend right=30] (-0.5,-0.4);
+\node at (-1.6,-0.55) {\maru{3}};
+\end{tikzpicture}
+
+\vspace{5mm}
+
+\question 次の文字式の中で, $a = -\dfrac{1}{3}$のとき, その式の値が,もっとも大きくなるものはどれですか。また,もっとも小さくなるものはどれですか。
+$$
+2a, \qquad a^2, \qquad \dfrac{1}{a}, \qquad -a, \qquad -\dfrac{1}{a^2}
+$$
+\vfill
+
+\setcounter{skaunta}{0}
+\question 次の数量の関係を, 等式か不等式に表しなさい。
+
+\squestion $x$個のいちごを,1人に6個ずつ$y$人に配ると2個たりない。
+
+\squestion ある数$x$に7をたした数は,もとの数$x$の2倍より小さい。
+
+\squestion 画用紙を,1人に5枚ずつ$x$人に配ると,100枚ではたりない。
+
+\vfill
+
+\question $x$個のクッキーを,1人に4個ずつ$y$人に配ると3個余ります。$x, \, y$の関係を表している次の（ア）〜（エ）のうち,正しいものをすべて選びなさい。
+
+$$
+\begin{aligned}
+&\mbox{（ア）} \quad x +3 = y & \qquad \qquad &\mbox{（イ）} \quad x -4y = 3 \\
+&\mbox{（ウ）} \quad x > 4y +3 &  &\mbox{（エ）} \quad x > 4y
+\end{aligned}
+$$
+
+\vfill
+
+\newpage
+
+\question 下の表には,6人の生徒A〜Fのそれぞれの身長から,$160 \si{cm}$をひいた値が示されている。この表をもとに,これら6人の生徒の身長の平均を求めたところ$161.5 \si{cm}$であった。このとき,生徒Fの身長を求めなさい。
+\begin{center}
+\begin{tabular}{|c|l|l|l|l|l|l|}
+\hline
+生徒 & A & B & C & D & E & F \\
+\hline
+$160\si{cm}$をひいた値($\si{cm}$) & $+8$ & $-2$ & $+5$ & $0$ & $+2$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+\question 正方形のタイルに順に$1, \, 2, \, 3, \, \cdots$と番号を付けたものを,下の図のように一定の規則にしたがって,1番目,2番目,3番目,$\cdots$と並べていく。次の\fbox{\quad \maru{1} \quad}〜\fbox{\quad \maru{3}\quad}に適する数または式を入れなさい。
+
+\definecolor{lightgray}{RGB}{220,220,220}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \begin{scope}[shift={(0,0)}]
+  % Outer square
+  \filldraw[fill=lightgray,thick] (0,0) rectangle (1,1);
+  \node at (0.5,0.5) {1};
+  \node at (0.5,-0.5) {1番目};
+  \end{scope}
+  
+  \begin{scope}[shift={(3,0)}]
+  % Outer square
+  \fill[lightgray] (0,1) rectangle (2,2);
+  \fill[lightgray] (1,0) rectangle (2,1);
+  \draw[thick] (0,0) rectangle (2,2);
+  % Inner lines
+  \draw (1,0) -- (1,2);
+  \draw (0,1) -- (2,1);
+  % Numbers
+  \node at (0.5,1.5) {4};
+  \node at (1.5,1.5) {3};
+  \node at (0.5,0.5) {1};
+  \node at (1.5,0.5) {2};
+  \node at (1.0,-0.5) {2番目};
+  \end{scope}
+  \begin{scope}[shift={(7,0)}]
+  % Outer square
+  \fill[lightgray] (2,0) rectangle (3,3);
+  \fill[lightgray] (0,2) rectangle (2,3);
+  \draw[thick] (0,0) rectangle (3,3);
+  % Inner lines
+  \draw (1,0) -- (1,3);
+  \draw (2,0) -- (2,3);
+  \draw (0,1) -- (3,1);
+  \draw (0,2) -- (3,2);
+  % Numbers
+  \node at (0.5,2.5) {9};
+  \node at (1.5,2.5) {8};
+  \node at (2.5,2.5) {7};
+  \node at (0.5,1.5) {4};
+  \node at (1.5,1.5) {3};
+  \node at (2.5,1.5) {6};
+  \node at (0.5,0.5) {1};
+  \node at (1.5,0.5) {2};
+  \node at (2.5,0.5) {5};
+  \node at (1.5,-0.5) {3番目};
+  \end{scope}
+  \draw [->,>={Triangle[width=5mm,length=1.8mm]},line width=2.5mm,draw=black] (1.2,0.5) -- (2.8,0.5);
+  \draw [->,>={Triangle[width=5mm,length=1.8mm]},line width=2.5mm] (5.2,0.5) -- (6.8,0.5);
+  \node at (11, 0.5) {$\cdots$};
+\end{tikzpicture}
+
+\vspace{-1mm}
+\footnotesize{※ \begin{tikzpicture}[scale = 0.3] \filldraw[fill=lightgray,thick] (0,0) rectangle (0.8,0.8); \end{tikzpicture}は,新たに加えるタイルを示している。}
+\end{center}
+
+\begin{screen}
+\hspace*{1em}この規則で並べていくと,3番目に加えるタイルの数は5個で,4番目に加えるタイルの数は\fbox{\quad \maru{1} \quad}個となる。したがって,$n$番目に加えるタイルの数は\fbox{\quad \maru{2} \quad}個となる。また,$n$番目のタイルの総数は\fbox{\quad \maru{3} \quad}個だから,\\
+\hspace*{1em}$1 + 3 + 5 + \cdots + \fbox{\quad \maru{2}\quad} = \fbox{\quad \maru{3} \quad}$
+が成り立つ。
+\end{screen}
+
+\vfill
+
+
+
+
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

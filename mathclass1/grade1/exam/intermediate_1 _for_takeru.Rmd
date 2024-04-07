@@ -1,0 +1,238 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{pxrubrica}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+
+\begin{flushleft}
+\noindent
+\large
+1\ruby[g]{年生数学科}{ねんせいすうがくか}1\ruby[g]{学期中間}{がっきちゅうかん}テスト
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+**※\ruby[g]{解答}{かいとう}はすべて\ruby[g]{解答欄}{かいとうらん}に\ruby[g]{書}{か}くこと。ただし、\ruby[g]{余白}{よはく}や\ruby[g]{裏面}{うらめん}を\ruby[g]{計算}{けいさん}スペースとして\ruby[g]{使}{つか}ってもよい。**
+
+\begin{multicols}{2}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{説明}{せつめい}にあう\ruby[g]{言葉}{ことば}を\ruby[g]{答}{こた}えなさい。
+
+(1) \ruby[g]{正}{せい}の\ruby[g]{整数}{せいすう} \hspace{5mm} (2) 1とその\ruby[g]{数自身}{すうじしん}の\ruby[g]{積}{せき}でしか\ruby[g]{表}{あら}わせない\ruby[g]{自然数}{しぜんすう}
+
+(3) \ruby[g]{自然数}{しぜんすう}を\ruby[g]{素数}{そすう}だけの\ruby[g]{積}{せき}で\ruby[g]{表}{あらわ}すこと \hspace{5mm} (4) \ruby[g]{数直線上}{すうちょくせんじょう}で0が\ruby[g]{対応}{たいおう}している\ruby[g]{点}{てん}
+
+(5) \ruby[g]{数直線上}{すうちょくせんじょう}で、ある\ruby[g]{数}{すう}に\ruby[g]{対応}{たいおう}する\ruby[g]{点}{てん}と\ruby[g]{原点}{げんてん}との\ruby[g]{距離}{きょり} \hspace{5mm} (6) \ruby[g]{加法}{かほう}
+
+(7) \ruby[g]{数}{かず}の\ruby[g]{順序}{じゅんじょ}を\ruby[g]{変}{か}えても、\ruby[g]{和}{わ}は\ruby[g]{変}{か}わらないこと
+
+(8) \ruby[g]{数}{かず}の\ruby[g]{組}{く}み\ruby[g]{合}{あ}わせを\ruby[g]{変}{か}えても、\ruby[g]{和}{わ}は\ruby[g]{変}{か}わらないこと
+
+(9) \ruby[g]{減法}{げんぽう} \hspace{5mm} (10) $4 - 7 + 9$という\ruby[g]{式}{しき}において、$+4, -7, +9$のこと
+
+\vspace{5mm}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{数}{かず}のうち、\ruby[g]{素数}{そすう}であるものを\ruby[g]{答}{こた}えなさい。
+
+$-5$, \hspace{5mm} 0, \hspace{5mm} 3, \hspace{5mm} 4.7, \hspace{5mm} 9, \hspace{5mm} 13
+
+\vspace{5mm}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{数}{かず}を\ruby[g]{素因数分解}{そいんすうぶんかい}しなさい。
+
+(1) 6 \hspace{5mm} (2) 210 \hspace{5mm} (3) 57 \hspace{5mm} (4) 360 
+
+\vspace{5mm}
+
+\question \ruby[g]{下}{した}の\ruby[g]{数直線}{すうちょくせん}で、\ruby[g]{点}{てん}A、B、Cに\ruby[g]{対応}{たいおう}する\ruby[g]{数}{かず}を\ruby[g]{答}{こた}えなさい。
+
+\begin{tikzpicture}
+  \draw (-5.6,0)--(5.6,0);
+  \foreach \x in {-5,...,0,+1,+2,+3,+4,+5} \draw (\x, 0)--(\x,-0.2)node[below] {$\x$};
+  \foreach \x in {-5,...,5} \draw (\x, 0)--(\x,0.2)node[above] {};
+  \foreach \x in {-5.5,...,5.5} \draw (\x, 0)--(\x,0.1)node[above] {};
+  \foreach \x in {-5.5,...,5.5} \draw (\x, 0)--(\x,-0.1)node[below] {};
+  \fill[black] (-3.5,0) circle(0.06);
+  \fill[black] (1,0) circle(0.06);
+  \fill[black] (2.5,0) circle(0.06);
+  \draw (-3.5, 0.2)node[above] {A};
+  \draw (1, 0.2)node[above] {B};
+  \draw (2.5, 0.2)node[above] {C};
+\end{tikzpicture}
+
+\vspace{5mm}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{数}{すう}の\ruby[g]{絶対値}{ぜったいち}を\ruby[g]{答}{こた}えなさい。
+
+(1) $+4$ \hspace{5mm} (2) $-5$ \hspace{5mm} (3) $+3.5$ \hspace{5mm} (4) $-\dfrac{2}{3}$
+
+\vspace{5mm}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{各組}{かくくみ}の\ruby[g]{数}{かず}の\ruby[g]{大小}{だいしょう}を、\ruby[g]{不等号}{ふとうごう}を\ruby[g]{使}{つか}って\ruby[g]{表}{あらわ}しなさい。
+
+(1) $+3, \quad -5$ \hspace{5mm} (2) $+6,\quad -9, \quad 0$
+
+\vspace{5mm}
+\columnbreak
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{計算}{けいさん}をしなさい。
+
+(1) $(-6) +(-3)$ \hspace{5mm} (2) $(-9)+(+8)$ \hspace{5mm} (3) $(+2) - (+9)$ \hspace{5mm} (4) $(-6) - (+7)$ 
+
+\vspace{5mm}
+
+(5) $-7 +3$ \hspace{5mm} (6) $3 +(-10)$ \hspace{5mm} (7) $3 -8$ \hspace{5mm} (8) $-5 - (-9)$
+
+\vspace{5mm}
+
+(9) $2.4 - 3.5$ \hspace{5mm} (10) $\dfrac{3}{4} - (-\dfrac{5}{12})$ \hspace{5mm} (11) $-4 + 9 -3$ \hspace{5mm} (12) $4-7+(-8)$
+
+\vspace{5mm}
+
+(13) $(-8) + (+5) + (-3) + (+8) + (-1) + (-5) + (+3) + (+3) + (+7) + (-2) + (-8)$
+
+\vspace{5mm}
+
+\question A、B、Cの\ruby[g]{身長}{しんちょう}はそれぞれ\ruby[g]{下}{した}の\ruby[g]{表}{ひょう}のとおりである。
+
+Bの\ruby[g]{身長}{しんちょう}を\ruby[g]{基準}{きじゅん}にして、それより\ruby[g]{高}{たか}いことを\ruby[g]{正}{せい}の\ruby[g]{数}{すう}、\ruby[g]{低}{ひく}いことを\ruby[g]{負}{ふ}の\ruby[g]{数}{すう}で\ruby[g]{表}{あらわ}すことにするとき、それぞれの\ruby[g]{身長}{しんちょう}を\ruby[g]{表}{あらわ}しなさい。
+
+\begin{center}
+\begin{tabular}{|c||c||c|}
+\hline
+A & B & C \\
+\hline
+164cm & 156cm & 149cm \\
+\hline
+\end{tabular}
+\end{center}
+
+\newcommand\blackcard[2]{%
+  \begingroup\fboxsep=0pt\relax
+  \fbox{\tabbedCenterstack{%
+  \scriptsize$#2$ && \\&\makebox[20pt]{#1}&\\&
+  &\rotatebox[origin=c]{180}{\scriptsize$#2$}}}%
+  \endgroup}
+
+\question \ruby[g]{絵札}{えふだ}とジョーカーを\ruby[g]{除}{のぞ}くトランプのカードを\ruby[g]{使}{つか}って、ゲームを\ruby[g]{考}{かんが}えます。ルールは\ruby[g]{以下}{いか}の\ruby[g]{通}{とお}りです。
+
+\begin{itembox}[l]{ルール}
+\begin{multicols}{2}
+\spadesuit, \clubsuit のマークのカードは\ruby[g]{正}{せい}の\ruby[g]{数}{すう}の\ruby[g]{点数}{てんすう}を、\varheartsuit, \vardiamondsuit のマークのカードは\ruby[g]{負}{ふ}の\ruby[g]{数}{すう}の\ruby[g]{点数}{てんすう}を\ruby[g]{表}{あらわ}すことにします。\ruby[g]{例}{たと}えば、\ruby[g]{右}{みぎ}のカードの\ruby[g]{点数}{てんすう}の\ruby[g]{和}{わ}は
+$$
+(+9) + (-10) + (-1)=-2
+$$
+\noindent
+と\ruby[g]{計算}{けいさん}できるので、\ruby[g]{得点}{とくてん}は$-2$です。
+\columnbreak
+\begin{center}
+\begin{tabular}{c c c}
+\blackcard{9}{\spadesuit} &
+\blackcard{10}{\varheartsuit} &
+\blackcard{A}{\vardiamondsuit} \\
+$+9$ & $-10$ & $-1$
+\end{tabular}
+\end{center}
+\end{multicols}
+\end{itembox}
+
+\ruby[g]{次}{つぎ}のカードの\ruby[g]{点数}{てんすう}の\ruby[g]{和}{わ}を\ruby[g]{答}{こた}えなさい。
+
+(1) 
+\blackcard{7}{\spadesuit}
+\blackcard{8}{\clubsuit}
+\blackcard{5}{\varheartsuit}
+\hspace{5mm}
+(2)
+\blackcard{A}{\spadesuit}
+\blackcard{3}{\clubsuit}
+\blackcard{5}{\varheartsuit}
+\blackcard{2}{\varheartsuit}
+\blackcard{8}{\clubsuit}
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

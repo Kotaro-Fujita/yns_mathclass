@@ -1,0 +1,96 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+documentclass: bxjsarticle
+classoption: 12pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+
+\begin{flushleft}
+\noindent
+\large
+小テスト第1回
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\fbox{\large\makebox[1em]{\text{1}}}\hspace{1pt}次の式を計算しなさい。
+
+(1) $4a(a - 3b)$ \hspace{20mm} (2) $(3x + 6y + 9) \times \frac{2}{3}x$
+
+\vspace{10mm}
+
+(3) $4a(a - 3) - 2a(3a - 6)$ \hspace{20mm} (4) $(4xy^2 + 6x^2y) \div 2x$
+
+\vspace{10mm}
+
+(5) $(6a^2b -9ab^2) \div \frac{3}{2}ab$ \hspace{20mm} (6) $(6a^3 -2a)\div 2a$
+
+\vspace{10mm}
+
+\fbox{\large\makebox[1em]{\text{2}}}\hspace{1pt} 次の式を展開しなさい。
+
+(1) $(x + 6)(y + 2)$ \hspace{20mm} (2) $(a - b)(c - d)$
+
+\vspace{15mm}
+
+(3) $(4x + 1)(3x - 2)$ \hspace{20mm} (4) $(a + 1)(a - b + 2)$
+
+\vspace{15mm}
+
+(5) $(x - 5)(x - 4)$ \hspace{20mm} (6) $(a + 2)(a - 2)$
+
+\vspace{15mm}
+
+(7) $(x + 1)(x + 3)$ \hspace{20mm} (8) $(a - b)^2$
+
+\vspace{15mm}
+
+(9) $(p + q)^2$ \hspace{20mm} (10) $(a - 6b)^2$
+
+\vspace{15mm}
+
+(11) $(7x - 2)(7x + 2)$ \hspace{20mm} (12) $(x + y + 2)(x + y - 3)$
+
+\vspace{15mm}
+
+(13) $(a - b - 6)^2$ \hspace{20mm} (14) $(x - 2)^2 + (x + 4)(x + 1)$
+
+\end{multicols}
+
+\vspace{15mm}
+\hrule
+ここより下は採点しません。ご自由にどうぞ。

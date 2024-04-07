@@ -1,0 +1,217 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+根号を含む式の乗除
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{itembox}[l]{考えてみましょう}
+$\sqrt{2} = 1.414$として、次の値を求めてみましょう。どのようなことがいえるでしょうか。
+
+1. $\sqrt{200}$ \hspace{30mm} 2. $\sqrt{20000}$ \hspace{30mm} 3. $\sqrt{0.02}$ \hspace{30mm} 4. $\sqrt{0.0002}$
+
+\vspace{20mm}
+\end{itembox}
+
+何がいえますか。
+
+\vspace{20mm}
+
+例5. $\sqrt{2000}$の近似値を$\sqrt{20}$の近似値4.472を利用して、求めてみましょう。
+
+\vspace{30mm}
+
+問5. $\sqrt{5} = 2.236, \, \sqrt{50} = 7.071$として、次の値を求めなさい。
+
+(1) $\sqrt{500}$ \hspace{30mm} (2) $\sqrt{5000}$ \hspace{30mm} (3) $\sqrt{0.05}$
+
+\vspace{30mm}
+
+問6. $\sqrt{3} = 1.732, \, \sqrt{30} = 5.477$として、次の値を求めなさい。
+
+(1) $\sqrt{0.3}$ \hspace{30mm} (2) $\sqrt{12}$ \hspace{30mm} (3) $\sqrt{0.75}$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

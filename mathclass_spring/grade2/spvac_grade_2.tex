@@ -1,0 +1,876 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  12pt,a4paper,lualatex,ja=standard]{bxjsarticle}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{indentfirst}
+\parindent = 1em
+\usepackage{dcolumn}
+\newcolumntype{.}{D{.}{.}{-1}}
+\usepackage{caption}
+\captionsetup[table]{name=表}
+\captionsetup[figure]{name=図}
+\usepackage{hyperref}
+\pagestyle{empty}
+\usepackage{multicol}
+\usepackage{ascmac}
+\setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing,arrows,calc}
+\usepackage{tabstackengine}
+\usepackage{xcolor}
+\usepackage{rotating}
+\usepackage{txfonts}
+\usepackage{fancybox}
+\usepackage{dashbox}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems,skins}
+\usepackage{siunitx}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{lastpage}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+\newcounter{kurankaunta}
+\renewcommand{\thekurankaunta}{\arabic{kurankaunta}}
+\newcommand{\kurankaunta}{\refstepcounter{kurankaunta}%
+\thekurankaunta}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{ニ}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{\kana}}}
+\newcommand{\sukuran}[1]{\framebox[1.5cm][c]{\maru{\kurankaunta}}}
+
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\newcommand{\myarc}[1]{
+   \tikz [baseline = (N.base), every node/.style={}] {
+      \node [inner sep = 0pt] (N) {$\mathrm{#1}$};
+      \draw [line width = 0.4pt] plot [smooth, tension=1.3] coordinates {
+         ($(N.north west) + (0.1ex,0)$)
+         ($(N.north)      + (0,0.5ex)$)
+         ($(N.north east) + (0,0)$)
+      };
+   }
+}
+
+\makeatletter
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+\newcommand{\haiten}[1]{%
+\begin{flushright}%
+\footnotesize{＜#1＞}%
+\end{flushright}%
+}
+
+\newcommand{\goku}[1]{\fbox{\phantom{\text{#1}} \quad}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{2}$年）}\\
+
+\vspace{15truemm}
+
+\hspace{2.5em}{\large \gtfamily \bfseries 春休みの宿題}
+
+\vspace{150truemm}
+
+
+\end{center}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\newpage
+
+　 \href{空白ページのための全角スペースあり。}{} \newpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の計算をしなさい。
+
+(1) $3(x -2y) - 2(5x -y)$ \hspace{5mm} (2) $\dfrac{2a-b}{3} - \dfrac{5a -3b}{4}$ \hspace{5mm} (3) $6ab \div 2a \times (-3b)$
+
+\vspace{25mm}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}$x = -5, \, y = 3$のとき、$12x^2y \div 3x$の値を求めなさい。
+
+\vspace{20mm}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の等式を[\hspace{3mm}]の中の文字について解きなさい。
+
+(1) $4x + 3y = 12 \quad [y]$ \hspace{5mm}(2) $S = \dfrac{1}{2}ah \quad [a]$
+
+\vspace{20mm}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の連立方程式を解きなさい。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  x + 2y =1 \\
+  x -y = 4
+\end{array}
+\right.
+$
+\hspace{50mm}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  4x + y = -1 \\
+  x -2y = 11
+\end{array}
+\right.
+$
+
+\vfill
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  2x + 3y =4 \\
+  5x -2y = -9
+\end{array}
+\right.
+$
+\hspace{50mm}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  x + 3y = 10 \\
+  y = 2x -6
+\end{array}
+\right.
+$
+
+\vfill
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  y = 4x -2 \\
+  y = x + 4
+\end{array}
+\right.
+$
+\hspace{50mm}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  x + 2y =1 \\
+  x = 4
+\end{array}
+\right.
+$
+
+\vfill
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+x - y = 5x + y = 3
+$
+\hspace{50mm}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+$
+\left\{
+\begin{array}{l}
+  0.4x - 0.1y = 1.3 \\
+  4x - 1 = -\dfrac{y}{3}
+\end{array}
+\right.
+$
+
+\vfill
+
+\newpage
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の問に答えなさい。
+\setcounter{skaunta}{0}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}1次関数$y = 7x + 2$の変化の割合をいいなさい。
+
+\vfill
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}1次関数$y = -\dfrac{3}{4}x + 1$で,$x$の増加量が$8$のときの$y$の増加量を求めなさい。
+
+\vfill
+
+\phantom{(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}1次関数$y = \dfrac{4}{3}x + 2$のグラフをかけ。}
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の問に答えなさい。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}次の方程式$\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{ア}}}} \sim  \raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{エ}}}}$のグラフをかきなさい。
+
+$\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{ア}}}}\, -2x + y = 3$ \hfill $\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{イ}}}} \, y = 2$ \hfill $\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{ウ}}}} x = -3$ \hfill $\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{エ}}}} \, -3x - y = 1$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.45]
+\draw [help lines] (-6,-6) grid (6,6);
+\draw [thick] (-6,0) -- (6,0) node [right]{$x$};
+\draw [thick] (0,-6) -- (0,6) node [above]{$y$};
+\draw (0,0) node [below left] {O};
+\draw (-5,0) node [below] {$-5$};
+\draw (5,0) node [below] {$5$};
+\draw (0,5) node [left] {5};
+\draw (0,-5) node [left] {$-5$};
+\end{tikzpicture}
+\end{center}
+
+\vfill
+
+\newpage
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}次の方程式$\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{オ}}}} \sim \raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{ク}}}}$のグラフをかきなさい。
+
+$\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{オ}}}} \, 5y = -15$ \hfill $\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{カ}}}} \, 4x - 3y = -6$ \hfill $\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{キ}}}} \, x + y + 2 = 0$ \hfill $\raise 0.2ex\hbox{\textcircled{\scriptsize{\mbox{ク}}}} \, 4x = 16$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.45]
+\draw [help lines] (-6,-6) grid (6,6);
+\draw [thick] (-6,0) -- (6,0) node [right]{$x$};
+\draw [thick] (0,-6) -- (0,6) node [above]{$y$};
+\draw (0,0) node [below left] {O};
+\draw (-5,0) node [below] {$-5$};
+\draw (5,0) node [below] {$5$};
+\draw (0,5) node [left] {5};
+\draw (0,-5) node [left] {$-5$};
+\end{tikzpicture}
+\end{center}
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の問に答えなさい。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}五角形の外角の和は何度ですか。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}十一角形の内角の和は何度ですか。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}二十二角形の内角の和は何度ですか。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}正十角形の1つの内角の大きさは何度ですか。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}正九角形の1つの外角は何度ですか。
+
+\vspace{10mm}
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}下の図で、$\angle x$の大きさを求めなさい。ただし、(1)、(2)、(4)では$l /\!/m$とします。
+
+\begin{multicols}{3}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.8]
+\begin{scope}
+\clip(-1.32,-3.0) rectangle (3.0,0.7);
+\draw [shift={(2.48,-0.32)}] (0,0) -- (41.96060043107308:0.3) arc (41.96060043107308:180.:0.3) -- cycle;
+\draw [shift={(0.1,-2.46)}] (0,0) -- (0.:0.4) arc (0.:41.96060043107309:0.4) -- cycle;
+\draw (-1.32,-2.46)-- (3.0,-2.46);
+\draw [domain=-4.3:17.26] plot(\x,{(-0.96-0.*\x)/3.});
+\draw [domain=-4.3:17.26] plot(\x,{(--6.0688-2.14*\x)/-2.38});
+\end{scope}
+\draw (-1.32,-2.46) node[left] {$m$};
+\draw (-1.32,-0.3) node[left] {$l$};
+\draw[color=black] (2.3,0.27) node {$x$};
+\draw[color=black] (0.96,-2.15) node {$42\textrm{\ensuremath{^\circ}}$};
+\end{tikzpicture}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.8]
+\begin{scope}
+\clip(-1.6,-3.0) rectangle (2.4,0.7);
+\draw [shift={(-1.4532025771065582,-1.182716461415865)}] (0,0) -- (-22.894855939768597:0.25274466284575214) arc (-22.894855939768597:24.09272185806487:0.25274466284575214) -- cycle;
+\draw [shift={(0.47608168261601636,-0.32)}] (0,0) -- (180.:0.5476134361657963) arc (180.:204.09272185806486:0.5476134361657963) -- cycle;
+\draw [shift={(1.5713085549476091,-2.46)}] (0,0) -- (0.:0.25274466284575214) arc (0.:157.10514406023142:0.25274466284575214) -- cycle;
+\draw [domain=-3.5931073892005934:5.488850829056767] plot(\x,{(-0.96-0.*\x)/3.});
+\draw (0.47608168261601636,-0.32)-- (-1.4532025771065582,-1.182716461415865)-- (1.5713085549476091,-2.46);
+\draw [domain=-3.5931073892005934:5.488850829056767] plot(\x,{(-7.38-0.*\x)/3.});
+\end{scope}
+\draw[color=black] (-0.87,-1.1532295840838602) node[right] {$46\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (-0.23160337335209014,-0.45396935021061385) node[above] {$x$};
+\draw[color=black] (1.7819291073190686,-2.10) node[above] {$156\textrm{\ensuremath{^\circ}}$};
+\draw (-1.6,-2.46) node[left] {$m$};
+\draw (-1.6,-0.3) node[left] {$l$};
+\end{tikzpicture}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.8]
+\begin{scope}
+\clip(-1.6,-3.0) rectangle (2.4,1.85);
+\draw (0.6867022349874774,0.5443720680301056) -- (-1.217307558450522,-2.016773848806845) -- (1.5460340886630346,-1.974649738332553) -- cycle;
+\draw [shift={(0.6867022349874774,0.5443720680301056)}] (0,0) -- (108.83641418112641:0.25274466284575214) arc (108.83641418112641:233.37211054329245:0.25274466284575214) -- cycle;
+\draw [shift={(-1.217307558450522,-2.016773848806845)}] (0,0) -- (0.8733436290601997:0.25274466284575214) arc (0.8733436290601997:53.37211054329248:0.25274466284575214) -- cycle;
+\draw [shift={(1.5460340886630346,-1.974649738332553)}] (0,0) -- (108.83641418112641:0.25274466284575214) arc (108.83641418112641:180.8733436290602:0.25274466284575214) -- cycle;
+\draw [domain=-2.733775535525034:1.5460340886630346] plot(\x,{(-2.1976141627209373--2.519021806362659*\x)/-0.8593318536755572});
+\end{scope}
+\draw[color=black] (0.5,0.565434123267252) node[left] {$125\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (-0.8297657420870344,-1.9) node[below] {$52\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (1.158492272299549,-1.7850912411982391) node {$x$};
+\end{tikzpicture}
+\end{multicols}
+
+\begin{multicols}{3}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=0.8]
+\begin{scope}
+\clip(-1.6,-3.0) rectangle (2.6,0.5);
+\draw [shift={(0.5771795477543171,-0.32)}] (0,0) -- (0.:0.25274466284575214) arc (0.:70.09018990725646:0.25274466284575214) -- cycle;
+\draw [shift={(0.09944396498145282,-1.6390243013350516)}] (0,0) -- (-109.90981009274356:0.25274466284575214) arc (-109.90981009274356:30.044160069925958:0.25274466284575214) -- cycle;
+\draw [shift={(-1.32,-2.46)}] (0,0) -- (0.:0.3791169942686282) arc (0.:30.044160069925976:0.3791169942686282) -- cycle;
+\draw [domain=-3.593107389200593:5.0591849022189885] plot(\x,{(-0.96-0.*\x)/3.});
+\draw [domain=-3.593107389200593:5.0591849022189885] plot(\x,{(-7.38-0.*\x)/3.});
+\draw [domain=-3.593107389200593:5.0591849022189885] plot(\x,{(--1.48319099466687-2.14*\x)/-0.7750836327269732});
+\draw [domain=-3.593107389200593:5.0591849022189885] plot(\x,{(-6.2772--2.14*\x)/3.7});
+\end{scope}
+\draw[color=black] (0.92,-0.13382611060599475) node[right] {$70\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (0.43395757214172426,-1.7850912411982394) node[right] {$x$};
+\draw[color=black] (-0.89,-2.4) node[below] {$30\textrm{\ensuremath{^\circ}}$};
+\draw (-1.6,-2.46) node[left] {$m$};
+\draw (-1.6,-0.3) node[left] {$l$};
+\end{tikzpicture}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1.4]
+\begin{scope}
+\clip(-1.3,-2.5) rectangle (0.8,0.8);
+\draw [shift={(-0.29900195011095404,-0.8625732218112449)}] (0,0) -- (42.78524487268073:0.25274466284575214) arc (42.78524487268073:137.78524487268075:0.25274466284575214) -- cycle;
+\draw [shift={(-0.29900195011095404,-0.8625732218112449)}] (0,0) -- (171.6768795548645:0.25274466284575214) arc (171.6768795548645:221.6768795548645:0.25274466284575214) -- cycle;
+\draw [shift={(-0.29900195011095404,-0.8625732218112449)}] (0,0) -- (-42.21475512731927:0.25274466284575214) arc (-42.21475512731927:-8.323120445135478:0.25274466284575214) -- cycle;
+\draw [domain=-3.652081143864599:5.000211147554982] plot(\x,{(-0.9061493576629651-0.7250381001409278*\x)/0.7991919229402396});
+\draw [domain=-3.652081143864599:5.000211147554982] plot(\x,{(--0.46394411162362154-0.73295952225268*\x)/-0.79193327691669});
+\draw [domain=-3.652081143864599:5.000211147554982] plot(\x,{(-0.8294487106994136-0.13388852658629502*\x)/0.9151869779762016});
+\end{scope}
+\draw[color=black] (-0.341126060585246,-0.4623941723054708) node[above] {$95\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (-0.8213409199921751,-0.959458675902116) node[left] {$50\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (0.08853986625253257,-1.0184324305661245) node {$x$};
+\end{tikzpicture}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,scale=1.5]
+\begin{scope}
+\clip(-2.6,-2.5) rectangle (1.9672751934059567,0.8);
+\draw [shift={(-2.405207473825555,-1.5112845231153405)}] (0,0) -- (0.24381035610408444:0.25274466284575214) arc (0.24381035610408444:32.243810356104085:0.25274466284575214) -- cycle;
+\draw [shift={(-0.4253742815338301,-1.502859701020482)}] (0,0) -- (178.47923033885624:0.25274466284575214) arc (178.47923033885624:308.47923033885627:0.25274466284575214) -- cycle;
+\draw [shift={(0.16720130598795951,-2.2483838757432935)}] (0,0) -- (102.97750130006334:0.25274466284575214) arc (102.97750130006334:128.97750130006332:0.25274466284575214) -- cycle;
+\draw(-0.30759863161230455,-0.18810870123506507) -- (-2.405207473825555,-1.5112845231153405) -- (-0.4253742815338301,-1.502859701020482) -- (0.16720130598795951,-2.2483838757432935) -- cycle;
+\draw [shift={(-0.30759863161230455,-0.18810870123506507)}] (0,0) -- (-147.75618964389594:0.25274466284575214) arc (-147.75618964389594:-77.02249869993669:0.25274466284575214) -- cycle;
+\draw (-0.30759863161230455,-0.18810870123506507)-- (-2.405207473825555,-1.5112845231153405);
+\draw (-2.405207473825555,-1.5112845231153405)-- (-0.4253742815338301,-1.502859701020482);
+\draw (-0.4253742815338301,-1.502859701020482)-- (0.16720130598795951,-2.2483838757432935);
+\draw (0.16720130598795951,-2.2483838757432935)-- (-0.30759863161230455,-0.18810870123506507);
+\end{scope}
+\draw[color=black] (-1.983966369082635,-1.5) node[below] {$32\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (-0.694968588569299,-1.869339462146822) node {$130\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (0.25,-2.0883848366131397) node[right] {$26\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (-0.4422239257235469,-0.5634920374437715) node {$x$};
+\end{tikzpicture}
+
+\end{multicols}
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の$\angle x$の大きさを求めなさい。
+
+\begin{multicols}{2}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=22mm]{media/tu1.jpg}
+
+\end{center}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=22mm]{media/tu2.jpg}
+
+\end{center}
+
+\end{multicols}
+
+\vspace{5mm}
+
+\begin{multicols}{2}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=35mm]{media/tu3.jpg}
+
+\end{center}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=35mm]{media/tu6.jpg}
+
+\end{center}
+
+\end{multicols}
+
+\newpage
+
+\begin{multicols}{2}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=22mm]{media/tu7.jpg}
+
+\end{center}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=28mm]{media/tu8.jpg}
+
+\end{center}
+
+\end{multicols}
+
+\vspace{5mm}
+
+\begin{multicols}{2}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}$l /\!/m$
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=30mm]{media/tu9.jpg}
+
+\end{center}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}$\triangle$ABCは正三角形で$l /\!/m$
+
+\begin{center}
+\begin{tikzpicture}[scale=0.6,line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-2.,-2.) rectangle (6.,4.3);
+\draw [shift={(1.38730940174405,3.02)},line width=0.8pt] (0,0) -- (-35.10648457232839:0.8253747651743738) arc (-35.10648457232839:0.:0.8253747651743738) -- cycle;
+\draw [shift={(2.1549541808120143,0.)},line width=0.8pt] (0,0) -- (0.:0.8253747651743738) arc (0.:24.893515427671613:0.8253747651743738) -- cycle;
+\draw [line width=0.8pt,domain=-2.:6.] plot(\x,{(-0.-0.*\x)/5.56});
+\draw [line width=0.8pt,domain=-2.:6.] plot(\x,{(--16.7912-0.*\x)/5.56});
+\draw [line width=0.8pt] (0.42,3.7)-- (0.,-1.);
+\draw [line width=0.8pt] (0.,-1.)-- (4.280319397786862,0.9862693304105346);
+\draw [line width=0.8pt] (4.280319397786862,0.9862693304105346)-- (0.42,3.7);
+\draw (0.6117616632565556,4.1) node {A};
+\draw (-0.1,-1.4576641538312174) node {B};
+\draw (4.6285855204385085,0.9084101730019845) node {C};
+\draw[color=black] (3.0,2.6692096720406466) node {$35\textrm{\ensuremath{^\circ}}$};
+\draw[color=black] (3.5280858335393432,0.30313534520744445) node {$x$};
+\draw (-1.7, 3.5) node{$l$};
+\draw (-1.7, -0.5) node{$m$};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の四角形は平行四辺形である。$x, \, y$の値を求めよ。
+
+\begin{multicols}{2}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=30mm]{img/img1.jpg}
+
+\end{center}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=30mm]{img/img2.jpg}
+
+\end{center}
+
+\end{multicols}
+
+\vspace{5mm}
+
+\begin{multicols}{2}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=30mm]{img/img3.jpg}
+
+\end{center}
+
+\columnbreak
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}
+
+\begin{center}
+\def\@captype{figure}
+\includegraphics[height=30mm]{img/img4.jpg}
+
+\end{center}
+
+\end{multicols}
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}1つのさいころを投げるとき、1の目が出る確率は$\frac{1}{6}$です。この確率の意味を正しく説明しているのは、次の$\raise 0.2ex\hbox{\textcircled{\scriptsize{ア}}} \sim \raise 0.2ex\hbox{\textcircled{\scriptsize{ウ}}}$のうち、どれですか。
+
+\begin{itemize}
+\item[\raise 0.2ex\hbox{\textcircled{\scriptsize{ア}}}] 6回投げるとき、そのうち、1回はかならず1の目が出る。
+
+\item[\raise 0.2ex\hbox{\textcircled{\scriptsize{イ}}}] 6回投げるとき、そのうち1回しか1の目は出ない。
+
+\item[\raise 0.2ex\hbox{\textcircled{\scriptsize{ウ}}}] 3000回投げるとき、500回ぐらい1の目が出る。
+\end{itemize}
+
+\vfill
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}500円玉、100円玉、50円玉の3枚の硬貨を同時に投げます。次の問に答えなさい。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}表裏の出方は何通りありますか。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}1枚だけ表になる確率
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}3枚とも裏となる確率
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}少なくとも1枚は表となる確率
+
+\vspace{10mm}
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}1から20までの数が1つずつ書かれた20枚のカードがあります。このカードを箱に入れて、カードを取り出します。次の問に答えなさい。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}1枚のカードを取り出すとき、取り出したカードが23である確率を求めなさい。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}1枚のカードを取り出すとき、取り出したカードが3の倍数である確率を求めなさい。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}2枚のカードを取り出すとき、取り出したカードの和が5になる確率を求めなさい。
+
+\vspace{10mm}
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}次の確率を求めなさい。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}大小2つのさいころを投げるとき、目の和が7になる確率。
+
+\vspace{10mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}赤玉4個、黄玉2個、青玉3個がはいっている箱から玉を1個取り出すとき、赤玉が出る確率。
+
+\vspace{10mm}
+
+\vfill
+\newpage
+
+\setcounter{skaunta}{0}
+
+\noindent\fbox{\large\makebox[1em]{\text{\refstepcounter{kaunta}%
+\arabic{kaunta}}}} \hspace{1pt}A, B, C, Dの4つのグループが10点満点のゲームを行いました。
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}Aグループの得点は下のようになりました。四分位数と四分位範囲をそれぞれ求めなさい。
+
+$$
+3\quad 4\quad 9\quad 3\quad 6\quad 5\quad 7 \qquad \mbox{（単位　点）}
+$$
+
+\vfill
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}Bグループの四分位数と最大値、最小値は下の表のようになりました。これらの値をもとに、下の図の箱ひげ図をかき入れなさい。（単位　点）
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+最小値 & 第1四分位数 & %
+\begin{tabular}{c}%
+中央値\\（第2四分位数）%
+\end{tabular}%
+& 第3四分位数 & 最大値 \\
+\hline
+1 & 3 & 4 & 5 & 7 \\
+\hline
+\end{tabular}
+
+\def\@captype{figure}
+\includegraphics{img/image1.png}
+
+
+\end{center}
+
+\vspace{5mm}
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}Cグループの箱ひげ図は、上の図のようになりました。箱ひげ図から中央値（第2四分位数）、四分位範囲、範囲を読み取りなさい。
+
+\vfill
+
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}四分位範囲や箱ひげ図からA, B, Cの3つのグループのうち、中央値のまわりの散らばりの程度が大きいのは、どのグループであるといえますか。
+
+\vfill
+
+\begin{multicols}{3}
+(\text{\refstepcounter{skaunta}%
+\arabic{skaunta}})\hspace{2.5pt}右の図は、Dグループの得点をヒストグラムに表したものです。これに対応する箱ひげ図を、ア$\sim$ウの中から選び、記号で答えなさい。
+
+\columnbreak
+
+\def\@captype{figure}
+\includegraphics{img/image3.png}
+
+
+\columnbreak
+
+\def\@captype{figure}
+\includegraphics{img/image2.png}
+
+
+\end{multicols}
+
+\vfill
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{flushleft}
+
+\end{document}

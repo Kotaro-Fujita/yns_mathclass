@@ -1,0 +1,194 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{answerbox}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{二}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{#1}}}
+
+\newcommand{\tokuten}{%
+\begin{flushright}%
+\begin{tabular}{@{}r}%
+\begin{tikzpicture}%
+  \draw (-.5, 0) rectangle (2.5, 2);%
+  \draw (2.5, 0) rectangle (5.5, 2);%
+  \draw (5.5, 0) rectangle (9, 2);%
+  \draw (1, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{知・技}};%
+  \draw (4, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{思・判・表}};%
+  \draw (7.2, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{合計}};%
+\end{tikzpicture}%
+\end{tabular}%
+\end{flushright}%
+}
+
+\answerbox{Swidth=10mm}
+
+\large
+3年生数学科2学期期末テスト 解答用紙\maru{1}
+
+\begin{flushright}
+組(\hspace{5mm})\hspace{1pt}番号(\hspace{5mm})\hspace{1pt}名前(\hspace{50mm})
+\end{flushright}
+
+\hrule
+
+\begin{multicols}{2}
+
+\begin{ansbox}
+\pbox*{1}
+\pbox*{1}
+\pbox*{1}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{1}
+\ptxt{1}{l}{E\hspace{5em}F\hspace{5em}G\hspace{5em}H}
+\pbox[3]{3}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*[2]{8}
+\ptxt{1}{l}{（組）}
+\ptxt{2}{l}{（条件）}
+\ptxt{3}{l}{（組）}
+\ptxt{4}{l}{（条件）}
+\ptxt{5}{l}{（組）}
+\ptxt{6}{l}{（条件）}
+\ptxt{7}{l}{（組）}
+\ptxt{8}{l}{（条件）}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*{1}[height=70mm]
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*[2]{2}
+\ptxt{1}{l}{相似比}
+\ptxt{2}{l}{面積}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox[4]{4}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox[4]{4}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{1}
+\pbox{1}[height=25mm]
+\ptxt{2}{l}{記号\hspace{5em}理由}
+\sxchg{(3)}{\phantom{3}}
+\pbox{1}[height=25mm]
+\ptxt{3}{l}{記号\hspace{5em}理由}
+\sxchg{(4)}{\phantom{4}}
+\pbox{1}[height=25mm]
+\ptxt{4}{l}{記号\hspace{5em}理由}
+\sxchg{(5)}{\phantom{5}}
+\pbox{1}[height=25mm]
+\ptxt{5}{l}{記号\hspace{5em}理由}
+\end{ansbox}
+
+\end{multicols}
+
+\newpage
+
+\large
+3年生数学科2学期期末テスト 解答用紙\maru{2}
+
+\begin{flushright}
+組(\hspace{5mm})\hspace{1pt}番号(\hspace{5mm})\hspace{1pt}名前(\hspace{50mm})
+\end{flushright}
+
+\hrule
+
+\begin{multicols}{2}
+
+\begin{ansbox}
+\pbox[2]{2}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*{1}[height=80mm]
+\end{ansbox}
+
+\vspace{50mm}
+
+\tokuten
+
+\columnbreak
+
+\phantom{空白}
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

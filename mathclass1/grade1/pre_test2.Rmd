@@ -1,0 +1,321 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+documentclass: bxjsarticle
+classoption: 12pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+
+\begin{flushleft}
+\noindent
+\large
+小テスト第2回となるはずだったもの
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\question 次の説明にあう言葉を下の語群から選び、記号で答えなさい。
+
+\squestion 数直線上で0が対応している点 \hspace{10mm} \squestion 加法
+
+\vspace{10mm}
+
+\squestion $4 +9 -3$という式において、$+4, \, +9. \, -3$のこと
+\vspace{10mm}
+
+\begin{itembox}[l]{語群}
+ア. 負の数 \hspace{5mm} イ. 絶対値 \hspace{5mm} ウ. 原点 \hspace{5mm} エ. たし算 \hspace{5mm} オ. かけ算 \hspace{5mm} カ. ひき算　\hspace{5mm} キ. 原点 \hspace{5mm} ク. 項
+\end{itembox}
+
+\setcounter{skaunta}{0}
+
+\question 次の各組の数の大小を、不等号を使って表しなさい。
+
+\squestion $4, \, 5$ \hspace{5mm} \squestion $-\dfrac{3}{8}, \, -\dfrac{5}{8}$ \hspace{5mm} \squestion $+6, \, -9, \, 0$
+
+\vspace{15mm}
+
+\setcounter{skaunta}{0}
+
+\question 絶対値が2以上5未満の整数はいくつありますか。
+
+\vspace{15mm}
+
+\columnbreak
+
+\question 次の計算をしなさい。
+
+\squestion $20 - (-13)$ \hspace{15mm} \squestion $-11 + 5$ \hspace{15mm} \squestion $-7.8 + 4.8$
+
+\vspace{15mm}
+
+\squestion $-6.3 -1.8$ \hspace{15mm} \squestion $\dfrac{2}{3} - \dfrac{5}{6}$ \hspace{15mm} \squestion $-\dfrac{5}{7} - \biggl(-\dfrac{3}{4}\biggl)$
+
+\vspace{15mm}
+
+\squestion $-8 +7 -9$ \hspace{15mm} \squestion $-16 - (-14) +8$ \hspace{15mm} \squestion $24 -15 -22 +13$ 
+
+\vspace{15mm} 
+
+\squestion $12 + (-31) -45 - (-31)$
+
+\vspace{15mm}
+
+\setcounter{skaunta}{0}
+
+\question $a$が正の数、$b$が負の数のとき、いつでも成り立つ関係を、次のア〜エから選びなさい。
+
+ア. $a + b$は0になる。
+
+イ. $a - b$は正の数になる。
+
+ウ. $a - b$は負の数になる。
+
+エ. $3 + a$は$3 + b$より小さくなる。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

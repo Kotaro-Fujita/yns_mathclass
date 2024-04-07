@@ -1,0 +1,546 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+documentclass: bxjsarticle
+classoption: 12pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+
+\begin{flushleft}
+\noindent
+\large
+テスト対策
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\question 次の計算をしなさい。
+
+\squestion $(2x + y) \times 7x$ \hspace{30mm} \squestion $(3a - b) \times 4a$
+
+\vspace{20mm}
+
+\squestion $(5a -6b)\times (-2b)$ \hspace{30mm} \squestion $4x(2x-1)$
+
+\vspace{20mm}
+
+\squestion $2x(x + 3y)$ \hspace{30mm} \squestion $-3a(8a + 7b)$
+
+\vspace{20mm}
+
+\squestion $-2x(-3x + 2y)$ \hspace{30mm} \squestion $(x -3y -2)\times 4x$
+
+\vspace{20mm}
+
+\squestion $-3x(4x -3y + 2)$ \hspace{30mm} \squestion $3a(-a +2b -1)$
+
+\vspace{20mm}
+
+\squestion $(5x^2 -10x) \div 5x$ \hspace{30mm} \squestion $(8a^2 - 2a)\div2a$
+
+\vspace{20mm}
+
+\squestion $(6ax + 3ay) \div (-3a)$ 
+
+\vspace{20mm}
+
+\squestion $(-12a^2b + 4ab^2) \div (-4ab)$
+
+\vspace{20mm}
+
+\squestion $(6xy - 4xy^2)\div \dfrac{2}{5}$ \hspace{30mm} \squestion $(-10x^2 + x) \div \dfrac{x}{2}$
+
+\vspace{20mm}
+
+\squestion $(3x^2 + 6xy)\div(-\dfrac{3}{4}x)$ \hspace{30mm} \squestion $(15x^2y - 10xy^2)\div \dfrac{5}{2}xy$
+
+\vspace{20mm}
+
+\squestion $(x + 7)(x + 4)$ \hspace{30mm} \squestion $(x-8)(x+1)$
+
+\vspace{20mm}
+
+\squestion $(x -4y)(x -9y)$ \hspace{30mm} \squestion $(x+4)^2$
+
+\vspace{20mm}
+
+\squestion $(3x -2)^2$ \hspace{30mm} \squestion $(4x-3y)^2$
+
+\vspace{20mm}
+
+\squestion $(\dfrac{1}{2}x + 2)^2$ \hspace{30mm} \squestion $(5 + a)(5 - a)$
+
+\vspace{20mm}
+
+\squestion $(x -7y)(x +7y)$ \hspace{30mm} \squestion $(1 -x)^2$
+
+\vspace{20mm}
+
+
+\squestion $(-5x +1)(5x -1)$ \hspace{30mm} \squestion $(a - \dfrac{1}{2})(a + \dfrac{1}{4})$
+
+\vspace{20mm}
+
+\squestion $(x-7)(x+7) - (x-6)^2$
+
+\vspace{20mm}
+
+\squestion $(a +b)^2 - (a -b)^2$
+
+\vspace{20mm}
+
+\squestion $(2x +y)^2 -(x -3y)(x +3y)$ 
+
+\vspace{20mm} 
+
+\squestion $(x +1)(x +5) + (x -2)(x -4)$
+
+\vspace{20mm} 
+
+\squestion $(a -2b +3)(a -2b -3)$ \hspace{30mm} \squestion $(x +y -7)^2$
+
+\vspace{20mm}
+
+\squestion $(x +y)(x +y -5)$ \hspace{30mm} \squestion $(x +3y -2)(x +3y -9)$
+
+\vspace{20mm}
+\setcounter{skaunta}{0}
+
+\question 次の式を因数分解しなさい。
+
+\squestion $mx - my$ \hspace{30mm} \squestion $2ab -4b^2$
+
+\vspace{20mm}
+
+\squestion $axy +ay +a$ \hspace{30mm} \squestion $-14a^2 -21ab +7a$
+
+\vspace{20mm}
+
+\squestion $18a^2b -12ab$ \hspace{30mm} \squestion $4abc +16ab -8bc$
+
+\vspace{20mm}
+
+\squestion $x^2 +10x +25$ \hspace{30mm} \squestion $a^2 -14a +49$
+
+\vspace{20mm}
+
+\squestion $x^2 - 64$ \hspace{30mm} \squestion $25a^2 -16b^2$
+
+\vspace{20mm}
+
+\squestion $4a^2 -1$ \hspace{30mm} \squestion $y^2 +12y +36$
+
+\vspace{20mm}
+
+\squestion $x^2 +4x +3$ \hspace{30mm} \squestion $x^2 +x -2$
+
+\vspace{20mm}
+
+\squestion $x^2 -x -6$ \hspace{30mm} \squestion $x^2 -3x -18$
+
+\vspace{20mm}
+
+\squestion $x^2 +5x -14$ \hspace{30mm} \squestion $x^2 -6x -16$
+
+\vspace{20mm}
+
+\squestion $x^2 -8x +12$ \hspace{30mm} \squestion $a^2 +2a -3$
+
+\vspace{20mm}
+
+\squestion $36y^2 + 84y +49$ \hspace{30mm} \squestion $100 -20y + y^2$
+
+\vspace{20mm}
+
+\squestion $28 -16a +a^2$ \hspace{30mm} \squestion $-2x -3 +x^2$
+
+\vspace{20mm}
+
+\squestion $4x^2 -12x -40$ \hspace{30mm} \squestion $-3ax^2 + 6ax -3a$
+
+\vspace{20mm}
+
+\squestion $x^2y -y$ \hspace{30mm} \squestion $a(x +y) -3(x +y)$
+
+\vspace{20mm}
+
+\squestion $(a + b)^2 -4(a + b) +4$ \hspace{30mm} \squestion $(a -b)^2 -c^2$
+
+\vspace{20mm}
+
+\setcounter{skaunta}{0}
+
+\question 次の式を計算しなさい。
+
+\squestion $26^2 -14^2$ \hspace{30mm} \squestion $78^2 -22^2$
+
+\vspace{20mm}
+
+\squestion $49^2$ \hspace{30mm} \squestion $57 \times 63$
+
+\vspace{20mm}
+
+\squestion $17^2 -13^2$ \hspace{30mm} \squestion $45^2 -35^2$
+
+\vspace{20mm}
+
+\squestion $76^2 -24^2$ \hspace{30mm} \squestion $198^2 - 98^2$
+
+\vspace{20mm}
+
+\squestion $19^2$ \hspace{30mm} \squestion $77 \times 83$
+
+\vspace{20mm}
+
+\squestion $102^2$ \hspace{30mm} \squestion $41 \times 39$ 
+
+\vspace{20mm}
+
+\squestion $99^2$
+
+\vspace{20mm}
+
+\setcounter{skaunta}{0}
+
+\question $x = 13, \, y = 12$のとき、次の式の値を計算しなさい。
+
+\squestion $x^2 -2xy +y^2$ \hspace{30mm} 
+
+\vspace{20mm}
+
+\squestion $(x +2y)(x -2y) - (x -y)(x +4y)$
+
+\vspace{20mm}
+
+\setcounter{skaunta}{0}
+
+\question $x = 22$のとき、次の式の値を求めなさい。
+
+\squestion $x^2 -9x -36$
+
+\vspace{20mm}
+
+\squestion $(4 -x)(4 +x) + (x -6)(x +1)$
+
+\end{multicols}
+
+\newpage
+
+\setcounter{kaunta}{0}
+\setcounter{skaunta}{0}
+
+\begin{flushleft}
+\noindent
+\large{難問に挑戦}
+\end{flushleft}
+
+\vspace{1mm}
+\hrule
+**※高難易度につき、取扱注意。下手に触ると火傷するぜ。**
+
+\begin{multicols}{2}
+
+\question 次の計算をしなさい。
+
+\squestion $2x(3x -1) - (6x^2 +5x -9)$ \hspace{30mm} \squestion $(3x -4)(x +2)$ 
+
+\vspace{20mm}
+
+\squestion $(2x +y)(2x -y) +2y^2$  \hspace{30mm} \squestion $x(x -5) - (x -3)^2$
+
+\vspace{20mm}
+
+\squestion $(x -1)(x +2) - x(x -4)$ \hspace{30mm} \squestion $(x -3)(x +5) - (x -2)^2$ 
+
+\vspace{20mm}
+
+\squestion $(x +5)^2 -(x +3)(x -3)$ 
+
+\vspace{20mm} 
+
+\squestion $(2x +1)^2 -(x +2)(x -3)$ 
+
+\vspace{20mm}
+
+\squestion $(3x +y)(3x -4y) - (x +2y)(x -2y)$
+
+\vspace{20mm}
+
+\squestion $(2x +1)^2 +3(x -1)(x +1)$
+
+\vspace{20mm}
+
+\setcounter{skaunta}{0}
+
+\question 次の式を因数分解しなさい。
+
+\squestion $x(x +7) -8$ \hspace{20mm} \squestion $(x +1)(x -7) -20$
+
+\vspace{20mm}
+
+\squestion $(2x +3)(2x -3) - (x -1)(3x +1)$ 
+
+\vspace{20mm}
+
+\squestion $(2x -1)(x +1) - (x +1)^2$
+
+\vspace{20mm}
+
+\squestion $(x -5)^2 +2(x -5) -63$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

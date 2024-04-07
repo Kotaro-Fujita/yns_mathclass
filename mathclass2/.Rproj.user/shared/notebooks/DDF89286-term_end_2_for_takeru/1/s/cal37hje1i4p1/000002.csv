@@ -1,0 +1,8 @@
+"0","knitr::opts_chunk$set(warning = FALSE, "
+"0","                      echo = FALSE, "
+"0","                      message = FALSE,"
+"0","                      fig.width = 7,"
+"0","                      fig.height = 5)"
+"0","if (knitr::is_latex_output()) {"
+"0","  knitr::opts_chunk$set(dev = ""cairo_pdf"")"
+"0","}"

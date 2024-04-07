@@ -1,0 +1,146 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=20truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\begin{flushleft}
+\noindent
+\large
+トレーニング
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+右の図のように、関数$y = -x +8 \cdots \cdots \maru{1}$のグラフがあります。$\maru{1}$のグラフと$x$軸、$y$軸との交点をそれぞれA、Bとします。$x$軸上に点Pをとり、線分CPと$y$軸との交点をQとします。点Oは原点とします。三角形の面積が$\triangle\mbox{BPQ} = \triangle \mbox{COQ}$となるとき、点Pの座標を求めなさい。
+
+\columnbreak
+
+\begin{tikzpicture}[scale=0.5]
+\draw(-5,0)--(5,0)node[right]{$x$};
+\draw(0,-1)--(0,5) node[above]{$y$};
+\draw(0,0)node[below left]{O};
+\begin{scope} \clip (-2,-1) rectangle (5,5);
+\draw [samples=100,smooth,thick] plot (\x,{-\x +3});
+\draw [thick] (-2,0)--(4/3,5/3);
+\end{scope}
+\draw(-2,0) node[below]{C};
+\draw(0,0.8) node[right]{Q};
+\draw(4/3,5/3) node[right]{P};
+\draw(3,0) node[below]{A};
+\draw(-2,5) node[above]{\maru{1}};
+\end{tikzpicture}
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

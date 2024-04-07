@@ -1,0 +1,118 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \usepackage{answerbox}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\answerbox{Swidth=10mm}
+
+\large
+1年生数学科2学期中間テスト 解答用紙
+
+\begin{flushright}
+組(\hspace{5mm})\hspace{1pt}番号(\hspace{5mm})\hspace{1pt}名前(\hspace{50mm})
+\end{flushright}
+
+\hrule
+
+\begin{multicols}{2}
+
+\begin{ansbox}
+\sxchg{(1)}{\maru{\mbox{ア}}}
+\sxchg{(2)}{\maru{\mbox{イ}}}
+\sxchg{(3)}{\maru{\mbox{ウ}}}
+\sxchg{(4)}{\maru{\mbox{エ}}}
+\sxchg{(5)}{\maru{\mbox{オ}}}
+\sxchg{(6)}{\maru{\mbox{カ}}}
+\pbox[3]{6}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox[4]{25}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*{2}
+\ptxt{1}{l}{記号}
+\ptxt{2}{l}{正しい解}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*{1}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox{2}
+\end{ansbox}
+
+\begin{ansbox}
+\pbox*{1}
+\end{ansbox}
+
+\columnbreak
+
+\begin{ansbox}
+\pbox*[2]{2}
+\ptxt{1}{l}{$\,(1)\,$式}
+\ptxt{2}{l}{答え}
+\sxchg{(3)}{(2)}
+\pbox{1}[height=70mm]
+\end{ansbox}
+
+\vfill
+
+\begin{flushright}
+\begin{tabular}{@{}r}
+\begin{tikzpicture}
+  \draw (-.5, 0) rectangle (2.5, 2);
+  \draw (2.5, 0) rectangle (5.5, 2);
+  \draw (5.5, 0) rectangle (9, 2);
+  \draw (1, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{知・技}};
+  \draw (4, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{思・判・表}};
+  \draw (7.2, -0.3) node[inner sep=1pt, fill=white]{\footnotesize{合計}};
+\end{tikzpicture}
+\end{tabular}
+\end{flushright}
+
+\end{multicols}

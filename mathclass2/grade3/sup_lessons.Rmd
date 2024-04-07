@@ -1,0 +1,722 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=25truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+\newcommand{\jsim}{\mathrel{\text{∽}}}
+\newcommand{\jpara}{/\!/}
+
+\newcounter{kcounter}
+\setcounter{kcounter}{0}
+\newcommand{\kana}{\refstepcounter{kcounter}\ifthenelse{\value{kcounter}=1}{ア}{\ifthenelse{\value{kcounter}=2}{イ}{\ifthenelse{\value{kcounter}=3}{ウ}{\ifthenelse{\value{kcounter}=4}{エ}{\ifthenelse{\value{kcounter}=5}{オ} {\ifthenelse{\value{kcounter}=6}{カ}{\ifthenelse{\value{kcounter}=7}{キ}{\ifthenelse{\value{kcounter}=8}{ク}{\ifthenelse{\value{kcounter}=9}{ケ}{\ifthenelse{\value{kcounter}=10}{コ}{\ifthenelse{\value{kcounter}=11}{サ}{\ifthenelse{\value{kcounter}=12}{シ}{\ifthenelse{\value{kcounter}=13}{ス}{\ifthenelse{\value{kcounter}=14}{セ}{\ifthenelse{\value{kcounter}=15}{ソ}{\ifthenelse{\value{kcounter}=16}{タ}{\ifthenelse{\value{kcounter}=17}{チ}{\ifthenelse{\value{kcounter}=18}{ツ}{\ifthenelse{\value{kcounter}=19}{テ}{\ifthenelse{\value{kcounter}=20}{ト}{\ifthenelse{\value{kcounter}=21}{ナ}{\ifthenelse{\value{kcounter}=22}{二}{\ifthenelse{\value{kcounter}=23}{ヌ}{\ifthenelse{\value{kcounter}=24}{ネ}{\ifthenelse{\value{kcounter}=25}{ノ}{\ifthenelse{\value{kcounter}=26}{ハ}{\ifthenelse{\value{kcounter}=27}{ヒ}{\ifthenelse{\value{kcounter}=28}{フ}{\ifthenelse{\value{kcounter}=29}{ヘ}{\ifthenelse{\value{kcounter}=30}{ホ}{\ifthenelse{\value{kcounter}=31}{マ}{\ifthenelse{\value{kcounter}=32}{ミ}{\ifthenelse{\value{kcounter}=33}{ム}{\ifthenelse{\value{kcounter}=34}{メ}{\ifthenelse{\value{kcounter}=35}{モ}{\ifthenelse{\value{kcounter}=36}{ヤ}{\ifthenelse{\value{kcounter}=37}{ユ}{\ifthenelse{\value{kcounter}=38}{ヨ}{\ifthenelse{\value{kcounter}=39}{ラ}{\ifthenelse{\value{kcounter}=40}{リ}{\ifthenelse{\value{kcounter}=41}{ル}{\ifthenelse{\value{kcounter}=42}{レ}{\ifthenelse{\value{kcounter}=43}{ロ}{\ifthenelse{\value{kcounter}=44}{ワ}{・}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
+
+\newcommand{\kuran}[1]{\framebox[1.5cm][c]{\maru{#1}}}
+
+\newcommand{\degre}{\ensuremath{^\circ}}
+
+\makeatletter
+\newenvironment{figurehere}{\def\@captype{figure}}{}
+\makeatother
+
+\newcommand{\haiten}[1]{%
+\begin{flushright}%
+\footnotesize{＜#1＞}%
+\end{flushright}%
+}
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\question 次の計算をしなさい。
+
+\squestion $(-3) + (-7)$ \hspace{20mm} \squestion $-\dfrac{1}{3} - \biggl( -\dfrac{3}{4} \biggl) $
+
+\vspace{20mm}
+
+\squestion $4 + (-2) - (-5) + 7$
+
+\vspace{20mm}
+
+\squestion $18 \times (-3)$ \hspace{20mm} \squestion $(-0.5)^2$ 
+
+\vspace{20mm}
+
+\squestion $\biggl( -\dfrac{4}{15}\biggl) \div \biggl( - \dfrac{2}{3} \biggl)$
+\hspace{20mm}
+\squestion $(-9) \div (-27) \times 18$
+
+\vspace{20mm}
+
+\squestion $7 - 2 \times (-3)^2$ \hspace{20mm} \squestion $(-7) \times \{ 15 \div (3 - 6) \}$
+
+\vspace{20mm}
+
+\squestion $-5^2 + \{ 8 - (-2)^3 \}$ \hspace{20mm} \squestion $\dfrac{3}{4} \times (-7) + \dfrac{3}{4} \times (-5)$
+
+\vspace{20mm}
+
+\columnbreak
+
+\question 次の自然数を素因数分解しなさい。
+\setcounter{skaunta}{0}
+
+\squestion 108 \hspace{30mm} \squestion 20 \hspace{30mm} \squestion 54 \hspace{30mm} \squestion 126
+
+\vspace{20mm}
+
+\question 次の計算をしなさい。
+\setcounter{skaunta}{0}
+
+\squestion $6a + 4a$ \hspace{20mm} \squestion $5x + 2 - x -9$
+
+\vspace{20mm}
+
+\squestion $(7x - 4) + (2x - 7)$ \hspace{20mm} \squestion $(8x + 6) - (5x - 4)$
+
+\vspace{20mm}
+
+\squestion $(-3y) \times (-8)$ \hspace{20mm} \squestion $18a \div (-3)$
+
+\vspace{20mm}
+
+\squestion $7(x + 2)$ \hspace{20mm} \squestion $(-6y + 4) \times (-2)$
+
+\vspace{20mm}
+
+\squestion $(-15x + 3) \div (-3)$ \hspace{20mm} \squestion $\dfrac{4x - 4}{2} \times 6 $ 
+
+\vspace{20mm}
+
+\squestion $2(2a + 5) -5(3a -4)$ \hspace{20mm} \squestion $4a -(9 - 7a)$
+
+\vspace{20mm}
+
+\end{multicols}
+\newpage
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\squestion $\dfrac{5}{3}a - \dfrac{4}{5}a$ \hspace{20mm} \squestion $10a \div (-5)$
+
+\vspace{20mm}
+
+\squestion $4 \times \dfrac{3a - 1}{2}$ \hspace{20mm} \squestion $(8x + 12) \div \dfrac{4}{3}$
+
+\vspace{20mm}
+
+\squestion $4(2x - 1) -5(x + 1)$ \hspace{20mm} \squestion $\dfrac{2}{3}(2x - 3) - \dfrac{1}{5}(3x -10)$
+
+\vspace{20mm}
+
+\squestion $\dfrac{4x - 3}{2} - \dfrac{6x - 7}{5}$
+
+\vspace{20mm}
+
+\question 次の方程式を解きなさい。
+\setcounter{skaunta}{0}
+
+\squestion $2x + 6 = 16$ \hspace{20mm} \squestion $3x = 20 -2x$
+
+\vspace{20mm}
+
+\squestion $-4x = 14 + 3x$ \hspace{20mm} \squestion $4x - 5 = x + 10$
+
+\vspace{20mm}
+
+\squestion $6x + 3 = 9 + 8x$ \hspace{20mm} \squestion $x - 6 = 15 - 2x$
+
+\vspace{20mm}
+
+\squestion $7x - 2(x + 4) = 7$ \hspace{20mm} \squestion $0.2x - 0.5 = 0.1x$
+
+\vspace{20mm}
+
+\squestion $\dfrac{2}{3}x = \dfrac{5}{6} + 1$ \hspace{20mm} \squestion $x : 10 = 3:6$ 
+
+\vspace{20mm}
+
+\squestion $(x - 8) : 2 = x : 4$ \hspace{20mm} \squestion $5x - 10 = 3x$
+
+\vspace{20mm}
+
+\squestion $x - 5 = 3x + 1$ \hspace{20mm} \squestion $x + 11 = -5x +16$
+
+\vspace{20mm}
+
+\squestion $9x - 8 = 5(x + 4)$ \hspace{20mm} \squestion $0.75x - 1 = 0.5x$
+
+\vspace{20mm}
+
+\squestion $0.2(x - 2) = x + 1.2$ \hspace{20mm} \squestion $x = \dfrac{1}{2}x - 3$
+
+\vspace{20mm}
+
+\squestion $\dfrac{3x + 2}{5} = \dfrac{2x - 1}{3}$ \hspace{20mm} \squestion $(x - 3):8 = 3:2$
+
+\vspace{20mm}
+
+\end{multicols}
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\squestion $2:5 = (x - 2):(x + 7)$
+
+\vspace{20mm}
+
+\question $y$は$x$に比例し、$x = 2$のとき$y = 10$である。次の問に答えなさい。
+\setcounter{skaunta}{0}
+
+\squestion 比例の式を求めなさい。
+
+\vspace{20mm}
+
+\squestion $x = 5$のときの$y$の値を求めなさい。
+
+\vspace{20mm}
+
+\squestion $x = -3$のときの$y$の値を求めなさい。
+
+\vspace{20mm}
+
+\question $y$は$x$に反比例し、$x = 2$のとき、$y = -6$である。次の問に答えなさい。
+\setcounter{skaunta}{0}
+
+\squestion 反比例の式を求めなさい。
+
+\vspace{20mm}
+
+\squestion $x = 4$のとき$y$の値を求めなさい。
+
+\vspace{20mm}
+
+\squestion $x = -6$のときの$y$の値を求めなさい。
+
+\vspace{20mm}
+
+\columnbreak
+
+\question 次の$\maru{ア} \sim \maru{エ}$について、$y$が$x$に比例するものと、$y$が$x$に反比例するものをそれぞれ1つずつ選び、その記号を答えなさい。
+
+$\maru{ア}$ 1辺の長さが$x\si{cm}$の正方形の面積は$y\si{cm}^2$である。
+
+$\maru{イ}$ 高速道路を時速90kmで走っている自動車は、$x$時間で$y$km進む。
+
+$\maru{ウ}$ 200ページの本を$x$ページまで読んだとき、残りのページ数は$y$ページである。
+
+$\maru{エ}$ $20\si{L}$入る陽気に毎分$x\si{L}$ずつ水を入れるとき、空の状態からいっぱいになるまでに$y$分間かかる。
+
+
+\vspace{20mm}
+
+\question 次の問に答えなさい。
+\setcounter{skaunta}{0}
+
+
+\squestion $y$は$x$に比例し、$x = 2$のとき$y=-6$である。$x = -3$のときの$y$の値を求めなさい。
+
+\vspace{20mm}
+
+\squestion $y$は$x$に反比例し、$x = -3$のとき$y = 8$である。$x = 6$のときの$y$の値を求めなさい。
+
+\vspace{20mm}
+
+\end{multicols}
+
+\newpage
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\question 次の問に答えなさい。
+\setcounter{skaunta}{0}
+
+\squestion 次の$\maru{ア}\sim\maru{イ}$のうち、関数$y = 2x$のグラフ上にある点はどれか。1つ選び、記号で答えなさい。
+
+$\maru{ア}$点$(0, \, 2)$ \hspace{20mm} $\maru{イ}$点$(1, \, 3)$
+
+$\maru{ウ}$点$(2, \, 4)$ \hspace{20mm} $\maru{エ}$点$(4, \, 2)$
+
+\vspace{20mm}
+
+\squestion 下の表は、$y$が$x$に反比例する関係を表している。$y$を$x$の式で表しなさい。
+
+\begin{center}
+
+\begin{tabular}{c|ccccccc}
+\hline
+$x$ & $\cdots$ & $-1$ & $0$ & $1$ & $2$ & $3$ & $\cdots$ \\
+\hline
+$x$ & $\cdots$ & $-12$ & $\times$ & $12$ & $6$ & $4$ & $\cdots$ \\
+\hline
+\end{tabular}
+
+\end{center}
+
+\vspace{20mm}
+
+\question 次の計算をしなさい。
+\setcounter{skaunta}{0}
+
+\squestion $2x -y + 5x -3y$ \hspace{20mm} \squestion $(4x - 3y) + (2x - 7y)$
+
+\vspace{20mm}
+
+\squestion $(x^2 + 6x) - (3x^2 + 4x -5)$ \hspace{20mm} \squestion $2(3a -8b)$
+
+\vspace{20mm}
+
+\squestion $(6x + 5y) \times (-3)$ \hspace{20mm} \squestion $(-4a^2 + 20a) \div (-4)$
+
+\vspace{20mm}
+
+\squestion $4(3x - y) -3(-2x + 3y)$ \hspace{20mm} \squestion $\dfrac{x + 3y}{2} - \dfrac{5x - 7y}{8}$
+
+\vspace{20mm}
+
+\squestion $(2x)^2 \times \biggl( -\dfrac{1}{8}x \biggl)$ \hspace{20mm} \squestion $4x^2y \div \biggl( -\dfrac{1}{3}x \biggl)$
+
+\vspace{20mm}
+
+\squestion $4ab \times 3a^2b \div (-2a)^2$
+
+\vspace{20mm}
+
+\question 次の式の値を求めなさい。
+\setcounter{skaunta}{0}
+
+\squestion $x = 8, \, y = -6$のとき、$5x - 7y-4(x-2y)$の値
+
+\vspace{20mm}
+
+\squestion $x = \dfrac{2}{3}, \, y = -5$のとき、$36x^y \div (-4x)$の値
+
+\vspace{20mm}
+
+\question 次の等式を〔〕の中の文字について解きなさい。
+\setcounter{skaunta}{0}
+
+\squestion $x - 4y -12 = 0$ \hspace{3em} 〔$y$〕
+
+\vspace{20mm}
+
+\squestion $a = \dfrac{b - 2c}{3}$ \hspace{3em} 〔$c$〕
+
+\end{multicols}
+
+\newpage
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+\question 次の連立方程式を解きなさい。
+\setcounter{skaunta}{0}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+2x - 3y = 4 \\
+2x - 5y = 8
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+3x + 2y = 2 \\
+2x + 3y = -2
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+y = x - 3 \\
+2x + y = -9
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+y = -2x + 5 \\
+3(x - 2y) + 4y = 4
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+3x + y =3 \\
+\dfrac{1}{2}x - \dfrac{1}{3}y = 5
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$4x - 3y = x - 2y = 10$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+x + 2y = 1 \\
+5x + 9y = 6
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+3x - 4y = 10 \\
+4x + 3y = 30
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+2x - 3y = 5 \\
+x - 1 = y
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+\dfrac{x}{2} - \dfrac{y + 1}{4} = -2 \\
+x + 4y = 10
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+0.5x - 1.4y = 8 \\
+-x + 2y = -12
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion $4x + y = x - 5y = 14$
+
+\vspace{20mm}
+
+\end{multicols}
+
+\newpage
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+
+\begin{multicols}{2}
+
+\question 次の$\maru{ア} \sim \maru{ウ}$の$x, \, y$の値の組のなかから、連立方程式
+$
+\left\{
+\begin{array}{l}
+3x + 2y = 4 \\
+x - y = 3
+\end{array}
+\right.
+$
+の解を選び、記号で答えなさい。
+
+$\maru{ア} \quad x = 6, \, y = 3$
+
+$\maru{イ} \quad x = -2, \, y = 5$
+
+$\maru{ウ} \quad x = 2, \, y = -1$
+
+\vspace{20mm}
+
+\question 次の連立方程式を解きなさい。
+\setcounter{skaunta}{0}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+3x + 2y = 9 \\
+x - 2y = -5
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+3x + y = 4 \\
+6x + 5y = -7
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+2x + 3y = 4 \\
+5x - 2y = -9
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+3x - 2y = -6 \\
+y = 3x + 9
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+7(x + y) -5x = 1 \\
+4x + 9y = -3
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion 
+$
+\left\{
+\begin{array}{l}
+0.6x + 0.2y = -1 \\
+\dfrac{x}{3} - \dfrac{y}{4} = \dfrac{1}{6}
+\end{array}
+\right.
+$
+\vspace{20mm}
+
+\squestion $3x - y = 6x + y = 9$
+
+\vspace{20mm}
+
+\question 次の問いに答えなさい。
+\setcounter{skaunta}{0}
+
+\squestion 1次関数$y = \dfrac{3}{4}x - 5$について、$x$の増加量が12のときの$y$の増加量を求めなさい。
+
+\vspace{20mm}
+
+\squestion 点$(a, \, 2)$が、1次関数$y = \dfrac{1}{5}x + 3$のグラフ上にあるとき、$a$の値を求めなさい。
+
+\vspace{20mm}
+
+\squestion 方程式$3x -5y = 5$のグラフは直線である。このグラフの$y$軸上の切片を求めなさい。
+
+\vspace{20mm}
+
+\end{multicols}
+
+\newpage
+
+\begin{flushleft}
+\noindent
+\large
+補習プリント
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}
+

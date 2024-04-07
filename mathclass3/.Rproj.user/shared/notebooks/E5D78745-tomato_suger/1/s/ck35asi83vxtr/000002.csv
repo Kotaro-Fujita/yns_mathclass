@@ -1,0 +1,28 @@
+"0","dat <- read_csv(""data/tt.csv"")"
+"2","Missing column names filled in: 'X1' [1]"
+"2","
+[36m──[39m [1mColumn specification[22m [36m─────────────────────────────────────────────────────[39m
+cols(
+  X1 = [32mcol_double()[39m,
+  `1~30` = [32mcol_double()[39m,
+  `31~60` = [32mcol_double()[39m,
+  `61~90` = [32mcol_double()[39m,
+  `91~120` = [32mcol_double()[39m,
+  `121~150` = [32mcol_double()[39m,
+  `151~180` = [32mcol_double()[39m,
+  `181~210` = [32mcol_double()[39m,
+  `211~240` = [32mcol_double()[39m,
+  `241~270` = [32mcol_double()[39m,
+  `271~300` = [32mcol_double()[39m
+)
+"
+"0","dat1 <- c()"
+"0","for (i in seq(2, 11, 1)) {"
+"0","dat1 <- c(dat1, unlist(dat[ ,i]))"
+"0","}"
+"0","dat1 <- dat1 %>% "
+"0","  as_tibble() %>% "
+"0","  filter(value != ""NA"")"
+"0",""
+"0","myd <- tibble(id = seq(1, 300, 1),"
+"0","              suger = dat1$value)"

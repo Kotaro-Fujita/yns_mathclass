@@ -1,0 +1,193 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=20truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+関数$y = ax^2$
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+例1. 底面が1辺$x \sf{cm}$の正方形で、高さが$5\sf{cm}$の正四角柱の体積を$y\sf{cm}^3$とする。このとき、$y$を$x$の式で表すと
+$$
+y = \fbox{\qquad}x^2
+$$
+となり、$y = ax^2$の形で表されるから、$y$は$x$の2乗に比例する。
+
+問1. 立方体の1辺を$x\sf{cm}$とするとき、次の(1)〜(3)のそれぞれについて、$y$を$x$の式で表しなさい。
+
+また、$y$が$x$の2乗に比例するものをいいなさい。
+
+(1) すべての辺の長さの和を$y\sf{cm}$とする。
+
+\vspace{15mm}
+
+(2) 表面積を$y\sf{cm}^2$とする。
+
+\vspace{15mm}
+
+(3) 体積を$y\sf{cm}^3$とする。
+
+\vspace{15mm}
+
+問2. 半径が$x\sf{cm}$の円の面積を$y\sf{cm}^2$とします。
+
+(1) $y$を$x$の式で表しなさい。
+
+\vspace{15mm}
+
+(2) 半径が2倍になると、面積は何倍になりますか。
+
+\vspace{15mm}
+
+(3) 面積を2倍にするには、半径を何倍にすればよいですか。
+
+\vspace{15mm}
+
+例2. $y$は$x$の2乗に比例し、$x = 2$のとき、$y = 12$です。
+
+このとき、$y$を$x$の式で表しなさい。
+
+\vspace{20mm}
+
+$x = -3$のときの$y$の値を求めなさい。
+
+\vspace{15mm}
+
+問3. $y$は$x$の2乗に比例し、次の条件をみたすとき、$y$を$x$の式で表しなさい。
+
+(1) $x = 3$のとき$y = 27$
+
+\vspace{20mm}
+
+(2) $x = 1$のとき$y = -5$
+
+\vspace{20mm}
+
+(3) $x = -2$のとき$y = 8$
+
+\vspace{20mm}
+
+(4) $x = 2$のとき$y = 2$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{multicols}

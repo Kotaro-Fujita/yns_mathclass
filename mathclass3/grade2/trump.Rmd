@@ -1,0 +1,220 @@
+---
+title: "Rによるくじのシミュレーション"
+author: "超絶イケメンの藤田"
+date: "`r Sys.Date()`"
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: true
+    toc_depth: 3
+    number_sections: FALSE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+documentclass: bxjsarticle
+classoption: 11pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = TRUE, 
+                      message = FALSE,
+                      fig.width = 5,
+                      fig.height = 4)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+# 初期設定
+
+```{r}
+pacman::p_load(tidyverse,
+               broom,
+               extraDistr,
+               patchwork,
+               magrittr)
+
+if (.Platform$OS.type == "windows") { 
+  # Window
+  if (require(fontregisterer)) {
+    my_font <- "Yu Gothic"
+  } else {
+    my_font <- "Japan1"
+  }
+} else if (capabilities("aqua")) {
+  # macOS
+  my_font <- "HiraginoSans-W3"
+} else {
+  # Unix/Linux
+  my_font <- "IPAexGothic"
+}
+
+theme_set(theme_gray(base_size   = 9,
+                     base_family = my_font))
+set.seed(1230524)
+```
+
+# くじびきのシミュレーション
+
+```{r}
+sim_kuji <- function(N) {
+  n <- N
+  kuji <- c(1, 0, 0)
+  res <- matrix(NA, nrow = N, ncol = 3)
+  for (i in 1:N) {
+  res[i, ] <- sample(kuji, 3)
+  }
+  sum_res <- c(sum(res[ ,1]), sum(res[ ,2]), sum(res[ ,3]))
+  prob_res <- sum_res / N
+  lookin <- matrix(NA, nrow = 2, ncol = 3)
+  lookin[1, ] <- sum_res
+  lookin[2, ] <- prob_res
+  lookin <- set_rownames(lookin, c("当たった回数", "確率（相対度数）"))  
+  return(lookin)
+}
+```
+
+
+```{r}
+sim_kuji(1000000)
+```
+
+# さいころのシミュレーション
+
+```{r}
+N <- 20000
+dice <- c(1:6)
+res_dice <- sample(dice, N, replace = TRUE)
+res_dice1 <- ifelse(res_dice == 1, 1, 0)
+sum(res_dice1) / N
+```
+
+# コイン投げのシミュレーション
+
+```{r}
+coin <- c("表", "裏")
+select_winner <- function(game) {
+  if (identical(game, c("表", "表"))) {
+    winner <- "A"
+  } else if (identical(game, c("裏", "裏"))) {
+      winner <- "C"
+  } else {
+    winner <- "B"
+  }
+  return(winner)
+}
+```
+
+
+```{r}
+N <- 10000
+winner <- c()
+for (i in 1:N) {
+  game <- sample(coin, 2, replace = TRUE)
+  winner <- c(winner, select_winner(game))
+}
+
+foo <- as.factor(winner) %>% 
+  summary()
+
+foo
+```
+
+# サイコロのシミュレーション
+
+```{r}
+N <- 1000000
+dise1 <- 1:6
+dise2 <- 1:6
+mat_dise <- matrix(NA, N, 2)
+
+for (i in 1:N) {
+  mat_dise[i, 1] <- sample(dise1, 1)
+  mat_dise[i, 2] <- sample(dise1, 1)
+}
+
+dat_dise <- mat_dise %>% 
+  as_tibble() %>% 
+  rename("dise1" = 1,
+         "dise2" = 2) %>% 
+  mutate(sum_dise = dise1 + dise2)
+
+plt <- dat_dise %>% 
+  ggplot(aes(x = sum_dise, y = after_stat(density))) +
+  geom_histogram(color ="black", 
+                 fill = "white",
+                 binwidth = 1,
+                 bins = 13) + 
+  scale_x_continuous(breaks = 0:13) +
+  labs(x = "目の和",
+       y = "相対度数")
+plot(plt)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

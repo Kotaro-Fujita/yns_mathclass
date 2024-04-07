@@ -1,0 +1,7 @@
+"0","plt3 <- m_50 %>% "
+"0","  as_tibble() %>% "
+"0","  ggplot(aes(x = value)) +"
+"0","  geom_boxplot() +"
+"0","  labs(x = ""糖度"")"
+"0",""
+"0","plot(plt3)"

@@ -1,0 +1,237 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+
+\begin{flushleft}
+\noindent
+\large
+1年生数学科1学期中間テスト
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+**※解答はすべて解答欄に書くこと。ただし、余白や裏面を計算スペースとして使ってもよい。**
+
+\begin{multicols}{2}
+
+\question 次の説明にあう言葉を答えなさい。
+
+(1) 正の整数 \hspace{5mm} (2) 1とその数自身の積でしか表わせない自然数
+
+(3) 自然数を素数だけの積で表すこと \hspace{5mm} (4) 数直線上で0が対応している点
+
+(5) 数直線上で、ある数に対応する点と原点との距離 \hspace{5mm} (6) 加法
+
+(7) 数の順序を変えても、和は変わらないこと
+
+(8) 数の組み合わせを変えても、和は変わらないこと
+
+(9) 減法 \hspace{5mm} (10) $4 - 7 + 9$という式において、$+4, -7, +9$のこと
+
+\vspace{5mm}
+
+\question 次の数のうち、素数であるものを答えなさい。
+
+$-5$, \hspace{5mm} 0, \hspace{5mm} 3, \hspace{5mm} 4.7, \hspace{5mm} 9, \hspace{5mm} 13
+
+\vspace{5mm}
+
+\question 次の数を素因数分解しなさい。
+
+(1) 6 \hspace{5mm} (2) 210 \hspace{5mm} (3) 57 \hspace{5mm} (4) 360 
+
+\vspace{5mm}
+
+\question 下の数直線で、点A、B、Cに対応する数を答えなさい。
+
+\begin{tikzpicture}
+  \draw (-5.6,0)--(5.6,0);
+  \foreach \x in {-5,...,0,+1,+2,+3,+4,+5} \draw (\x, 0)--(\x,-0.2)node[below] {$\x$};
+  \foreach \x in {-5,...,5} \draw (\x, 0)--(\x,0.2)node[above] {};
+  \foreach \x in {-5.5,...,5.5} \draw (\x, 0)--(\x,0.1)node[above] {};
+  \foreach \x in {-5.5,...,5.5} \draw (\x, 0)--(\x,-0.1)node[below] {};
+  \fill[black] (-3.5,0) circle(0.06);
+  \fill[black] (1,0) circle(0.06);
+  \fill[black] (2.5,0) circle(0.06);
+  \draw (-3.5, 0.2)node[above] {A};
+  \draw (1, 0.2)node[above] {B};
+  \draw (2.5, 0.2)node[above] {C};
+\end{tikzpicture}
+
+\vspace{5mm}
+
+\question 次の数の絶対値を答えなさい。
+
+(1) $+4$ \hspace{5mm} (2) $-5$ \hspace{5mm} (3) $+3.5$ \hspace{5mm} (4) $-\frac{2}{3}$
+
+\vspace{5mm}
+
+\question 次の各組の数の大小を、不等号を使って表しなさい。
+
+(1) $+3, \quad -5$ \hspace{5mm} (2) $+6,\quad -9, \quad 0$
+
+\vspace{5mm}
+\columnbreak
+
+\question 次の計算をしなさい。
+
+(1) $(-6) +(-3)$ \hspace{5mm} (2) $(-9)+(+8)$ \hspace{5mm} (3) $(+2) - (+9)$ \hspace{5mm} (4) $(-6) - (+7)$ 
+
+\vspace{5mm}
+
+(5) $-7 +3$ \hspace{5mm} (6) $3 +(-10)$ \hspace{5mm} (7) $3 -8$ \hspace{5mm} (8) $-5 - (-9)$
+
+\vspace{5mm}
+
+(9) $2.4 - 3.5$ \hspace{5mm} (10) $\frac{3}{4} - (-\frac{5}{12})$ \hspace{5mm} (11) $-4 + 9 -3$ \hspace{5mm} (12) $4-7+(-8)$
+
+\vspace{5mm}
+
+(13) $(-8) + (+5) + (-3) + (+8) + (-1) + (-5) + (+3) + (+3) + (+7) + (-2) + (-8)$
+
+\vspace{5mm}
+
+\question A、B、Cの身長はそれぞれ下の表のとおりである。
+
+Bの身長を基準にして、それより高いことを正の数、低いことを負の数で表すことにするとき、それぞれの身長を表しなさい。
+
+\begin{center}
+\begin{tabular}{|c||c||c|}
+\hline
+A & B & C \\
+\hline
+164cm & 156cm & 149cm \\
+\hline
+\end{tabular}
+\end{center}
+
+\newcommand\blackcard[2]{%
+  \begingroup\fboxsep=0pt\relax
+  \fbox{\tabbedCenterstack{%
+  \scriptsize$#2$ && \\&\makebox[20pt]{#1}&\\&
+  &\rotatebox[origin=c]{180}{\scriptsize$#2$}}}%
+  \endgroup}
+
+\question 絵札とジョーカーを除くトランプのカードを使って、ゲームを考えます。ルールは以下の通りです。
+
+\begin{itembox}[l]{ルール}
+\begin{multicols}{2}
+\spadesuit, \clubsuit のマークのカードは正の数の点数を、\varheartsuit, \vardiamondsuit のマークのカードは負の数の点数を表すことにします。例えば、右のカードの点数の和は
+$$
+(+9) + (-10) + (-1)=-2
+$$
+\noindent
+と計算できるので、得点は$-2$です。
+\columnbreak
+\begin{center}
+\begin{tabular}{c c c}
+\blackcard{9}{\spadesuit} &
+\blackcard{10}{\varheartsuit} &
+\blackcard{A}{\vardiamondsuit} \\
+$+9$ & $-10$ & $-1$
+\end{tabular}
+\end{center}
+\end{multicols}
+\end{itembox}
+
+次のカードの点数の和を答えなさい。
+
+(1) 
+\blackcard{7}{\spadesuit}
+\blackcard{8}{\clubsuit}
+\blackcard{5}{\varheartsuit}
+\hspace{5mm}
+(2)
+\blackcard{A}{\spadesuit}
+\blackcard{3}{\clubsuit}
+\blackcard{5}{\varheartsuit}
+\blackcard{2}{\varheartsuit}
+\blackcard{8}{\clubsuit}
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

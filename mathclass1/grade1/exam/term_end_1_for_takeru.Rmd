@@ -1,0 +1,374 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+  - \usepackage{pxrubrica}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries \ruby[g]{数}{すう}\hspace{2em}\ruby[g]{学}{がく}}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{1}$\ruby[g]{年}{ねん}）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries \ruby[g]{注}{ちゅう}\hspace{5em}\ruby[g]{意}{い}}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「\ruby[g]{開始}{かいし}」の\ruby[g]{合図}{あいず}があるまでは,\ruby[g]{開}{ひら}いてはいけません。}
+
+  \item {\large \ruby[g]{問題}{もんだい}は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「\ruby[g]{開始}{かいし}」の\ruby[g]{合図}{あいず}があったら,まず,\ruby[g]{問題用紙}{もんだいようし}・\ruby[g]{解答用紙}{かいとうようし}に,\ruby[g]{組}{くみ}・\ruby[g]{番号}{ばんごう}と\ruby[g]{名前}{なまえ}などを\ruby[g]{書}{か}きなさい。}
+
+  \item {\large \ruby[g]{答}{こた}えは,すべて\ruby[g]{解答用紙}{かいとうようし}に\ruby[g]{書}{か}きなさい。また、\ruby[g]{所定}{しょてい}の\ruby[g]{欄}{らん}に\ruby[g]{濃}{こ}くはっきりと\ruby[g]{書}{か}きなさい。}
+
+  \item {\large 「\ruby[g]{終了}{しゅうりょう}」の\ruby[g]{合図}{あいず}で,すぐ\ruby[g]{鉛筆}{えんぴつ}をおき,\ruby[g]{解答用紙}{かいとうようし}を\ruby[g]{裏返}{うらがえ}しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}\ruby[g]{組}{くみ} \hspace{30mm}\ruby[g]{番}{ばん} \hspace{15mm} \ruby[g]{名前}{なまえ} \hspace{60mm}}}
+\end{center}
+
+\newpage
+　 [](
+　 空白ページのための全角スペースあり。
+　 )
+\newpage
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{計算}{けいさん}をしなさい。
+
+\squestion $(-4) \times (-8)$ \hspace{30mm} \squestion $(-18) \div 3$ \hspace{30mm} \squestion $7 \times (-6)$ 
+
+\vspace{15mm}
+
+\squestion $(-12) \div \biggl(-\dfrac{2}{5} \biggl)$ \hspace{30mm} \squestion $(-2) \times (-9) \times 3$ \hspace{30mm} \squestion $(-10)^2$
+
+\vfill
+
+\squestion $(-6) \times 2 \times (-4) \times (-5)$ \hspace{30mm} \squestion $3 \times (-4^2)$
+
+\vfill
+
+\squestion $(-14) \times 3 \div \biggl(-\dfrac{7}{4} \biggl)$ \hspace{30mm} \squestion $15 \div (-9) \div \dfrac{5}{6}$
+
+\vfill
+
+\squestion $7 + 45 \div (-3)$ \hspace{50mm} \squestion $(-3) \times 8 - 6 \times (-4)$ 
+
+\vfill
+
+\squestion $(-2)^3 + (-5) \times 2$ \hspace{50mm} \squestion $(-6)^2 \div (-9) - 8$
+
+\vfill
+
+\squestion $9 - 4 \times (5 -8)$ \hspace{50mm} \squestion $(-12 -8 \times 6) \div (-5)$
+
+\vfill
+
+\newpage
+
+\squestion $-8x +5x$ \hspace{30mm} \squestion $6x -x$ \hspace{30mm} \squestion $8x \times 2$
+
+\vfill 
+
+\squestion $18y \div (-6)$ \hspace{30mm} \squestion $(2a -3) - (4a - 7)$ \hspace{30mm} \squestion $-2(3a + 8)$
+
+\vfill 
+
+\squestion $(28a - 20) \div 4$ \hspace{50mm} \squestion $2(2x +3) + 5(x + 1)$ 
+
+\vfill
+
+\squestion $\dfrac{a + 3}{2} + \dfrac{2a +7}{6}$ \hspace{50mm} \squestion $18 \times \dfrac{3x -4}{9}$
+
+\vfill
+
+\question $a, \, b$が\ruby[g]{自然数}{しぜんすう}のとき,\ruby[g]{次}{つぎ}の\maru{\mbox{ア}}〜\maru{\mbox{エ}}のうち, \ruby[g]{答}{こた}えがいつでも\ruby[g]{自然数}{しぜんすう}になるものをすべて\ruby[g]{選}{えら}び,\ruby[g]{記号}{きごう}で\ruby[g]{答}{こた}えなさい。
+$$
+\begin{aligned}
+\maru{\mbox{ア}} \quad  a + b \qquad \qquad \maru{\mbox{イ}} \quad  a - b \\
+\maru{\mbox{イ}} \quad  a \times b \qquad \qquad \maru{\mbox{エ}} \quad  a \div b
+\end{aligned}
+$$
+\vfill
+
+\newpage
+\vfill
+
+\question \ruby[g]{次}{つぎ}の2つの\ruby[g]{計算}{けいさん}で, \maru{1}〜\maru{3}の\ruby[g]{部分}{ぶぶん}では,ある\ruby[g]{計算法則}{けいさんほうそく}を\ruby[g]{使}{つか}って\ruby[g]{計算}{けいさん}を\ruby[g]{行}{おこな}っている。どのような\ruby[g]{法則}{ほうそく}を\ruby[g]{使}{つか}っているかを\ruby[g]{述}{の}べなさい。
+
+\begin{tikzpicture}
+\node at (0,0) {$\underline{0.75 \times 33 \times 8} = \underline{0.75 \times 8 \times 33} = \underline{(0.75 \times 8) \times 33} = 6 \times 33 = 198$};
+\draw[->] (-4.25,-0.4) to [bend right=30] (-2,-0.4);
+\node at (-3.2,-0.55) {\maru{1}};
+\draw[->] (-1.2,-0.4) to [bend right=30] (1,-0.4);
+\node at (0,-0.55) {\maru{2}};
+\end{tikzpicture}
+\vspace{5mm}
+
+\begin{tikzpicture}
+\node at (0,0) {$\underline{79 \times 123 + 79 \times 77} = \underline{79 \times (123 + 77) = 79 \times 200} = 15800$};
+\draw[->] (-3,-0.4) to [bend right=30] (-0.5,-0.4);
+\node at (-1.6,-0.55) {\maru{3}};
+\end{tikzpicture}
+
+\vspace{5mm}
+
+\question \ruby[g]{次}{つぎ}の\ruby[g]{文字式}{もじしき}の\ruby[g]{中}{なか}で, $a = -\dfrac{1}{3}$のとき, その\ruby[g]{式}{しき}の\ruby[g]{値}{あたい}が,もっとも\ruby[g]{大}{おお}きくなるものはどれですか。また,もっとも\ruby[g]{小}{ちい}さくなるものはどれですか。
+$$
+2a, \qquad a^2, \qquad \dfrac{1}{a}, \qquad -a, \qquad -\dfrac{1}{a^2}
+$$
+\vfill
+
+\setcounter{skaunta}{0}
+\question \ruby[g]{次}{つぎ}の\ruby[g]{数量}{すうりょう}の\ruby[g]{関係}{かんけい}を, \ruby[g]{等式}{とうしき}か\ruby[g]{不等式}{ふとうしき}に\ruby[g]{表}{あらわ}しなさい。
+
+\squestion $x$\ruby[g]{個}{こ}のいちごを,1\ruby[g]{人}{り}に6\ruby[g]{個}{こ}ずつ$y$\ruby[g]{人}{にん}に\ruby[g]{配}{くば}ると2\ruby[g]{個}{こ}たりない。
+
+\squestion ある\ruby[g]{数}{すう}$x$に7をたした\ruby[g]{数}{すう}は,もとの\ruby[g]{数}{すう}$x$の2\ruby[g]{倍}{ばい}より\ruby[g]{小}{ちい}さい。
+
+\squestion \ruby[g]{画用紙}{がようし}を,1\ruby[g]{人}{り}に5\ruby[g]{枚}{まい}ずつ$x$\ruby[g]{人}{にん}に\ruby[g]{配}{くば}ると,100\ruby[g]{枚}{まい}ではたりない。
+
+\vfill
+
+\question $x$\ruby[g]{個}{こ}のクッキーを,1\ruby[g]{人}{り}に4\ruby[g]{個}{こ}ずつ$y$\ruby[g]{人}{にん}に\ruby[g]{配}{くば}ると3\ruby[g]{個}{こ}\ruby[g]{余}{あま}ります。$x, \, y$の\ruby[g]{関係}{かんけい}を\ruby[g]{表}{あらわ}している\ruby[g]{次}{つぎ}の（ア）〜（エ）のうち,\ruby[g]{正}{ただ}しいものをすべて\ruby[g]{選}{えら}びなさい。
+
+$$
+\begin{aligned}
+&\mbox{（ア）} \quad x +3 = y & \qquad \qquad &\mbox{（イ）} \quad x -4y = 3 \\
+&\mbox{（ウ）} \quad x > 4y +3 &  &\mbox{（エ）} \quad x > 4y
+\end{aligned}
+$$
+
+\vfill
+
+\newpage
+
+\question \ruby[g]{下}{した}の\ruby[g]{表}{ひょう}には,6\ruby[g]{人}{にん}の\ruby[g]{生徒}{せいと}A〜Fのそれぞれの\ruby[g]{身長}{しんちょう}から,$160 \si{cm}$をひいた\ruby[g]{値}{あたい}が\ruby[g]{示}{しめ}されている。この\ruby[g]{表}{ひょう}をもとに,これら6\ruby[g]{人}{にん}の\ruby[g]{生徒}{せいと}の\ruby[g]{身長}{しんちょう}の\ruby[g]{平均}{へいきん}を\ruby[g]{求}{もと}めたところ$161.5 \si{cm}$であった。このとき,\ruby[g]{生徒}{せいと}Fの\ruby[g]{身長}{しんちょう}を\ruby[g]{求}{もと}めなさい。
+
+\renewcommand{\arraystretch}{1.2}
+\begin{center}
+\begin{tabular}{|c|l|l|l|l|l|l|}
+\hline
+\ruby[g]{生徒}{せいと} & A & B & C & D & E & F \\
+\hline
+$160\si{cm}$をひいた\ruby[g]{値}{あたい}($\si{cm}$) & $+8$ & $-2$ & $+5$ & $0$ & $+2$ & \\
+\hline
+\end{tabular}
+\end{center}
+
+\vfill
+
+\question \ruby[g]{正方形}{せいほうけい}のタイルに\ruby[g]{順}{じゅん}に$1, \, 2, \, 3, \, \cdots$と\ruby[g]{番号}{ばんごう}を\ruby[g]{付}{つ}けたものを,\ruby[g]{下}{した}の\ruby[g]{図}{ず}のように\ruby[g]{一定}{いってい}の\ruby[g]{規則}{きそく}にしたがって,1\ruby[g]{番目}{ばんめ},2\ruby[g]{番目}{ばんめ},3\ruby[g]{番目}{ばんめ},$\cdots$と\ruby[g]{並}{なら}べていく。\ruby[g]{次}{つぎ}の\fbox{\quad \maru{1} \quad}〜\fbox{\quad \maru{3}\quad}に\ruby[g]{適}{てき}する\ruby[g]{数}{すう}または\ruby[g]{式}{しき}を\ruby[g]{入}{い}れなさい。
+
+\definecolor{lightgray}{RGB}{220,220,220}
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \begin{scope}[shift={(0,0)}]
+  % Outer square
+  \filldraw[fill=lightgray,thick] (0,0) rectangle (1,1);
+  \node at (0.5,0.5) {1};
+  \node at (0.5,-0.5) {1番目};
+  \end{scope}
+  
+  \begin{scope}[shift={(3,0)}]
+  % Outer square
+  \fill[lightgray] (0,1) rectangle (2,2);
+  \fill[lightgray] (1,0) rectangle (2,1);
+  \draw[thick] (0,0) rectangle (2,2);
+  % Inner lines
+  \draw (1,0) -- (1,2);
+  \draw (0,1) -- (2,1);
+  % Numbers
+  \node at (0.5,1.5) {4};
+  \node at (1.5,1.5) {3};
+  \node at (0.5,0.5) {1};
+  \node at (1.5,0.5) {2};
+  \node at (1.0,-0.5) {2番目};
+  \end{scope}
+  \begin{scope}[shift={(7,0)}]
+  % Outer square
+  \fill[lightgray] (2,0) rectangle (3,3);
+  \fill[lightgray] (0,2) rectangle (2,3);
+  \draw[thick] (0,0) rectangle (3,3);
+  % Inner lines
+  \draw (1,0) -- (1,3);
+  \draw (2,0) -- (2,3);
+  \draw (0,1) -- (3,1);
+  \draw (0,2) -- (3,2);
+  % Numbers
+  \node at (0.5,2.5) {9};
+  \node at (1.5,2.5) {8};
+  \node at (2.5,2.5) {7};
+  \node at (0.5,1.5) {4};
+  \node at (1.5,1.5) {3};
+  \node at (2.5,1.5) {6};
+  \node at (0.5,0.5) {1};
+  \node at (1.5,0.5) {2};
+  \node at (2.5,0.5) {5};
+  \node at (1.5,-0.5) {3番目};
+  \end{scope}
+  \draw [->,>={Triangle[width=5mm,length=1.8mm]},line width=2.5mm,draw=black] (1.2,0.5) -- (2.8,0.5);
+  \draw [->,>={Triangle[width=5mm,length=1.8mm]},line width=2.5mm] (5.2,0.5) -- (6.8,0.5);
+  \node at (11, 0.5) {$\cdots$};
+\end{tikzpicture}
+
+\vspace{-1mm}
+\footnotesize{※ \begin{tikzpicture}[scale = 0.3] \filldraw[fill=lightgray,thick] (0,0) rectangle (0.8,0.8); \end{tikzpicture}は,\ruby[g]{新}{あらた}たに\ruby[g]{加}{くわ}えるタイルを\ruby[g]{示}{しめ}している。}
+\end{center}
+
+\begin{screen}
+\hspace*{1em}この\ruby[g]{規則}{きそく}で\ruby[g]{並}{なら}べていくと,3\ruby[g]{番目}{ばんめ}に\ruby[g]{加}{くわ}えるタイルの\ruby[g]{数}{かず}は5\ruby[g]{個}{こ}で,4\ruby[g]{番目}{ばんめ}に\ruby[g]{加}{くわ}えるタイルの\ruby[g]{数}{かず}は\fbox{\quad \maru{1} \quad}\ruby[g]{個}{こ}となる。したがって,$n$\ruby[g]{番目}{ばんめ}に\ruby[g]{加}{くわ}えるタイルの\ruby[g]{数}{かず}は\fbox{\quad \maru{2} \quad}\ruby[g]{個}{こ}となる。また,$n$\ruby[g]{番目}{ばんめ}のタイルの\ruby[g]{総数}{そうすう}は\fbox{\quad \maru{3} \quad}\ruby[g]{個}{こ}だから,\\
+\hspace*{1em}$1 + 3 + 5 + \cdots + \fbox{\quad \maru{2}\quad} = \fbox{\quad \maru{3} \quad}$
+が\ruby[g]{成}{な}り\ruby[g]{立}{た}つ。
+\end{screen}
+
+\vfill
+
+
+
+
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

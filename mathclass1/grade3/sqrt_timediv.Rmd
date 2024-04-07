@@ -1,0 +1,272 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+根号を含む式の乗除
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+例1. (1) $\sqrt{3} \times \sqrt{5}$ \hspace{30mm} (2) $\dfrac{\sqrt{125}}{\sqrt{5}}$
+
+\vspace{15mm}
+
+問1. 例1にならって、次の計算をしなさい。
+
+(1) $\sqrt{2} \times \sqrt{7}$ \hspace{30mm} (2) $\sqrt{6} \times \sqrt{5}$ 
+
+\vspace{15mm}
+
+(3) $(- \sqrt{2}) \times \sqrt{8}$ \hspace{30mm} (4) $\dfrac{\sqrt{18}}{\sqrt{6}}$
+
+\vspace{15mm}
+
+(5) $\dfrac{\sqrt{28}}{\sqrt{7}}$ \hspace{30mm} (6) $\sqrt{80} \div (-\sqrt{5})$
+
+\vspace{20mm}
+
+根号のついた数の変形を考えてみましょう。
+
+例2.
+
+$7 \sqrt{2}$
+
+\vspace{15mm}
+
+問2. 例2にならって、次の数を$\sqrt{a}$の形に変形しなさい。
+
+(1) $4\sqrt{5}$  \hspace{30mm} (2) $2\sqrt{2}$ \hspace{30mm} (3) $5\sqrt{3}$
+
+\columnbreak
+
+例3. (1) $\sqrt{18}$ \hspace{30mm} (2) $\sqrt{108}$
+
+\vspace{15mm}
+
+問3. 例3にならって、次の数を$a\sqrt{b}$の形に表しなさい。
+
+(1) $\sqrt{12}$ \hspace{30mm} (2) $\sqrt{28}$ \hspace{30mm} (3) $\sqrt{27}$
+
+\vspace{20mm}
+
+(4) $\sqrt{200}$ \hspace{30mm} (5) $\sqrt{72}$ \hspace{30mm} (6) $\sqrt{96}$
+
+\vspace{20mm}
+
+例4. (1) $\sqrt{\dfrac{5}{36}}$ \hspace{30mm} $\sqrt{0.03}$
+
+\vspace{20mm}
+
+問4. 例4にならって、次の数を変形しなさい。
+
+(1) $\sqrt{\dfrac{3}{49}}$ \hspace{30mm} $\sqrt{0.07}$ \hspace{30mm} (3) $\sqrt{0.05}$
+
+\vspace{20mm}
+
+\hrule
+
+今日のふりかえりをかきましょう。
+
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

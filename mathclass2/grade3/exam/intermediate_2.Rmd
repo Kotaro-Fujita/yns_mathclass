@@ -1,0 +1,414 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=30truemm,left=10truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usetikzlibrary{arrows.meta,decorations,decorations.pathreplacing}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \tcbuselibrary{theorems,skins}
+  - \usepackage{siunitx}
+  - \usepackage{framed}
+  - \usepackage{enumerate}
+  - \usepackage{lastpage}
+documentclass: bxjsarticle
+classoption: 12pt,a4paper,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+\newcommand{\maru}[1]{\raise0.2ex\hbox{\textcircled{\scriptsize{#1}}}}
+
+\newgeometry{top=10truemm,bottom=10truemm,left=20truemm,right=20truemm}
+
+\thispagestyle{empty}
+\begin{center}
+\phantom{empty}
+
+\vspace{60truemm}
+
+\hspace{4em} {\HUGE\gtfamily\bfseries 数\hspace{2em}学}\hspace{1em}{\large \gtfamily \bfseries （$\mathbf{3}$年）}\\
+\vspace{84truemm}
+
+{\large\gtfamily\bfseries 注\hspace{5em}意}
+
+\end{center}
+
+\centering
+\begin{framed}
+\begin{flushleft}
+\begin{enumerate}[\Large \gtfamily 1]
+  \item {\large 「開始」の合図があるまでは,開いてはいけません。}
+
+  \item {\large 問題は\pageref{LastPage}ページまであります。}
+
+  \item {\large 「開始」の合図があったら,まず,問題用紙・解答用紙に,組・番号と名前などを書きなさい。}
+
+  \item {\large 答えは,すべて解答用紙に書きなさい。また、所定の欄に濃くはっきりと書きなさい。}
+
+  \item {\large 「終了」の合図で,すぐ鉛筆をおき,解答用紙を裏返しにしなさい。}
+\end{enumerate}
+\end{flushleft}
+\end{framed}
+
+\vspace{14mm}
+
+\begin{center}
+{\large \underline{\hspace{30mm}組 \hspace{30mm}番 \hspace{15mm} 名前 \hspace{60mm}}}
+\end{center}
+
+\pagestyle{plain}
+\pagenumbering{arabic}
+
+\begin{flushleft}
+
+\question 次の各問に答えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技$4 \times 7$点、(6)・(8)$4 \times 2$点、(9)$2 \times 3$点＞}
+\end{flushright}
+
+\squestion $y$は$x$の2乗に比例し、$x = 3$のとき$y = 18$である。$y$を$x$の式で表しなさい。また、$x = 4$のときの$y$の値を求めなさい。
+
+\vfill
+
+\squestion 次の$\maru{\mbox{ア}}$から$\maru{\mbox{エ}}$の関数について、グラフが上に開くものをすべて選びなさい。
+
+\begin{screen}
+$$
+\maru{\mbox{ア}}\, y = x^2 \qquad \maru{\mbox{イ}}\, y = -2x^2 \qquad \maru{\mbox{ウ}}\, y = 2x^2 \qquad \maru{\mbox{エ}}\, y = -\dfrac{1}{2}x^2
+$$
+\end{screen}
+
+\vfill
+
+\squestion 関数$y = ax^2$のグラフが、点$(3, \, 36)$を通っている。$a$の値を求めなさい。
+
+\vfill
+
+\squestion 関数$y = \dfrac{1}{4}x^2$で、$x$の変域が$-4 \leqq x \leqq 2$のときの$y$の変域を求めなさい。
+
+\vfill
+\newpage
+
+\squestion 関数$y = ax^2$のグラフが点$(2, \, -6)$を通っている。次のA 〜 Dのうち、この関数のグラフ上にある点を選び、記号で答えなさい。
+
+\begin{screen}
+\hfill A$(-3, \, -9)$ \hfill B$(-6, \, 54)$ \hfill C$(-3, \, 9)$ \hfill D$(-6, \, -54)$ \hfill 　
+\end{screen}
+
+\vfill
+
+\squestion 関数$y = 3x^2$で、$x$の値が2から4まで増加するときの変化の割合を求めなさい。また、$x$の値が$-4$から$-1$まで増加するときの変化の割合を求めなさい。
+
+\vfill
+
+\begin{multicols}{2}
+
+\squestion 関数$y = x^2$で$x$の値が1から3まで増加するときの変化の割合は4である。右の図の直線ABの式を求めなさい。
+
+\columnbreak
+
+\begin{tikzpicture}
+\draw (-4,0) -- (4,0)node[right]{$x$};
+\draw (0,-0.5) -- (0,5)node[right]{$y$};
+\draw (0,0)node[below left]{O};
+\begin{scope} \clip (-4,-0.5) rectangle (4,5);
+\draw[samples=100,smooth,thick] plot(\x,{pow(\x,2)});
+\draw (1.7,0) node[below]{3};
+\draw (0.7,0) node[below]{1};
+\draw (0.7,0.49) node[right]{A};
+\draw (1.7,2.89) node[right]{B};
+\draw [thick] plot(\x, 2.4*\x -1.19);
+\draw [dashed] (1.7,0) -- (1.7,2.89);
+\draw [dashed] (0.7,0) -- (0.7, 0.49);
+\end{scope}
+\end{tikzpicture}
+\end{multicols}
+
+\squestion 物を落とすとき、落ちはじめてから$x$秒間に落ちる距離を$y \si{m}$とすると、およそ$y = 5x^2$の関係がある。ものが落ち始めてから2秒間ではおよそ、何$\si{m}$落ちますか。また、物が落ち始めてから1秒後から2秒後までの間の平均の速さを求めなさい。
+
+\vfill
+\newpage
+
+\begin{multicols}{2}
+\squestion 右の図の$\maru{1} \sim \maru{3}$は、下の$\maru{\mbox{ア}} \sim \maru{\mbox{ウ}}$の関数のグラフを表したものである。それぞれどの関数のグラフか、記号で答えなさい。
+
+\begin{screen}
+$$
+\maru{\mbox{ア}}\, y = x^2 \qquad \maru{\mbox{イ}}\, y = - \dfrac{1}{4}x^2 \qquad \maru{\mbox{ウ}}\, y = 2x^2 \quad
+$$
+\end{screen}
+
+\columnbreak
+
+\begin{center}
+\begin{tikzpicture}
+\draw (-3,0) -- (3,0)node[right]{$x$};
+\draw (0,-3) -- (0,3)node[above]{$y$};
+\draw (0,0)node[below left]{O};
+\begin{scope} \clip (-3,-3) rectangle(3,3);
+\draw [samples=100,smooth] plot(\x,{pow(\x,2)});
+\draw [samples=100,smooth] plot(\x,{2 *pow(\x,2)});
+\draw [samples=100,smooth] plot(\x,{-1/4*pow(\x,2)});
+\end{scope}
+\draw (1.3,3)node[above]{$\maru{1}$};
+\draw (1.75,3)node[above]{$\maru{2}$};
+\draw (3.25,-2.5)node[below]{$\maru{3}$};
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\vfill
+
+\squestion 底面が1辺$x \si{cm}$の正方形で、高さが$4\si{cm}$の正四角中の体積を$y \si{cm}^3$とするとき、$y$を$x$の式で表しなさい。
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\question 大小2つの整数があります。その差は3で、積は28です。次の問に答えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技(1)2点、(2)4点＞}
+\end{flushright}
+
+\squestion 小さい方の数を$x$とするとき、大きい方の数を$x$を使って表しなさい。
+
+\squestion 2つの数を求めなさい。
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\begin{multicols}{2}
+\question 右の図のように、関数$y = -x^2$のグラフ上に、$x$座標がそれぞれ$-3, \, 1$となる点$\mbox{A}, \, \mbox{B}$をとるとき、次の問に答えなさい。
+
+\begin{flushright}
+\footnotesize{＜知・技$5 \times 2$点＞}
+\end{flushright}
+
+\squestion 2点$\mbox{A}, \, \mbox{B}$を通る直線の式を求めなさい。
+
+\vfill
+
+\squestion $\triangle \mbox{OAB}$の面積を求めなさい。
+
+\vfill
+
+\columnbreak
+\begin{center}
+\begin{tikzpicture}[scale=0.6]
+\draw (-4,0) -- (4,0)node[right]{$x$};
+\draw (0,0)node[above left]{O};
+\fill[lightgray] (-3,-9) -- (0,0) -- (1,-1);
+\draw (0,-10) -- (0,2)node[above]{$y$};
+\begin{scope} \clip(-4,-10) rectangle(4,2);
+\draw [samples=100,smooth,thick] plot(\x,{-pow(\x,2)});
+\draw [thick] plot(\x,{2*\x-3});
+\draw (-3,0)node[above]{$-3$};
+\draw (1,0)node[above]{$1$};
+\draw (-3,-9)node[left]{A};
+\draw (1,-1)node[right]{B};
+\draw [dashed] (-3,0) -- (-3,-9);
+\draw [dashed] (1,0) -- (1,-1);
+\draw (-3,-9) -- (0,0);
+\draw (1,-1) -- (0,0);
+\end{scope}
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\setcounter{skaunta}{0}
+
+\vfill
+
+\newpage
+
+\begin{multicols}{2}
+\question 1辺の長さが$8 \si{cm}$の正方形ABCDがある。点PはAを出発し、毎秒$1\si{cm}$の速さで辺AB上をBまで動き、Bに着いたら、同じ速さで、辺BA上を通ってAまでもどる。また、点Qは点Pと同時にBを出発し、点Pと同じ速さで辺$\mbox{BC}, \, \mbox{CD}$上をDまで動く。
+
+\begin{flushright}
+\footnotesize{＜知・技$4\times2$点＞}
+\end{flushright}
+
+\columnbreak
+\begin{center}
+\begin{tikzpicture}[scale=0.7]
+\coordinate (A) at (0,0);
+\coordinate (B) at (5,0);
+\coordinate (C) at (5,5);
+\coordinate (D) at (0,5);
+\fill[lightgray] (A) -- (3,0) -- (5,3.3);
+\draw (A) -- (B) -- (C) -- (D) --cycle;
+\draw (A) node[left]{A};
+\draw (B) node[right]{B};
+\draw (C) node[right]{C};
+\draw (D) node[left]{D};
+\draw (3,0) node[below]{P$\rightarrow$};
+\fill (3,0) circle[radius=3pt];
+\draw (5,3.3) node[right]{Q};
+\draw (5.1,4) node[right]{$\uparrow$};
+\fill (5,3.3) circle[radius=3pt];
+\draw (A) -- (5,3.3);
+\draw (3,0) -- (5,3.3);
+\end{tikzpicture}
+\end{center}
+\end{multicols}
+
+\squestion 点PがAを出発してから$x$秒後の$\triangle \mbox{APQ}$の面積を$y \si{cm}^2$とする。$x$の変域が$0 \leqq x \leqq 8$のとき、$y$を$x$の式で表しなさい。
+
+\vfill
+
+\squestion $\triangle \mbox{APQ}$の面積が$18 \si{cm}^2$になるのは、点PがAを出発してから何秒後ですか。すべて求めなさい。
+
+\vfill
+
+\setcounter{skaunta}{0}
+
+\question 自動車の停止距離について、ブレーキを踏むまでに進む距離を空走距離、ブレーキを踏んでから自動車が停止するまでの距離を制動距離という。一般に、空走距離は速度に比例し、制動距離は速度の2乗に比例することが知られている。ある条件では、自動車が時速$30 \si{km}$で走ると、空走距離は$8\si{m}$、制動距離は$6\si{m}$となる。このとき、次の問に答えなさい。
+
+\begin{flushright}
+\footnotesize{＜思・判・表 (1)5点、(2)$4 \times 3$点＞}
+\end{flushright}
+
+\squestion 時速$x \si{km}$の速さで走るときの制動距離を$y \si{m}$として、$y$を$x$の式で表しなさい。
+
+\vfill
+
+\squestion 同じ条件で、時速$90\si{km}$で走るときの空走距離、制動距離、停止距離を求めなさい。ただし、$\mbox{（停止距離）}= \mbox{（空走距離）} + \mbox{（制動距離）}$とする。
+
+\vfill
+
+\newpage
+
+\setcounter{skaunta}{0}
+
+\question 宅配業者$\mbox{A}, \, \mbox{B}$では、荷物の重さによって、それぞれ次のような料金の設定になっています。
+
+\begin{flushright}
+\footnotesize{＜知・技(1)4点、思・判・表(2)7点＞}
+\end{flushright}
+
+\begin{multicols}{2}
+\hspace*{2em} A社
+\begin{center}
+\begin{tabular}{c||c|c}
+\hline 
+重さ & 10kg以内 & 20kg以内 \\
+\hline
+料金 & 1000円 & 2000円 \\
+\hline
+\end{tabular}
+\end{center}
+
+\columnbreak
+
+B社
+\begin{center}
+\begin{tabular}{c||c|c|c}
+\hline
+重さ & 7kg以内 & 12kg以内 & 20kg以内 \\
+\hline
+料金 & 800円 & 1300円 & 1800円 \\
+\hline
+\end{tabular}
+\end{center}
+\end{multicols}
+
+荷物の重さを$x \si{kg}$、そのときの料金を$y$円とするとき、A社の料金をグラフにすると、下のようになります。次の問に答えなさい。
+
+\begin{center}
+\begin{tikzpicture}[scale=0.3]
+\draw[help lines] (0,0) grid (24,24);
+\draw (0,0) -- (24,0)node[below]{$x(\si{kg})$};
+\draw (0,0) -- (0,24)node[above left]{$y$（円）};
+\draw (0,0)node[below left]{O};
+\foreach \x in {5, 10, ..., 20} \draw (\x,0) -- (\x,24);
+\foreach \y in {5, 10, ..., 20} \draw (0,\y) -- (24,\y);
+\foreach \x in {5, 10, ..., 20} \draw (\x,0)node[below] {$\x$};
+\foreach \y in {5, 10, ..., 20} \draw (0,\y)node[left] {$\y$00};
+\draw [very thick] (0,10) -- (10,10);
+\draw [white, very thick,dashed] (10,0) -- (10,20);
+\draw [white, very thick,dashed] (20,0) -- (20,20);
+\draw [white, very thick,dashed] (10,0) -- (10,20);
+\draw [white, very thick,dashed] (0,20) -- (10,20);
+\fill (10,10) circle[radius=5pt];
+\fill (0,10) circle[radius=5pt];
+\fill [white] (0,10) circle[radius=3.5pt];
+\draw [very thick] (10,20) -- (20,20);
+\fill (20,20) circle[radius=5pt];
+\fill (10,20) circle[radius=5pt];
+\fill [white] (10,20) circle[radius=3.5pt];
+\end{tikzpicture}
+\end{center}
+
+\squestion B社のグラフを解答用紙に書きなさい。
+
+\squestion かずしさんは$9\si{kg}$の重さの荷物を送ろうとしています。A社とB社、どちらの会社を利用すれば安くなるでしょうか。説明しなさい。
+
+\vfill
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

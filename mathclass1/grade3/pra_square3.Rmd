@@ -1,0 +1,200 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 1em
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+  - \setpagelayout*{top=10truemm,bottom=10truemm,left=25truemm,right=10truemm}
+  - \usepackage{tikz}
+  - \usepackage{tabstackengine}
+  - \usepackage{xcolor}
+  - \usepackage{rotating}
+  - \usepackage{txfonts}
+  - \usepackage{fancybox}
+  - \usepackage{dashbox}
+  - \usepackage{tcolorbox}
+  - \usepackage{siunitx}
+documentclass: bxjsarticle
+classoption: 11pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+\newcounter{kaunta}
+\renewcommand{\thekaunta}{\arabic{kaunta}}
+\newcommand{\kaunta}{\refstepcounter{kaunta}%
+\thekaunta}
+\def\question{\noindent\fbox{\large\makebox[1em]{\text{\kaunta}}} \hspace{1pt}}
+\newcounter{skaunta}
+\renewcommand{\theskaunta}{\arabic{skaunta}}
+\newcommand{\skaunta}{\refstepcounter{skaunta}%
+\theskaunta}
+\def\squestion{(\text{\skaunta})\hspace{2.5pt}}
+
+\begin{flushleft}
+\noindent
+\large
+平方根の計算練習 No.2
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+\question 次の計算をしなさい。
+
+\squestion $4\sqrt{5} - \sqrt{5}$ \hspace{30mm} \squestion $5\sqrt{7} - 4\sqrt{7}$ \hspace{30mm}
+\squestion $2\sqrt{10} - 6\sqrt{10} + 7\sqrt{10}$
+
+\vspace{25mm}
+
+\squestion $5\sqrt{12} - 3\sqrt{27}$ \hspace{30mm} \squestion $\sqrt{48} - \sqrt{18} - \sqrt{27}$ \hspace{30mm} 
+
+\vspace{25mm}
+
+\squestion $3\sqrt{5} - \sqrt{20} + \sqrt{45}$ \hspace{30mm} \squestion $\sqrt{2}(1 + \sqrt{10})$
+
+\vspace{25mm}
+
+\squestion $2\sqrt{3}(\sqrt{12} - \sqrt{6})$ \hspace{30mm} \squestion $\sqrt{5}(2\sqrt{35} - \sqrt{15})$
+
+\vspace{25mm}
+
+\squestion $\sqrt{2}(-\sqrt{10} + \sqrt{14})$ \hspace{30mm} \squestion $(2\sqrt{2} + 1)(\sqrt{2} - 2)$
+
+\vspace{30mm}
+
+\squestion $(\sqrt{5} + 2)(\sqrt{5} + 1)$ \hspace{30mm} \squestion $(\sqrt{3} + \sqrt{2})^2$ 
+
+\vspace{30mm}
+
+\squestion $(2\sqrt{2} - 1)^2$ \hspace{30mm} \squestion $(\sqrt{7} + \sqrt{2})(\sqrt{7} - \sqrt{2})$
+
+\vspace{30mm}
+
+\squestion $(\sqrt{2} + 1)(\sqrt{2} - 1) + \sqrt{2}(\sqrt{2} - 1)$
+
+\vspace{30mm}
+
+\squestion $(\sqrt{6} + \sqrt{3})^2 - (\sqrt{6} - \sqrt{3})^2$
+
+\vspace{30mm} 
+
+\question $x = \sqrt{2} + \sqrt{3}, \, y = \sqrt{2} - \sqrt{3}$のとき、次の式の値を求めなさい。
+
+(1) $x^2 + 2xy + y^2$ \hspace{30mm} (2) $x^2 - y^2$
+
+\vspace{30mm}
+
+\question $a = 3 + \sqrt{5}$のとき、次の式の値を求めなさい。
+
+(1) $a^2 - 6a + 9$ \hspace{30mm} (2) $a^2 - 4a + 3$
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

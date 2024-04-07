@@ -1,0 +1,170 @@
+---
+output:
+  pdf_document:
+    latex_engine: lualatex
+    toc: false
+    toc_depth: 2
+    number_sections: TRUE
+header-includes:
+  - \usepackage{indentfirst}
+  - \parindent = 0pt
+  - \usepackage{dcolumn}
+  - \newcolumntype{.}{D{.}{.}{-1}}
+  - \usepackage{caption}
+  - \captionsetup[table]{name=表}
+  - \captionsetup[figure]{name=図}
+  - \usepackage{hyperref}
+  - \pagestyle{empty}
+  - \usepackage{multicol}
+  - \usepackage{ascmac}
+documentclass: bxjsarticle
+classoption: 12pt,b4paper,landscape,lualatex,ja=standard
+---
+
+```{r global_option, include = FALSE}
+knitr::opts_chunk$set(warning = FALSE, 
+                      echo = FALSE, 
+                      message = FALSE,
+                      fig.width = 7,
+                      fig.height = 5)
+if (knitr::is_latex_output()) {
+  knitr::opts_chunk$set(dev = "cairo_pdf")
+}
+```
+\renewcommand{\thefootnote}{}
+
+\begin{flushleft}
+\noindent
+\large
+小テスト第1回
+\end{flushleft}
+
+\begin{flushright}
+名前（\hspace{50mm}）
+\end{flushright}
+
+\vspace{1mm}
+\hrule
+
+\begin{multicols}{2}
+
+1. 次の説明にあう言葉を下の語群から選び、記号で答えなさい。
+
+(i) 1以上の整数 
+
+\vspace{10mm}
+
+(ii) 1とその数自身の積でしか表わせない自然数
+
+\vspace{10mm}
+ 
+(iii) 自然数を素数だけの積で表すこと
+
+\vspace{10mm}
+
+\begin{itembox}[l]{}
+ア. 正の数 \hspace{5mm} イ. 自然数 \hspace{5mm} ウ. 小数 \hspace{5mm} エ. 因数分解 \hspace{5mm} オ. 素数 \hspace{5mm} カ. 素因数分解
+\end{itembox}
+
+2. 次の数の中から、自然数をすべて選びなさい。
+
+$$
+-5 \quad 0 \quad 3 \quad 4.7 \quad 9
+$$
+3. 次の数を素因数分解しなさい。
+
+(i) 40 \hspace{30mm} (ii) 170 \hspace{20mm} 
+
+\vspace{20mm}
+
+(iii)81 \hspace{30mm} (iv) 360
+
+\columnbreak
+
+4. 次の計算をしなさい。
+
+(1) $(-6) +(-3)$ \hspace{20mm} (2) $(-9)+(+8)$ 
+
+\vspace{10mm}
+
+(3) $(-4) + (+11)$ \hspace{20mm} (4) $(+2) - (+9)$ 
+
+\vspace{10mm}
+
+(5) $(-6) - (+7)$ \hspace {20mm} (6) $(+4.8) + (-5.2)$
+ 
+\vspace{10mm}
+ 
+(7) $(+\frac{3}{5}) + (-\frac{1}{10})$ \hspace{20mm} (8) $(-0.4) - (+0.2)$
+
+\vspace{10mm}
+
+(9) $(+\frac{1}{4}) - (+\frac{6}{7})$ \hspace{20mm} (10) $(+2) - (+\frac{1}{3})$
+
+\vspace{10mm}
+
+5. 次のことがらを正の数、負の数を使って表しなさい。
+
+(i) 現在より1時間後のことを$+1$時間と表すことにすれば、$-2$時間はどんなことを表していますか。
+
+\vspace{10mm}
+
+(ii) 地点Aから北へ8m移動することを$+8$mと表すとき、Aから南へ$7$m移動すること。
+
+\end{multicols}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
